@@ -1,0 +1,66 @@
+=========================================
+				Git Commands
+=========================================
+1. Set global user.email on computer
+git config --global user.email "email@example.com"
+2. Profit!
+
+
+1. Set user.email on single repository
+git config user.email "email@example.com"
+2. PROFIT!
+
+1. If you want to remove untracked files (e.g., new files, generated files):
+git clean -f
+2. PROFIT!
+
+
+=========================================
+				Basic operations
+=========================================
+
+	Creating a feature branch 
+When starting work on a new feature, branch off from the develop branch.
+1.
+git checkout -b myfeature develop
+2. PROFIT!
+Switched to a new branch "myfeature"
+---------------
+	Pull new branch from remote and make new branch local based on it
+1. 
+git checkout --track origin/remote_branch
+2. PROFIT!
+---------------
+	Pull all remote branches to local
+1. oneliner
+	git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+2. PROFIT!
+
+---------------
+	Delete folder and its content
+git rm -r one-of-the-directories
+git commit -m "Remove duplicated directory"
+git push origin <your-git-branch> (typically 'master', but not always)
+PROFIT!
+
+---------------
+	Incorporating a finished feature on develop
+Finished features may be merged into the develop branch to definitely add them to the upcoming release:
+
+$ git checkout develop
+Switched to branch 'develop'
+$ git merge --no-ff myfeature
+Updating ea1b82a..05e9557
+(Summary of changes)
+$ git branch -d myfeature
+Deleted branch myfeature (was 05e9557).
+$ git push origin develop
+5. PROFIT!
+The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature. Compare:
+-------------
+
+==== Submodules
+git submodule deinit <submodule>
+
+
+
