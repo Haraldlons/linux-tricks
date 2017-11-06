@@ -1,0 +1,202 @@
+\documentclass[11pt]{article}
+\usepackage[norsk]{babel}	% Norwegian names on Introduction and other places
+\usepackage[T1]{fontenc}		% Norwegian charset tegnsett (Ã¦Ã¸Ã¥)
+\usepackage[utf8]{inputenc}	% Norwegian charset
+\usepackage{geometry}		% Recommended package for controlling margins.
+
+\usepackage{
+			amsmath,
+			caption,
+			amssymb, %Comments here are fine
+			float, 
+			lmodern, 
+			parskip, 
+			textcomp,
+			}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=blue, % Color of links in 'innholdsfortegnelse'
+    filecolor=blue, % Doesn't show when colorlinks=true. It's the border-color. 
+    urlcolor=blue, % Links wil be nice blue color
+}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\usepackage{listings} % für Formatierung in Quelltexten
+\lstset{
+    escapeinside={(*@}{@*)},          % if you want to add LaTeX within your code
+}
+
+\begin{document}
+
+\title{\textbf{LaTeX Article Template}}
+\author{Author: Harald Lønsethagen}
+% \date{\today}
+\date{Last edited: 22.06.2017\tab Version: 1.0}
+
+\maketitle
+ 
+  %{\begin{figure}[H]
+   % \centering
+    %\includegraphics{Designimage}
+%\end{figure}}
+
+% \clearpage\thispagestyle{empty}
+\makeatletter
+%\renewcommand\tableofcontents{\@starttoc{toc}}
+%\makeatother
+\tableofcontents
+\newpage
+
+\section{Innledning}
+Dette er et template-dokument som er ment som å brukes som utgangspunkt når man lager nye \LaTeX-dokumenter. Tenkt bruk er at man kopierer .tex-filen og sletter alt innholdet for så å lage sit eget dokument med eget innhold. \\
+Det er lagt til mange eksempler på ulike funksjoner i \LaTeX \space slik at man fort kan bare kopiere/beholde .tex-kodebitene som man trenger. F.eks. å legge til et bilde med bildetekst. 
+
+\section{Linker}
+\href{www.vg.no}{Dette} er en link, som får en tydelig farge som viser at det er en link. Fargen er definert øverst i dokumentet.
+
+
+
+\section{Seksjoner}
+\subsection{Subseksjoner}
+Slik ser en subseksjon ut og skrives
+\begin{lstlisting}
+	\subsection{}
+\end{lstlisting}
+Sjekk .tex filen for å se hvordan jeg \textit{escaper} latex-kommandoer, dvs at jeg faktisk ikke lager en ny subseksjon men skriver det ut så man kan lese det i PDF-filen.
+\subsubsection{Subsubseksjoner}
+Man kan lage subsubseksjoner også. Skriv: 
+\begin{lstlisting}
+	\subsubsection{}
+\end{lstlisting}
+Der er \textbf{ikke} mulig å lage subsubsubseksjoner.
+
+
+\section{Tekstmodifisering}
+Man kan endre fonten til tekst på enkle kommandoer.\newline{}
+\begin{lstlisting}
+	\textbf{Bold} (*@ $\rightarrow$ \textbf{Bold}@*) 
+\end{lstlisting}
+\begin{lstlisting}
+	\textit{Italic} (*@ $\rightarrow$ \textit{Italic}@*) 
+\end{lstlisting}
+\begin{lstlisting}
+	\textsc{Sc} (*@ $\rightarrow$ \textsc{Sc}@*) 
+\end{lstlisting}
+\begin{lstlisting}
+	\underline{Underline} (*@ $\rightarrow$ \underline{Underline}@*) 
+\end{lstlisting}
+\begin{lstlisting}
+	\emph{Emph} (*@ $\rightarrow$ \emph{emph}@*) 
+\end{lstlisting}
+\begin{lstlisting}
+	No commands (*@ $\rightarrow$ No commands@*) 
+\end{lstlisting}
+
+\textbf{Ibsens ripsbærbusker og andre buskvekster, samt en djerv dvergbjerk}
+
+\textit{Ibsens ripsbærbusker og andre buskvekster, samt en djerv dvergbjerk}
+
+\underline{Ibsens ripsbærbusker og andre buskvekster, samt en djerv dvergbjerk}
+
+\emph{Ibsens ripsbærbusker og andre buskvekster, samt en djerv dvergbjerk}
+
+
+% \section{Figurer}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{roborace}
+%     \caption{Dette kalles 'caption' og er bildeteksten til figuren}
+%     \label{fig:com}
+% \end{figure}
+
+\section{Lister}
+\subsection{Numererte liser}
+\begin{enumerate}
+	\item Dette er første 'item' i listen
+	\item Man kan ha mange items
+	\item Bare å ramse opp masse meningsløst
+	\item Tips: Ikke ha punktum på slutten når man lister opp ting
+\end{enumerate}
+
+\subsection{Punktliste}
+\begin{itemize}
+	\item Dette er første \textit{item} i punktlisten
+	\item Om det er ikke er noe grunn til å nummerere er det best å bruke punktliste
+\end{itemize}
+
+\subsection{Liste inni liste}
+\begin{itemize}
+	\item Det er fint mulig å ha en liste inni en liste
+	\item Dette er fortsatt i den opprinnelige listen
+	\begin{itemize}
+		\item Dette er et item i listen listen
+		\item Item 3.2
+		\begin{itemize}
+			\item Liste inni liste inni liste
+			\begin{itemize}
+				\item Det er \textbf{ikke} mulig å flere nivåer av lister enn dette.
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	\item Enda et item
+	\begin{enumerate}
+		\item Men det er mulig å lage en numerert liste inni en punktliste
+		\begin{itemize}
+			\item Og lage en punktliste inni en numerert liste som er inni en punktliste
+		\end{itemize}
+	\end{enumerate}
+\end{itemize}
+
+\section{Matematiske formler}
+\LaTeX \space er fantastisk god til å vise matematiske formler og utregninger. Tar litt tid å bli vant med, men når man først lærer seg det ser det helt \textbf{porno} ut. 
+$$\cos (2\theta) = \cos^2 \theta - \sin^2 \theta$$
+Next is an \textit{equation:}
+\begin{equation}
+\cos (2\theta) = \cos^2 \theta - \sin^2 \theta
+\end{equation}
+
+\begin{equation}\lim_{x \to \infty} \exp(-x) = 0\end{equation}
+
+\begin{equation}\lim_{x \to \infty} \exp(-x) = 0\end{equation}
+
+\begin{equation} \frac{n!}{k!(n-k)!} = \binom{n}{k}\end{equation}
+
+\begin{equation} \displaystyle\sum_{i=1}^{10} t_i\end{equation}
+
+\begin{equation} \int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
+\end{equation}
+
+Sjekk også \href{https://www.tug.org/texshowcase/#math}{dette} ut
+% \begin{equation} 
+% ( a ), [ b ], \{ c \}, | d |, \| e \|,
+% \langle f \rangle, \lfloor g \rfloor,
+% \lceil h \rceil, \ulcorner i \urcorner
+% \end{equation}
+
+$$
+\sum, \prod,	\coprod, \bigoplus, \bigotimes,	\bigodot, \bigcup, \bigcap,\biguplus,\bigsqcup,\bigvee,\bigwedge,\int,\oint,\iint[3],\iiint[3],\iiiint[3],\iiiint,\idotsint[3]
+$$
+
+$$
+( a ), [ b ], \{ c \}, | d |, \| e \|,
+\langle f \rangle, \lfloor g \rfloor,
+\lceil h \rceil, \ulcorner i \urcorner
+$$
+
+
+
+
+\section{Refferanser}
+\begin{itemize}
+\item \href{https://en.wikipedia.org/wiki/HTML}{https://en.wikipedia.org/wiki/HTML}
+\item \href{https://en.wikipedia.org/wiki/JavaScript}{https://en.wikipedia.org/wiki/JavaScript}
+\item \url{https://www.codecademy.com/learn/}
+\item \href{http://getbootstrap.com/}{http://getbootstrap.com/}
+\item \href{https://www.datatables.net/}{https://www.datatables.net/}
+\end{itemize}
+ 
+
+\end{document}
