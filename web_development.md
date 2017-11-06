@@ -1,5 +1,8 @@
 Made by Harald Lønsthagen, 22.06.2017
 
+=== THIS IS ONLY TO TEST .md extension
+
+
 Motivation:
 This is a document with fixes encountered on Ubuntu.
 
@@ -11,8 +14,6 @@ Fix:
 1. Install latex package
 sudo apt-get install texlive-lang-european
 2. PROFIT!
---------------
-
 
 =========================================
 				Ubuntu - fixes
@@ -20,20 +21,26 @@ sudo apt-get install texlive-lang-european
 1. Restart network service
 sudo service network-manager restart
 
-=========================================
-				Python fixes
-=========================================
+1. Install package
+sudo dpkg -i DEB_PACKAGE
 
-1. Downloading udemy-courses
-1. Install udemy-dl version 0.2.2-alpha.2
-sudo pip install udemy-dl==0.2.2-alpha.2
-2. Download a course
-udemy-dl <http-link-to-udemy-course> -o <path/to_folder/>
-3. PROFIT
-Notes: will not make a new folder under to_folder
-		"ariac2c not found". Just ignore this message
-1. 
-udemy-dl https://www.udemy.com/artificial-intelligence-az/learn/v4/overview -o udemyCources/test/
+1. See bash history
+history
+2. PROFIT!
+
+
+1. Liste alle tastatur og muser
+xinput --list --short
+
+1. Endre på en parameter for en mus eller tastatur
+xinput --set-prop "Razer Razer DeathAdder" "Device Accel Constant Deceleration" 10
+
+
+1. Liste alle egenskaper til en mus
+xinput --list-props "Razer Razer DeathAdder"
+
+1. Set monitor resolutions
+xrandr --output DP-1 --mode "3840x2160"
 
 
 
@@ -55,6 +62,10 @@ Set bose headset as sound output
 pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4
 2. PROFIT!
 
+```python
+s = "Python syntax highlighting"
+print s
+```
 
 =========================================
 				Jetson TX1 fixes
@@ -75,19 +86,6 @@ systemctl disable apt-daily.service
 =========================================
 				Random - fixes
 =========================================
-
-
-=========================================
-				Git - fixes
-=========================================
-Make new local branch based on remote branch
-1. fetch all remote branches
-git fetch
-2. make new branch
-git checkout newLocalBranchBasedOnRemoteBranch
-3. PROFIT!
------------------------------------------
-
 
 
 =========================================
