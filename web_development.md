@@ -14,8 +14,6 @@ Fix:
 1. Install latex package
 sudo apt-get install texlive-lang-european
 2. PROFIT!
---------------
-
 
 =========================================
 				Ubuntu - fixes
