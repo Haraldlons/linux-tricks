@@ -1,6 +1,6 @@
 
 Git Commands
-=============
+===
 1. Set global user.email on computer
 git config --global user.email <email@example.com>
 2. Profit!
