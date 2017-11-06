@@ -97,19 +97,13 @@ git commit -a -m "Bumped version number to 1.2"
 NB: ./bump is a shell script which modifies some files to 1.2 and some lines to the version is edited to 1.2 in the actuall code. We don't use this per(3.11.17) in Revolve.
 
 ----Finishing a release branch
-1.
+
 ```
 git checkout master
-```
-2.
-```
 git merge --no-ff release-1.2
-```
-3.
-```
 git tag -a 1.2
 ```
-4. PROFIT!
+
 
 =========================================
 				Submodules
