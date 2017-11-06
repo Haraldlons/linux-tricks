@@ -1,0 +1,389 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "\nGit Commands\n===\n1. Set global user.email on computer\ngit config --global user.email <email@example.com>\n2. Profit!\n\n\n1. Set user.email on single repository\ngit config user.email \"email@example.com\"\n2. PROFIT!\n\n1. If you want to remove untracked files (e.g., new files, generated files):\ngit clean -f\n2. PROFIT!\nfdsafdsa\n\n\t\tBasic operations\nfdas\nfdsafdsa\n\n----Pull new branch from remote and make new branch local based on it\n1. \ngit checkout --track origin/remote_branch\n2. PROFIT!\n\n----Pull all remote branches to local\n1. oneliner\n\tgit branch -r | grep -v '\\->' | while read remote; do git branch --track \"${remote#origin/}\" \"$remote\"; done\n2. PROFIT!\n\n----Delete a branch\ngit branch -d <branch-name>\nNB: You can't be checkout out in the branch when deleting it\n\n----Revert 'git add <file>'. Unstage <file>\ngit reset <file>\n\n----See changes done after doing 'git pull'\n1.\ngit log --name-status -2\n>>Will show you the names of the files that changed for the last two commits.\n\tOR\n1.\ngit log -p -2\n>>Will show you the changes themselves.\n\n----See changes which will be done if pulling\ngit fetch\ngit log --name-status origin/master\n>>Will show you what commits you are about to retrieve, along with the names of the files.\n\n----Delete folder and its content\ngit rm -r one-of-the-directories\ngit commit -m \"Remove duplicated directory\"\ngit push origin <your-git-branch> (typically 'master', but not always)\nPROFIT!\n\n=========================================\n\t\t\t\tGit Flow\n=========================================\nhttp://nvie.com/posts/a-successful-git-branching-model/\n\n----Creating a feature branch \nWhen starting work on a new feature, branch off from the develop branch.\n1.\ngit checkout -b myfeature develop\n2. PROFIT!\nSwitched to a new branch \"myfeature\"\n\n----Incorporating a finished feature on develop\nFinished features may be merged into the develop branch to definitely add them to the upcoming release:\n1.\ngit checkout develop\n>>Switched to branch 'develop'\n2.\ngit merge --no-ff myfeature\n>>Updating ea1b82a..05e9557\n>>(Summary of changes)\n3.\ngit branch -d myfeature\n>>Deleted branch myfeature (was 05e9557).\n4.\ngit push origin develop\n5. PROFIT!\nThe --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature. Compare:\n\n----Creating a release branch\n1.\ngit checkout -b release-1.2 develop\n2. \n./bump-version.sh 1.2\n3. \ngit commit -a -m \"Bumped version number to 1.2\"\n4. PROFIT!\nNB: ./bump is a shell script which modifies some files to 1.2 and some lines to the version is edited to 1.2 in the actuall code. We don't use this per(3.11.17) in Revolve.\n\n### Finishing a release branch\n\n```\ngit checkout master\ngit merge --no-ff release-1.2\ngit tag -a 1.2\n```\n\n\n=========================================\n\t\t\t\tSubmodules\n=========================================\n\n----Add a submodule to the master-repo\n```\ngit submodule add <URL-repo>\n```\n----Se changes to just one repo\n```\ngit diff --cached <repo-name>\n```\n\n----Cloning a project with submodules\n```\ngit submodule deinit <submodule>\n```\n\n\n",
+			"file": "git_notes.md",
+			"file_size": 3275,
+			"file_write_time": 131544764073015940,
+			"settings":
+			{
+				"buffer_size": 3210,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Web Development\n====\nInstall gulp.\n1. sudo on linux\nsudo npm install --global gulp-cli\n2. PROFIT!\nHvis det ikke fungerer\n1. \nnpm install -g gulp\n2. Profit!\nJeg installerte først ikke gulp globalt, så neste mappe jeg \ntrengte gulp i fungerte det ikke lenger.\n\nFungerer fortsatt ikke:\nnpm install --save-dev gulp-install\n\nsudo npm install del\nsudo npm install gulp-load-plugins\nsudo npm install -g bower gulp\n\n\nInstallere NODEJS\ncurl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -\nsudo apt-get install -y nodejs\n",
+			"file": "web_development.md",
+			"file_size": 522,
+			"file_write_time": 131544771747680768,
+			"settings":
+			{
+				"buffer_size": 521,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "=========================================\n\t\tPython fixes\n=========================================\n\n1. Downloading udemy-courses\n1. Install udemy-dl version 0.2.2-alpha.2\nsudo pip install udemy-dl==0.2.2-alpha.2\n2. Download a course\nudemy-dl <http-link-to-udemy-course> -o <path/to_folder/>\n3. PROFIT\nNotes: will not make a new folder under to_folder\n\t\t\"ariac2c not found\". Just ignore this message\n1. \nudemy-dl https://www.udemy.com/artificial-intelligence-az/learn/v4/overview -o udemyCources/test/\n\n```python\ns = \"Python syntax highlighting\"\nprint s\n```\n",
+			"file": "python_notes.txt",
+			"file_size": 557,
+			"file_write_time": 131544750732781023,
+			"settings":
+			{
+				"buffer_size": 557,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 294.0,
+		"last_filter": "Package Control:",
+		"selected_items":
+		[
+			[
+				"Package Control:",
+				"Package Control: Disable Package"
+			]
+		],
+		"width": 359.0
+	},
+	"console":
+	{
+		"height": 222.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/harald/notes_computer_science"
+	],
+	"file_history":
+	[
+		"/home/harald/.config/sublime-text-3/Packages/Package Control/Package Control.sublime-settings",
+		"/home/harald/.config/sublime-text-3/Packages/User/LaTeXTools.sublime-settings",
+		"/home/harald/.config/sublime-text-3/Packages/LaTeXTools/LaTeXTools.sublime-settings"
+	],
+	"find":
+	{
+		"height": 19.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"ignore"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"folders":
+	[
+		{
+			"path": "/home/harald/notes_computer_science"
+		}
+	],
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "git_notes.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3210,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "web_development.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								521,
+								521
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 91.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "python_notes.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								557,
+								557
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 19.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 565.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.latextools":
+	{
+		"height": 118.0
+	},
+	"pinned_build_system": "",
+	"project": "",
+	"replace":
+	{
+		"height": 35.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 220.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
