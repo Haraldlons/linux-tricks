@@ -19,12 +19,6 @@ git clean -f
 				Basic operations
 =========================================
 
-----Creating a feature branch 
-When starting work on a new feature, branch off from the develop branch.
-1.
-git checkout -b myfeature develop
-2. PROFIT!
-Switched to a new branch "myfeature"
 
 ----Pull new branch from remote and make new branch local based on it
 1. 
@@ -36,6 +30,26 @@ git checkout --track origin/remote_branch
 	git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
 2. PROFIT!
 
+----Delete a branch
+git branch -d <branch-name>
+NB: You can't be checkout out in the branch when deleting it
+
+----Revert 'git add <file>'. Unstage <file>
+git reset <file>
+
+----See changes done after doing 'git pull'
+1.
+git log --name-status -2
+>>Will show you the names of the files that changed for the last two commits.
+	OR
+1.
+git log -p -2
+>>Will show you the changes themselves.
+
+----See changes which will be done if pulling
+git fetch
+git log --name-status origin/master
+>>Will show you what commits you are about to retrieve, along with the names of the files.
 
 ----Delete folder and its content
 git rm -r one-of-the-directories
@@ -90,8 +104,18 @@ git merge --no-ff release-1.2
 git tag -a 1.2
 4. PROFIT!
 
+=========================================
+				Submodules
+=========================================
 
-==== Submodules
+----Add a submodule to the master-repo
+git submodule add <URL-repo>
+
+----Se changes to just one repo
+git diff --cached <repo-name>
+
+----Cloning a project with submodules
+
 git submodule deinit <submodule>
 
 
