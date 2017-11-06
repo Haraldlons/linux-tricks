@@ -98,11 +98,17 @@ NB: ./bump is a shell script which modifies some files to 1.2 and some lines to 
 
 ----Finishing a release branch
 1.
+```
 git checkout master
+```
 2.
+```
 git merge --no-ff release-1.2
+```
 3.
+```
 git tag -a 1.2
+```
 4. PROFIT!
 
 =========================================
@@ -110,14 +116,17 @@ git tag -a 1.2
 =========================================
 
 ----Add a submodule to the master-repo
+```
 git submodule add <URL-repo>
-
+```
 ----Se changes to just one repo
+```
 git diff --cached <repo-name>
+```
 
 ----Cloning a project with submodules
-
+```
 git submodule deinit <submodule>
-
+```
 
 
