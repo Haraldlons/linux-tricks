@@ -13,4 +13,7 @@ Notes: will not make a new folder under to_folder
 1. 
 udemy-dl https://www.udemy.com/artificial-intelligence-az/learn/v4/overview -o udemyCources/test/
 
-
+```python
+s = "Python syntax highlighting"
+print s
+```

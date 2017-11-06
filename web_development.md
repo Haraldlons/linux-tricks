@@ -62,6 +62,10 @@ Set bose headset as sound output
 pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4
 2. PROFIT!
 
+```python
+s = "Python syntax highlighting"
+print s
+```
 
 =========================================
 				Jetson TX1 fixes
