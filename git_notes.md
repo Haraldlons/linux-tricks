@@ -104,6 +104,17 @@ git merge --no-ff release-1.2
 git tag -a 1.2
 ```
 
+### Revert a branch to an old commit
+[Link](https://stackoverflow.com/posts/17667057/edit)
+```
+git checkout master
+git reset --hard e3f1e37
+git push --force origin master
+# Then to prove it (it won't print any diff)
+git diff master..origin/master
+```
+
+
 
 =========================================
 				Submodules
