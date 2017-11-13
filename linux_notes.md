@@ -258,23 +258,7 @@ Fix:
 https://stackoverflow.com/questions/39539110/pyvenv-not-working-because-ensurepip-is-not-available
 -----
 
-
-=========================================
-				Git Commands
-=========================================
-1. Set global user.email on computer
-git config --global user.email "email@example.com"
-2. Profit!
-
-
-1. Set user.email on single repository
-git config user.email "email@example.com"
-2. PROFIT!
-
-
-
-
-
-
-
-
+How to install WhatPulse
+===
+https://www.youtube.com/watch?v=GI2L_gCRjBk
+https://basicsysadmin.com/How_to_Install_WhatPulse_in_Ubuntu
