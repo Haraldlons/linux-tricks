@@ -42,6 +42,15 @@ xinput --list-props "Razer Razer DeathAdder"
 xrandr --output DP-1 --mode "3840x2160"
 
 
+### Unable to parse ...lists
+```
+sudo rm -vf /var/lib/apt/lists/*
+sudo apt-get update
+```
+- `-v, --verbose` explain what is being done
+
+- `-f, --force` ignore nonexistent files and arguments, never prompt
+
 
 =========================================
 				Command line
