@@ -17,6 +17,7 @@ alias g-r='git reset' #Not testet yet
 alias g-d='git pull origin master' #d for download
 alias g-u='git push origin master' #u for upload
 alias g-v='git remote -v'
+alias g-c='git commit -m'
 alias g-user='git config --global user.email'
 
 #SSH
