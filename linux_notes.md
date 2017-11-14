@@ -43,6 +43,7 @@ xrandr --output DP-1 --mode "3840x2160"
 
 
 ### Unable to parse ...lists
+Some package manager problems
 ```
 sudo rm -vf /var/lib/apt/lists/*
 sudo apt-get update
