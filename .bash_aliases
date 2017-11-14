@@ -10,14 +10,14 @@ alias h='history'
 alias hf='history | grep $1' #Use this by 'hf <searchword>' -> 'hf git'
 
 #Git aliases
-alias g-s='git status'
+alias g='git status'
 alias g-a='git add'
 alias g-a-a='git add *' #WARNING! This add all files
+alias g-c='git commit -m' #Use: 'g-c "This is a commit message"'
 alias g-r='git reset' #Not testet yet
 alias g-d='git pull origin master' #d for download
 alias g-u='git push origin master' #u for upload
 alias g-v='git remote -v'
-alias g-c='git commit -m'
 alias g-user='git config --global user.email'
 
 #SSH
