@@ -12,6 +12,7 @@ alias hf='history | grep $1' #Use this by 'hf <searchword>' -> 'hf git'
 #Git aliases
 alias g='git status'
 alias g-a='git add'
+alias g-s='git status'
 alias g-a-a='git add *' #WARNING! This add all files
 alias g-c='git commit -m' #Use: 'g-c "This is a commit message"'
 alias g-r='git reset' #Not testet yet
@@ -38,4 +39,4 @@ alias rr='rosrun'
 
 #To run special programs
 alias harald='cd ~/coding/pythonFun/pygame && python main.py && cd ~' #Yes, it's a bad alias...
-alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4' #Personal for setting Bose QC35 as main sound unit
+alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' #Personal for setting Bose QC35 as main sound unit
