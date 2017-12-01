@@ -6,6 +6,7 @@ alias ..='cd ..'
 alias c='clear'
 alias s='source ~/.bashrc && source ~/catkin_ws/devel/setup.bash'
 alias b='nano ~/.bashrc'
+alias bb='nano ~/notes_computer_science/.bash_aliases'
 alias h='history'
 alias hf='history | grep $1' #Use this by 'hf <searchword>' -> 'hf git'
 
@@ -13,12 +14,14 @@ alias hf='history | grep $1' #Use this by 'hf <searchword>' -> 'hf git'
 alias g='git status'
 alias g-s='git status'
 alias g-a='git add'
+alias g-a-a='git add *' # Caution! This adds all files
 alias g-s='git status'
 alias g-a-a='git add *' #WARNING! This add all files
 alias g-c='git commit -m' #Use: 'g-c "This is a commit message"'
-alias g-r='git reset' #Not testet yet
-alias g-d='git pull origin master' #d for download
-alias g-u='git push origin master' #u for upload
+alias g-r='git reset' # Not testet yet
+alias g-dd='git diff' # Not tested yet, but should be 'g-dd main.py'
+alias g-d='git pull origin master' # d for download
+alias g-u='git push origin master' # u for upload
 alias g-v='git remote -v'
 alias g-user='git config --global user.email'
 
