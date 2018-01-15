@@ -120,6 +120,12 @@ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 
+## Tips
+Install CompizConfig Settings Manager
+1. Go to Enable Grid
+1.1. Change "Put Top Right Key" to "<Control><Super>2"
+1.2. Do the same with the rest. Is very useful
+
 =========================================
 				Digital Ocean Droplet
 =========================================
