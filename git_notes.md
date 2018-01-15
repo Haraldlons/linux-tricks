@@ -57,6 +57,10 @@ git commit -m "Remove duplicated directory"
 git push origin <your-git-branch> (typically 'master', but not always)
 PROFIT!
 
+----To stage all manually deleted files you can use:
+git rm $(git ls-files --deleted)
+
+
 =========================================
 				Git Flow
 =========================================
