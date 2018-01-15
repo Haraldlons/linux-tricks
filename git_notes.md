@@ -60,6 +60,9 @@ PROFIT!
 ----To stage all manually deleted files you can use:
 git rm $(git ls-files --deleted)
 
+----If you already have a file checked in, and you want to ignore it, Git will not ignore the file if you add a rule later. In those cases, you must untrack the file first, by running the following command in your terminal:
+
+git rm --cached FILENAME
 
 =========================================
 				Git Flow
