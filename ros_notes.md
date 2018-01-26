@@ -17,7 +17,16 @@ All nodes listen to all topics
 All nodes can publish on all topics
 All topics are of a particular type
 
-
+==== Catkin
+=== Create workspace
+'''
+source /opt/ros/kinetic/setup.bash
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
+source ~/catkin_ws/devel/setup.bash
+'''
+http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
 
 
@@ -38,7 +47,7 @@ roslaunch turtlebot_teleop keyboard_teleop.launch
 2. PROFIT!
 ------
 1. Info
-rostopic info /odom 
+rostopic info /odom
 Output:
 Type: nav_msgs/Odometry
 nav_msgs is package which defines Odometry this message type
@@ -91,33 +100,33 @@ Message
 	Allows nodes written i c++ and python to communicate with each other
 	Defined in a .msg file - special format
 	Must be compiled into C++ / Python classes before using them
-	
+
 ROS master
 	Need one ROS master to make it work
 
-	Keep track of all nodes, 
+	Keep track of all nodes,
 	which node is publishing to which topics
 	which node is subscribed to which topics
-	
+
 	ROS is just keeping track of meta information
 		What they are publishing
 		IP-adresses
-		
+
 	running in known IP-address - ROS_MASTER_URI - localhost:11311 - default port number
-	
+
 	All other nodes port number random
-	
+
 	Start two ways
 	roscore - just ros master
 	roslaunch and isn't roscore running will start roscore automaticly
-	
+
 	roscore - recommended
-	
-	
+
+
 ==== turtlebot tutorial
 	Robot published the name and distance to the closest landmark
 	Zones are circles with 1 meter diameter -> "I'm near the cube"
-	
+
 ==== Environment
 Ensure tha environment variables are set:
 1.
@@ -126,12 +135,3 @@ printenv | grep ROS
 
 ----
 rosrun rosserial_python serial_node.py /dev/ttyACM0
-
-
-
-	
-	
-	
-
-
-
