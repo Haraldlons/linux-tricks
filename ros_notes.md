@@ -1,9 +1,8 @@
-============================
-		ROS notes
-============================
+# ROS Notes
+=====
 
-===== Commands
-Get on another ROS-network
+## Commands
+### Get on another ROS-network
 http://inertia.ed.ntnu.no:8090/display/DRIV/How+to+set+up+and+use+SSH+on+Jetson+TX1
 1.
 export ROS_IP=192.168.1.<your-own-ip>
@@ -12,10 +11,6 @@ export ROS_MASTER_URI=http://192.168.1.10:11311
 
 
 
-======== General notes
-All nodes listen to all topics
-All nodes can publish on all topics
-All topics are of a particular type
 
 ### Catkin
 #### Create workspace
@@ -30,14 +25,14 @@ http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
 
 
-==== CUDA
+### CUDA
 Jeg slettet nppi fra denne listen i CMakelist.txt
   ${CUDA_LIBRARIES} ${CUDA_npps_LIBRARY}
 1. Slettet
 ${CUDA_nppi_LIBRARY}
 2. Da ble den bygget. Fikk noe error om io.
 
-===== Turtlebot
+### Turtlebot
 1. Open Gazebo with turtlebot
 roslaunch turtlebot_gazebo turtlebot_world.launch
 2. PROFIT!
@@ -66,7 +61,7 @@ void OdomCallback(const nav_msgs::Odometry::ConstPtr& msg){
 ....
 rosmsgs show nav_msgs/Odometry
 
-======== Commands
+## Commands
 1. printe alle noder
 rosnode list
 2. PROFIT!
@@ -94,7 +89,10 @@ rostopic pub /some_topic msg/MessageType "data: value"
 
 
 
-==== Notes
+## General notes
+All nodes listen to all topics
+All nodes can publish on all topics
+All topics are of a particular type
 
 Message
 	Allows nodes written i c++ and python to communicate with each other
@@ -123,11 +121,7 @@ ROS master
 	roscore - recommended
 
 
-==== turtlebot tutorial
-	Robot published the name and distance to the closest landmark
-	Zones are circles with 1 meter diameter -> "I'm near the cube"
-
-==== Environment
+## Environment
 Ensure tha environment variables are set:
 1.
 printenv | grep ROS
