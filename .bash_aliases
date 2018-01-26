@@ -36,7 +36,6 @@ alias o='subl ~/catkin_ws/src'
 alias vis='cd ~/catkin_ws/src/visualize_arduino_communication/scripts/ && python main.py && cd -'
 alias å='export ROS_IP=192.168.1.6 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
 
-#ROS commands
 alias r-t='rostopic list'
 alias r-e='rostopic echo $1' #Use: 'r-e /arduino/throttle_setpoint'
 alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
