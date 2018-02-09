@@ -2,10 +2,10 @@
 # Git Commands
 
 Most common Git commands
----
+
 
 ## Basic operations
-### Pull new branch from remote and make new branch local based on it
+#### Pull new branch from remote and make new branch local based on it
 1.
 ```
 git checkout --track origin/remote_branch
