@@ -3,7 +3,14 @@
 
 Most common Git commands
 
+## Table of contents
+[Basic Operations](#basic)
+[Basic Operations2](#basic2)
+[Git Flow](#git_flow)
+[Submodules](#submodules)
+[End](#end)
 
+<a name="basic"/>
 ## Basic operations
 #### Pull new branch from remote and make new branch local based on it
 1.
@@ -33,6 +40,7 @@ git clean -f
 ```
 2. PROFIT!
 
+<a name="basic2"/>
 
 =========================================
 				Basic operations
@@ -100,6 +108,7 @@ git rm $(git ls-files --deleted)
 ```
 git rm --cached FILENAME
 ```
+<a name="git_flow"/>
 
 =========================================
 				Git Flow
@@ -183,7 +192,7 @@ git merge my-temporary-work
 ```
 ===
 
-
+<a name="submodules"/>
 =========================================
 				Submodules
 =========================================
@@ -212,6 +221,7 @@ git submodule add <URL-repo>
 ```
 git diff --cached <repo-name>
 ```
+<a name="end"/>
 
 ----Cloning a project with submodules
 ```
