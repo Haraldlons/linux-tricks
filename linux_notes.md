@@ -161,11 +161,11 @@ OS: Ubuntu 16.04.2 x64
 SSH - connecting:
 ssh root@46.101.198.183
 pw:
-TastaturMusSkjerm0
+
 ==== Brukere
 ssh harald@46.101.198.183
 pw:
-KanskjeKommerKongen10
+
 
 ----------------------
 SSH-tunneling
