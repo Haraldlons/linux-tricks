@@ -10,6 +10,8 @@ alias bb='nano ~/notes_computer_science/.bash_aliases'
 alias h='history'
 alias hf='history | grep $1' #Use this by 'hf <searchword>' -> 'hf git'
 alias bb='nano ~/notes_computer_science/.bash_aliases'
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias cs-notes='atom ~/notes_computer_science'
 
 #Git aliases
 alias g='git status'
@@ -30,12 +32,14 @@ alias g-user='git config --global user.email'
 #SSH
 alias ø='ssh nvidia@192.168.1.10' #SSH to NVIDIA Jetson TX1
 
-#ROS
+#Catkin
 alias cm='cd ~/catkin_ws && catkin build && cd -'
-alias o='subl ~/catkin_ws/src'
+alias o='atom ~/catkin_ws/src'
 alias vis='cd ~/catkin_ws/src/visualize_arduino_communication/scripts/ && python main.py && cd -'
-alias å='export ROS_IP=192.168.1.6 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
+alias co='cd ~/catkin_ws/src/r18dv_rc_nodes/'
 
+#ROS
+alias å='export ROS_IP=192.168.1.6 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
 alias r-t='rostopic list'
 alias r-e='rostopic echo $1' #Use: 'r-e /arduino/throttle_setpoint'
 alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
