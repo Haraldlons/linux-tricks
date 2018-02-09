@@ -1,5 +1,5 @@
 # ROS Notes
-===
+
 ## Commands
 ### Get on another ROS-network
 http://inertia.ed.ntnu.no:8090/display/DRIV/How+to+set+up+and+use+SSH+on+Jetson+TX1
@@ -7,8 +7,6 @@ http://inertia.ed.ntnu.no:8090/display/DRIV/How+to+set+up+and+use+SSH+on+Jetson+
 export ROS_IP=192.168.1.<your-own-ip>
 2. export ros master uri
 export ROS_MASTER_URI=http://192.168.1.10:11311
-
-
 
 
 ### Catkin
@@ -23,6 +21,18 @@ source ~/catkin_ws/devel/setup.bash
 http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
 
+#### Problems with catkin build
+Problem:
+'''
+Errors     << catkin_tools_prebuild:cmake /home/harald/catkin_ws/logs/catkin_tools_prebuild/build.cmake.009.log                            
+ImportError: "from catkin_pkg.package import parse_package" failed: No module named 'catkin_pkg'
+Make sure that you have installed "catkin_pkg", it is up to date and on the PYTHONPATH.
+'''
+
+'''
+pip install catkin_pkg
+'''
+I think catkin uses python3 and not 2 which It should
 
 ### CUDA
 Jeg slettet nppi fra denne listen i CMakelist.txt
