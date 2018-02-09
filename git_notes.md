@@ -21,7 +21,7 @@ git clean -f
 
 
 ----Pull new branch from remote and make new branch local based on it
-1. 
+1.
 git checkout --track origin/remote_branch
 2. PROFIT!
 
@@ -69,7 +69,7 @@ git rm --cached FILENAME
 =========================================
 http://nvie.com/posts/a-successful-git-branching-model/
 
-----Creating a feature branch 
+----Creating a feature branch
 When starting work on a new feature, branch off from the develop branch.
 1.
 git checkout -b myfeature develop
@@ -96,9 +96,9 @@ The --no-ff flag causes the merge to always create a new commit object, even if 
 ----Creating a release branch
 1.
 git checkout -b release-1.2 develop
-2. 
+2.
 ./bump-version.sh 1.2
-3. 
+3.
 git commit -a -m "Bumped version number to 1.2"
 4. PROFIT!
 NB: ./bump is a shell script which modifies some files to 1.2 and some lines to the version is edited to 1.2 in the actuall code. We don't use this per(3.11.17) in Revolve.
@@ -121,11 +121,35 @@ git push --force origin master
 git diff master..origin/master
 ```
 
+## Different Git Commands
+### Saving detached HEAD to a branch
+```
+git branch my-temporary-work
+git checkout master
+git merge my-temporary-work
+```
+===
 
 
 =========================================
 				Submodules
 =========================================
+
+### See more info with git status in submodules
+```
+git config --global status.submoduleSummary true
+```
+
+### See what commit each submodule is linking to
+```
+git submodule status
+```
+### Git status ignoring dirty submodules
+```
+git status --ignore-submodules=dirty
+```
+You often want to do this since many submodules will often be dirty
+===
 
 ----Add a submodule to the master-repo
 ```
@@ -138,7 +162,10 @@ git diff --cached <repo-name>
 
 ----Cloning a project with submodules
 ```
-git submodule deinit <submodule>
+#go to <your_catkin_workspace>/src
+git clone git+ssh://git@github.com/RevolveNTNU/<root_repo_name>.git
+cd <root_repo_name>
+git fetch origin master
+git submodule init #to initialize your local configuration file, and git submodule update to fetch all the data from that project and check out the appropriate commit listed in your superproject:
+git submodule update # Add: "--remote" to get the newest version of the master branch, instead of the commit tracked by root repo. (Not recommended)
 ```
-
-
