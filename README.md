@@ -1,4 +1,4 @@
-# Useful Notes
+# Useful Computer Notes
 A collection of useful notes for different topics in the world of computer science.
 By: Harald Lønsethagen
 
