@@ -6,44 +6,52 @@ This is a document with fixes encountered on Ubuntu.
 =========================================
 				LaTeX - fixes
 =========================================
-Prob: Package babel Error: Unknown option `norsk'
-Fix:  
+Prob: Package babel Error: Unknown option `norsk'.
 1. Install latex package
+```
 sudo apt-get install texlive-lang-european
+```
 2. PROFIT!
---------------
+===
 
 
 =========================================
 				Ubuntu - fixes
 =========================================
 1. Restart network service
+```
 sudo service network-manager restart
-
-1. Install package
+```
+1. Install a .deb package
+```
 sudo dpkg -i DEB_PACKAGE
-
+```
 1. See bash history
+```
 history
+```
 2. PROFIT!
 
 
 1. Liste alle tastatur og muser
+```
 xinput --list --short
-
+```
 1. Endre på en parameter for en mus eller tastatur
+```
 xinput --set-prop "Razer Razer DeathAdder" "Device Accel Constant Deceleration" 10
-
+```
 
 1. Liste alle egenskaper til en mus
+```
 xinput --list-props "Razer Razer DeathAdder"
-
+```
 1. Set monitor resolutions
+```
 xrandr --output DP-1 --mode "3840x2160"
-
+```
 
 ### Unable to parse ...lists
-Some package manager problems
 ```
 sudo rm -vf /var/lib/apt/lists/*
 sudo apt-get update
@@ -70,6 +78,8 @@ Set bose headset as sound output
 1. 
 pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4
 2. PROFIT!
+
+
 
 
 =========================================
@@ -119,12 +129,6 @@ Installere NODEJS
 curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-
-## Tips
-Install CompizConfig Settings Manager
-1. Go to Enable Grid
-1.1. Change "Put Top Right Key" to "<Control><Super>2"
-1.2. Do the same with the rest. Is very useful
 
 =========================================
 				Digital Ocean Droplet
@@ -278,3 +282,15 @@ How to install WhatPulse
 ===
 https://www.youtube.com/watch?v=GI2L_gCRjBk
 https://basicsysadmin.com/How_to_Install_WhatPulse_in_Ubuntu
+
+
+## Permission
+
+### Make file executable
+```
+#chmod +x <filename>
+chmod +x run_file
+```
+===
+
+### Give a file all permission

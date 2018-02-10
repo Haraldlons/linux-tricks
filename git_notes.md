@@ -138,4 +138,8 @@ git diff --cached <repo-name>
 git submodule deinit <submodule>
 ```
 
+### Renaming a submodule
+https://stackoverflow.com/questions/9878860/how-can-i-rename-a-git-repository-with-submodules
+
+
 
