@@ -1,4 +1,4 @@
-Made by Harald Lønsthagen, 22.06.2017
+Made by Harald Lønsethagen, 22.06.2017
 
 Motivation:
 This is a document with fixes encountered on Ubuntu.
@@ -13,7 +13,6 @@ sudo apt-get install texlive-lang-european
 ```
 2. PROFIT!
 ===
-
 
 =========================================
 				Ubuntu - fixes
@@ -60,6 +59,8 @@ sudo apt-get update
 
 - `-f, --force` ignore nonexistent files and arguments, never prompt
 
+### How to use PPA's
+https://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them
 
 =========================================
 				Command line
@@ -70,12 +71,12 @@ rm -rf folderName
 2. Profit!
 ---------------------------------
 Show current working directory
-1. 
+1.
 pwd
 2. PROFIT!
 ---------------------------------
 Set bose headset as sound output
-1. 
+1.
 pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4
 2. PROFIT!
 
@@ -88,9 +89,9 @@ pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4
 
 1. top -> se hvilke oppgaver som kjøres
 top
-2. drepe 
+2. drepe
 pkill <id>
-3. 
+3.
 systemctl stop apt-daily.service
 systemctl kill --kill-who=all apt-daily.service
 4. https://unix.stackexchange.com/questions/315502/how-to-disable-apt-daily-service-on-ubuntu-cloud-vm-image
@@ -111,10 +112,10 @@ Install gulp.
 sudo npm install --global gulp-cli
 2. PROFIT!
 Hvis det ikke fungerer
-1. 
+1.
 npm install -g gulp
 2. Profit!
-Jeg installerte først ikke gulp globalt, så neste mappe jeg 
+Jeg installerte først ikke gulp globalt, så neste mappe jeg
 trengte gulp i fungerte det ikke lenger.
 
 Fungerer fortsatt ikke:
@@ -161,14 +162,14 @@ Memory: 512 MB
 Disk: 20 GB
 OS: Ubuntu 16.04.2 x64
 
-SSH - connecting: 
+SSH - connecting:
 ssh root@46.101.198.183
 pw:
-TastaturMusSkjerm0
+
 ==== Brukere
 ssh harald@46.101.198.183
 pw:
-KanskjeKommerKongen10
+
 
 ----------------------
 SSH-tunneling
@@ -178,16 +179,16 @@ ssh -L 8006:localhost:8888 root@46.101.198.183
 Sende lokal mappe til droplet over ssh
 rsync -avz -e 'ssh' coding/pythonFun/ root@46.101.198.183:/documents/coding/
 
-Denne er smart så den bare overfører det som er forskjellig. 
-Merk at man kan kun lage en ny mappe der man overfører til. 
-Så cmd over vil lage en ny mappe "coding" på droplet, og legge alle filene fra pythonFun i den. 
+Denne er smart så den bare overfører det som er forskjellig.
+Merk at man kan kun lage en ny mappe der man overfører til.
+Så cmd over vil lage en ny mappe "coding" på droplet, og legge alle filene fra pythonFun i den.
 Det vil IKKE bli laget noe ny mappe pythonFun på droplet.
 ------------------
 Sende mappe fra droplet til lokal
 rsync -avz -e 'ssh' root@46.101.198.183:/documents/coding/telenor_summer_2017 coding/telenor_summer_2017/
 
 ------------------
-apt-get -y install 
+apt-get -y install
 -y sier bare yes til spørsmål som kommer opp
 
 
@@ -222,7 +223,7 @@ ssh-keygen
 ==== Copy key-pair to server
 1.
 ssh-copy-id sammy@your_server_ip
-I think this is necessary since I've Disable Password Authentication 
+I think this is necessary since I've Disable Password Authentication
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04
 
 ==== Configure timezone
@@ -244,7 +245,7 @@ to start process 2 again.
 Usefull tut: https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys
 
 =================================
-Public-key 
+Public-key
 sudo nano /etc/ssh/sshd_config
 
 PubkeyAuthentication yes
@@ -267,14 +268,14 @@ https://stackoverflow.com/questions/14547631/python-locale-error-unsupported-loc
 
 ----------------------
 During installing environment
-prob: 
+prob:
 pyvenv my_env
 Error:
 The virtual environment was not created successfully because ensurepip is not
 available.  On Debian/Ubuntu systems, you need to install the python3-venv
 package using the following command.
 
-Fix: 
+Fix:
 https://stackoverflow.com/questions/39539110/pyvenv-not-working-because-ensurepip-is-not-available
 -----
 
@@ -282,6 +283,7 @@ How to install WhatPulse
 ===
 https://www.youtube.com/watch?v=GI2L_gCRjBk
 https://basicsysadmin.com/How_to_Install_WhatPulse_in_Ubuntu
+<<<<<<< HEAD
 
 
 ## Permission
@@ -291,6 +293,6 @@ https://basicsysadmin.com/How_to_Install_WhatPulse_in_Ubuntu
 #chmod +x <filename>
 chmod +x run_file
 ```
-===
+---
 
 ### Give a file all permission

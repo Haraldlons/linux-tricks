@@ -1,9 +1,7 @@
-============================
-		ROS notes
-============================
+# ROS Notes
 
-===== Commands
-Get on another ROS-network
+## Commands
+### Get on another ROS-network
 http://inertia.ed.ntnu.no:8090/display/DRIV/How+to+set+up+and+use+SSH+on+Jetson+TX1
 1.
 export ROS_IP=192.168.1.<your-own-ip>
@@ -11,24 +9,39 @@ export ROS_IP=192.168.1.<your-own-ip>
 export ROS_MASTER_URI=http://192.168.1.10:11311
 
 
+### Catkin
+#### Create workspace
+'''
+source /opt/ros/kinetic/setup.bash
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/
+catkin_make
+source ~/catkin_ws/devel/setup.bash
+'''
+http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
-======== General notes
-All nodes listen to all topics
-All nodes can publish on all topics
-All topics are of a particular type
 
+#### Problems with catkin build
+Problem:
+'''
+Errors     << catkin_tools_prebuild:cmake /home/harald/catkin_ws/logs/catkin_tools_prebuild/build.cmake.009.log                            
+ImportError: "from catkin_pkg.package import parse_package" failed: No module named 'catkin_pkg'
+Make sure that you have installed "catkin_pkg", it is up to date and on the PYTHONPATH.
+'''
 
+'''
+pip install catkin_pkg
+'''
+I think catkin uses python3 and not 2 which It should
 
-
-
-==== CUDA
+### CUDA
 Jeg slettet nppi fra denne listen i CMakelist.txt
   ${CUDA_LIBRARIES} ${CUDA_npps_LIBRARY}
 1. Slettet
 ${CUDA_nppi_LIBRARY}
 2. Da ble den bygget. Fikk noe error om io.
 
-===== Turtlebot
+### Turtlebot
 1. Open Gazebo with turtlebot
 roslaunch turtlebot_gazebo turtlebot_world.launch
 2. PROFIT!
@@ -38,7 +51,7 @@ roslaunch turtlebot_teleop keyboard_teleop.launch
 2. PROFIT!
 ------
 1. Info
-rostopic info /odom 
+rostopic info /odom
 Output:
 Type: nav_msgs/Odometry
 nav_msgs is package which defines Odometry this message type
@@ -57,7 +70,7 @@ void OdomCallback(const nav_msgs::Odometry::ConstPtr& msg){
 ....
 rosmsgs show nav_msgs/Odometry
 
-======== Commands
+## Commands
 1. printe alle noder
 rosnode list
 2. PROFIT!
@@ -85,40 +98,39 @@ rostopic pub /some_topic msg/MessageType "data: value"
 
 
 
-==== Notes
+## General notes
+All nodes listen to all topics
+All nodes can publish on all topics
+All topics are of a particular type
 
 Message
 	Allows nodes written i c++ and python to communicate with each other
 	Defined in a .msg file - special format
 	Must be compiled into C++ / Python classes before using them
-	
+
 ROS master
 	Need one ROS master to make it work
 
-	Keep track of all nodes, 
+	Keep track of all nodes,
 	which node is publishing to which topics
 	which node is subscribed to which topics
-	
+
 	ROS is just keeping track of meta information
 		What they are publishing
 		IP-adresses
-		
+
 	running in known IP-address - ROS_MASTER_URI - localhost:11311 - default port number
-	
+
 	All other nodes port number random
-	
+
 	Start two ways
 	roscore - just ros master
 	roslaunch and isn't roscore running will start roscore automaticly
-	
+
 	roscore - recommended
-	
-	
-==== turtlebot tutorial
-	Robot published the name and distance to the closest landmark
-	Zones are circles with 1 meter diameter -> "I'm near the cube"
-	
-==== Environment
+
+
+## Environment
 Ensure tha environment variables are set:
 1.
 printenv | grep ROS
@@ -126,12 +138,3 @@ printenv | grep ROS
 
 ----
 rosrun rosserial_python serial_node.py /dev/ttyACM0
-
-
-
-	
-	
-	
-
-
-
