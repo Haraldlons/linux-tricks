@@ -5,12 +5,17 @@ Most common Git commands
 
 ## Table of contents
 [Basic Operations](#basic)
+
 [Basic Operations2](#basic2)
+
 [Git Flow](#git_flow)
+
 [Submodules](#submodules)
+
 [End](#end)
 
 <a name="basic"/>
+
 ## Basic operations
 #### Pull new branch from remote and make new branch local based on it
 1.
