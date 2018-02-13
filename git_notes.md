@@ -42,32 +42,32 @@ git clean -f
 
 <a name="basic2"/>
 
-=========================================
-				Basic operations
-=========================================
+# Basic Operations
 
-
-----Pull new branch from remote and make new branch local based on it
-1.
+#### Pull new branch from remote and make new branch local based on it
 ```
 git checkout --track origin/remote_branch
 ```
+or 
+```
+git pull
+git checkout <remote_branch>
+```
 2. PROFIT!
 
-----Pull all remote branches to local
-1. oneliner
+#### Pull all remote branches to local
+One liner:
 ```
 git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
 ```
-2. PROFIT!
 
-----Delete a branch
+#### Delete a branch
 ```
 git branch -d <branch-name>
 ```
 NB: You can't be checkout out in the branch when deleting it
 
-----Revert 'git add <file>'. Unstage <file>
+#### Revert 'git add <file>'. Unstage <file>
 ```
 git reset <file>
 ```
@@ -83,14 +83,14 @@ git log --name-status -2
 git log -p -2
 >>Will show you the changes themselves.
 
-----See changes which will be done if pulling
+#### See changes which will be done if pulling
 ```
 git fetch
 git log --name-status origin/master
 ```
 >>Will show you what commits you are about to retrieve, along with the names of the files.
 
-----Delete folder and its content
+#### Delete folder and its content
 ```
 git rm -r one-of-the-directories
 git commit -m "Remove duplicated directory"
@@ -98,24 +98,22 @@ git push origin <your-git-branch> (typically 'master', but not always)
 ```
 PROFIT!
 
-----To stage all manually deleted files you can use:
+#### To stage all manually deleted files you can use:
 ```
 git rm $(git ls-files --deleted)
 ```
 
-----If you already have a file checked in, and you want to ignore it, Git will not ignore the file if you add a rule later. In those cases, you must untrack the file first, by running the following command in your terminal:
+#### If you already have a file checked in, and you want to ignore it, Git will not ignore the file if you add a rule later. In those cases, you must untrack the file first, by running the following command in your terminal:
 
 ```
 git rm --cached FILENAME
 ```
 <a name="git_flow"/>
 
-=========================================
-				Git Flow
-=========================================
+## Git Flow
 http://nvie.com/posts/a-successful-git-branching-model/
 
-----Creating a feature branch
+#### Creating a feature branch
 When starting work on a new feature, branch off from the develop branch.
 1.
 ```
@@ -124,32 +122,26 @@ git checkout -b myfeature develop
 2. PROFIT!
 Switched to a new branch "myfeature"
 
-----Incorporating a finished feature on develop
+#### Incorporating a finished feature on develop
 Finished features may be merged into the develop branch to definitely add them to the upcoming release:
 1.
 ```
 git checkout develop
 >>Switched to branch 'develop'
-```
-2.
-```
+
 git merge --no-ff myfeature
 >>Updating ea1b82a..05e9557
 >>(Summary of changes)
-```
-3.
-```
+
 git branch -d myfeature
 >>Deleted branch myfeature (was 05e9557).
-```
-4.
-```
+
 git push origin develop
 ```
 5. PROFIT!
 The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature. Compare:
 
-----Creating a release branch
+#### Creating a release branch
 1.
 ```
 git checkout -b release-1.2 develop
@@ -236,3 +228,26 @@ git submodule update # Add: "--remote" to get the newest version of the master b
 
 ### Renaming a submodule
 https://stackoverflow.com/questions/9878860/how-can-i-rename-a-git-repository-with-submodules
+
+
+# Git Kraken
+
+#### Make Git Kraken not track a repo. Forget repo. Ignore repo
+```
+cd .gitkraken/profiles/d6e5a8ca26e14325a4275fc33b17e16f/
+nano localRepoCache
+```
+NB: It might not be 'd6e5a8ca26e14325a4275fc33b17e16f' on your computer, but something similar
+Then you will get something like this
+```
+{
+  "localRepoCache": [
+    "/home/harald/Documents/01 - Datamaskinarkitektur/.git",
+    "/home/harald/Documents/06 - Matematikk 3/.git",
+    "/home/harald/catkin_ws/src/r18dv_host_nodes/.git",
+    "/home/harald/coding/dv_useful_scripts/.git"
+  ]
+}
+```
+Delete the line you want gitkraken to forget.
+
