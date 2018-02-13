@@ -36,8 +36,8 @@ alias r-t='rostopic list'
 alias r-e='rostopic echo $1' #Use: 'r-e /arduino/throttle_setpoint'
 alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
 alias rr='rosrun'
-#export ROS_MASTER_URI=http://192.168.1.4:11311
-#export ROS_IP=192.168.1.6
+export ROS_MASTER_URI=http://192.168.1.19:11311 # ip to computer connecting to
+export ROS_IP=192.168.1.100 # my own ip
 
 # Catkin
 alias cm='cd ~/catkin_ws && catkin build && cd -' # You can call 'cm' from wherever you want!
@@ -68,7 +68,7 @@ alias sondre='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individu
 alias mathias='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
 alias didrik='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
 alias bo='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
-alias cs-notes='cd ~ && subl notes_computer_science/'
+alias cs-notes='subl ~/useful_computer_notes/'
 
 
 # Computer Architecture TDT4260
