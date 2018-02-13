@@ -25,29 +25,25 @@ git checkout --track origin/remote_branch
 2. PROFIT!
 
 ## Configure git correctly
-### Set global user.email on computer
-1. Set global user.email on computer
+#### Set global user.email on computer
 ```
 git config --global user.email <email@example.com>
 ```
-2. Profit!
+Profit!
 
 
-1. Set user.email on single repository
+#### Set user.email on single repository
 ```
 git config user.email "email@example.com"
 ```
-2. PROFIT!
+Profit!
 
-1. If you want to remove untracked files (e.g., new files, generated files):
+#### Remove all untracked files (e.g., new files, generated files):
 ```
 git clean -f
 ```
-2. PROFIT!
+Profit!
 
-<a name="basic2"/>
-
-# Basic Operations
 
 #### Pull new branch from remote and make new branch local based on it
 ```
@@ -58,7 +54,7 @@ or
 git pull
 git checkout <remote_branch>
 ```
-2. PROFIT!
+Profit!
 
 #### Pull all remote branches to local
 One liner:
@@ -77,23 +73,24 @@ NB: You can't be checkout out in the branch when deleting it
 git reset <file>
 ```
 
-----See changes done after doing 'git pull'
-1.
+#### See changes done after doing 'git pull'
+
 ```
 git log --name-status -2
-```
 >>Will show you the names of the files that changed for the last two commits.
-	OR
-1.
+```
+Or
+```
 git log -p -2
 >>Will show you the changes themselves.
+```
 
 #### See changes which will be done if pulling
 ```
 git fetch
 git log --name-status origin/master
-```
 >>Will show you what commits you are about to retrieve, along with the names of the files.
+```
 
 #### Delete folder and its content
 ```
@@ -101,7 +98,7 @@ git rm -r one-of-the-directories
 git commit -m "Remove duplicated directory"
 git push origin <your-git-branch> (typically 'master', but not always)
 ```
-PROFIT!
+Profit!
 
 #### To stage all manually deleted files you can use:
 ```
@@ -120,16 +117,15 @@ http://nvie.com/posts/a-successful-git-branching-model/
 
 #### Creating a feature branch
 When starting work on a new feature, branch off from the develop branch.
-1.
 ```
 git checkout -b myfeature develop
+>>Switched to a new branch "myfeature"
 ```
-2. PROFIT!
-Switched to a new branch "myfeature"
+Profit!
 
 #### Incorporating a finished feature on develop
 Finished features may be merged into the develop branch to definitely add them to the upcoming release:
-1.
+
 ```
 git checkout develop
 >>Switched to branch 'develop'
@@ -143,34 +139,27 @@ git branch -d myfeature
 
 git push origin develop
 ```
-5. PROFIT!
+Profit!
 The --no-ff flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature. Compare:
 
 #### Creating a release branch
-1.
 ```
 git checkout -b release-1.2 develop
-```
-2.
-```
-./bump-version.sh 1.2
-```
-3.
-```
+./bump-version.sh 1.2 # If you have a bash script which updates version
 git commit -a -m "Bumped version number to 1.2"
 ```
-4. PROFIT!
-NB: ./bump is a shell script which modifies some files to 1.2 and some lines to the version is edited to 1.2 in the actuall code. We don't use this per(3.11.17) in Revolve.
+Profit!
+NB: ./bump-version.sh is a shell script which modifies some files to 1.2 and some lines to the version is edited to 1.2 in the actuall code. We don't use this per(3.11.17) in Revolve.
 
-### Finishing a release branch
-
+#### Finishing a release branch
 ```
 git checkout master
 git merge --no-ff release-1.2
 git tag -a 1.2
 ```
+Profit!
 
-### Revert a branch to an old commit
+#### Revert a branch to an old commit
 [Link](https://stackoverflow.com/posts/17667057/edit)
 ```
 git checkout master
@@ -179,50 +168,51 @@ git push --force origin master
 # Then to prove it (it won't print any diff)
 git diff master..origin/master
 ```
+Profit!
 
 ## Different Git Commands
-### Saving detached HEAD to a branch
+#### Saving detached HEAD to a branch
 ```
 git branch my-temporary-work
 git checkout master
 git merge my-temporary-work
 ```
-===
+Profit!
 
 <a name="submodules"/>
-=========================================
-				Submodules
-=========================================
 
-### See more info with git status in submodules
+## Submodules
+#### See more info with git status in submodules
 ```
 git config --global status.submoduleSummary true
 ```
 
-### See what commit each submodule is linking to
+#### See what commit each submodule is linking to
 ```
 git submodule status
 ```
-### Git status ignoring dirty submodules
+
+#### Ignore dirty submodules with 'git status'
 ```
 git status --ignore-submodules=dirty
 ```
 You often want to do this since many submodules will often be dirty
-===
 
-----Add a submodule to the master-repo
+#### Add a submodule to the master-repo
 ```
+cd /root_repo
 git submodule add <URL-repo>
 ```
-----Se changes to just one repo
+
+#### Se changes to just one repo
 ```
 git diff --cached <repo-name>
 ```
 <a name="end"/>
 
-----Cloning a project with submodules
+#### Cloning a project with submodules
 ```
-#go to <your_catkin_workspace>/src
+cd <your_catkin_workspace>/src
 git clone git+ssh://git@github.com/RevolveNTNU/<root_repo_name>.git
 cd <root_repo_name>
 git fetch origin master
@@ -231,11 +221,11 @@ git submodule update # Add: "--remote" to get the newest version of the master b
 ```
 
 
-### Renaming a submodule
+#### Renaming a submodule
 https://stackoverflow.com/questions/9878860/how-can-i-rename-a-git-repository-with-submodules
 
 
-# Git Kraken
+## Git Kraken
 
 #### Make Git Kraken not track a repo. Forget repo. Ignore repo
 ```
