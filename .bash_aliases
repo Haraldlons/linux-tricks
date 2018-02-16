@@ -36,19 +36,19 @@ alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
 alias rr='rosrun'
 alias o='atom ~/catkin_ws/src'
 
-# Warning! Use these lines when you want to connect to another computers ROS-network 
+# Warning! Use these lines when you want to connect to another computers ROS-network
 #export ROS_MASTER_URI=http://192.168.1.19:11311 # IP to computer connecting to
 #export ROS_IP=192.168.1.100 # Your own ip
 
 # Catkin
-alias cm='cd ~/catkin_ws && catkin build && cd -' # You can call 'cm' from wherever you want!
+#alias cm='cd ~/catkin_ws && catkin build && cd -' # You can call 'cm' from wherever you want!
 alias co='cd ~/catkin_ws/src/r18dv_rc_nodes/'
 
 
 # Gazebo
 alias g-fix='killall gzserver && killall gzclient'
 alias g-reset='rosservice call /gazebo/reset_world && rostopic pub /throttle_setpoint std_msgs/UInt16 "data: 0"'
-alias g-simnodes='roslaunch r18dv_rc_launch sim_nodes.launch' 
+alias g-simnodes='roslaunch r18dv_rc_launch sim_nodes.launch'
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_rc_car_gazebo/models
 export EDITOR='nano -w'
 
@@ -77,5 +77,9 @@ alias bo='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_m
 alias ca-ssh='ssh leskraas@tdt4260-leskraas.idi.ntnu.no'
 alias ca-sync='sshfs leskraas@tdt4260-leskraas.idi.ntnu.no:/opt/framework ~/Documents/01\ -\ Datamaskinarkitektur/ntnu-server/'
 
-# Design of digital systems 
+# Design of digital systems
 
+# Setting Razer DeathAdder Mouse Sensitivity
+mouse=` xinput | grep DeathAdder | awk '{print $6}' | awk 'BEGIN {FS="=";} {print $2}'`
+xinput --set-prop $mouse "Device Accel Constant Deceleration" 10
+xinput --set-prop $mouse "Device Accel Velocity Scaling" 1
