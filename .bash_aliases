@@ -41,7 +41,7 @@ alias o='atom ~/catkin_ws/src'
 #export ROS_IP=192.168.1.100 # Your own ip
 
 # Catkin
-#alias cm='cd ~/catkin_ws && catkin build && cd -' # You can call 'cm' from wherever you want!
+alias cm='cd ~/catkin_ws && catkin_make && cd -' # You can call 'cm' from wherever you want!
 alias co='cd ~/catkin_ws/src/r18dv_rc_nodes/'
 
 
