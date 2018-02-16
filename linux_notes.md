@@ -283,7 +283,6 @@ How to install WhatPulse
 ===
 https://www.youtube.com/watch?v=GI2L_gCRjBk
 https://basicsysadmin.com/How_to_Install_WhatPulse_in_Ubuntu
-<<<<<<< HEAD
 
 
 ## Permission
@@ -296,3 +295,19 @@ chmod +x run_file
 ---
 
 ### Give a file all permission
+
+# Useful programs for Linux
+Here is a list of useful programs for Linux
+
+
+```
+sublime text 3
+whatpulse
+slack
+ckb
+git kraken
+vlc
+gimp
+screensaver
+pycharm
+```
