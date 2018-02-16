@@ -9,7 +9,7 @@ def main():
 		output = sub.check_output(['bash', '-c', git_add_all])
 	except:
 		print("Failed to '" + git_add_all + "'")
-	commit_message = input("Write your commit message: ")
+	commit_message = input("Write your commit message: (You don't need to write \") ")
 	command = 'git commit -m "' + commit_message + '"' 
 	try:
 		output = sub.check_output(['bash', '-c', command])
