@@ -1,6 +1,6 @@
-#Author: Harald Lønsethagen
-#Date: 4.11.2017
-#Version: Python 3.6.1
+# Author: Harald Lønsethagen
+# Date: 4.11.2017
+# Version: Python 3.6.1
 import subprocess as sub
 
 def main():
