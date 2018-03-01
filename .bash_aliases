@@ -27,6 +27,7 @@ alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com
 
 # SSH
 alias ø='ssh nvidia@192.168.1.10' #SSH to NVIDIA Jetson TX1
+alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
 
 # ROS
 alias å='export ROS_IP=192.168.1.6 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
@@ -37,7 +38,7 @@ alias rr='rosrun'
 alias o='atom ~/catkin_ws/src'
 
 # Warning! Use these lines when you want to connect to another computers ROS-network 
-#export ROS_MASTER_URI=http://192.168.1.19:11311 # IP to computer connecting to
+#export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to
 #export ROS_IP=192.168.1.100 # Your own ip
 
 # Catkin
