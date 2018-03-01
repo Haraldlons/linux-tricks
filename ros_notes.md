@@ -9,11 +9,12 @@ export ROS_IP=192.168.1.<your-own-ip>
 export ROS_MASTER_URI=http://192.168.1.10:11311
 ## Test - delete this
 
+## Another test
+
 ## Mount TX catkin/src on own pc
 
 '''
-mkdir -p ~/tx_catkin_ws
-sshfs nvidia@192.168.1.10:/home/catkin_ws/src ~/tx_catkin_ws
+mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws
 '''
 
 ## Unmount
