@@ -246,3 +246,6 @@ Then you will get something like this
 ```
 Delete the line you want gitkraken to forget.
 
+# Stage hunks
+git add <file> -p
+git add -i
