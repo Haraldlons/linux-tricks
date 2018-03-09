@@ -47,9 +47,10 @@ alias co='cd ~/catkin_ws/src/r18dv_rc_nodes/'
 
 # Gazebo
 alias g-fix='killall gzserver && killall gzclient'
-alias g-reset='rosservice call /gazebo/reset_world && rostopic pub /throttle_setpoint std_msgs/UInt16 "data: 0"'
+alias g-reset='rostopic pub /throttle_setpoint std_msgs/UInt16 "data: 0" && sleep 0.5s && rosservice call /gazebo/reset_world'
+#alias g-reset='rosservice call /gazebo/reset_world && rostopic pub /throttle_setpoint std_msgs/UInt16 "data: 0"'
 alias g-simnodes='roslaunch r18dv_rc_launch sim_nodes.launch'
-export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_rc_car_gazebo/models
+export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/models
 export EDITOR='nano -w'
 
 

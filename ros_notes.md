@@ -24,7 +24,7 @@ http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 #### Problems with catkin build
 Problem:
 '''
-Errors     << catkin_tools_prebuild:cmake /home/harald/catkin_ws/logs/catkin_tools_prebuild/build.cmake.009.log                            
+Errors     << catkin_tools_prebuild:cmake /home/harald/catkin_ws/logs/catkin_tools_prebuild/build.cmake.009.log
 ImportError: "from catkin_pkg.package import parse_package" failed: No module named 'catkin_pkg'
 Make sure that you have installed "catkin_pkg", it is up to date and on the PYTHONPATH.
 '''
@@ -70,6 +70,15 @@ void OdomCallback(const nav_msgs::Odometry::ConstPtr& msg){
 ....
 rosmsgs show nav_msgs/Odometry
 
+# Bagging
+#### Crop a bag
+```
+rosbag filter input.bag output.bag "t.secs <= 1284703931.86"
+```
+#### Record all topics
+```
+rosbag record -a
+```
 ## Commands
 1. printe alle noder
 rosnode list
