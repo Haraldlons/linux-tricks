@@ -7,7 +7,26 @@ http://inertia.ed.ntnu.no:8090/display/DRIV/How+to+set+up+and+use+SSH+on+Jetson+
 export ROS_IP=192.168.1.<your-own-ip>
 2. export ros master uri
 export ROS_MASTER_URI=http://192.168.1.10:11311
+## Test - delete this
 
+## Another test
+
+## Mount TX catkin/src on own pc
+
+'''
+mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws
+'''
+
+## Unmount
+'''
+fusermount -u <mountpoint>
+'''
+Sometimes you need to unmount the tx_catkin_ws folder because shit happens
+
+## See frequence of topic publish
+'''
+rostopic hz <topic>
+'''
 
 ### Catkin
 #### Create workspace
