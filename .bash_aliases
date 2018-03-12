@@ -82,6 +82,7 @@ alias ca-sync='sshfs leskraas@tdt4260-leskraas.idi.ntnu.no:/opt/framework ~/Docu
 # Design of digital systems
 
 # Setting Razer DeathAdder Mouse Sensitivity
-mouse=` xinput | grep DeathAdder | awk '{print $6}' | awk 'BEGIN {FS="=";} {print $2}'`
-xinput --set-prop $mouse "Device Accel Constant Deceleration" 10
 xinput --set-prop $mouse "Device Accel Velocity Scaling" 1
+# mouse=` xinput | grep DeathAdder | awk '{print $6}' | awk 'BEGIN {FS="=";} {print $2}'`
+# xinput --set-prop $mouse "Device Accel Constant Deceleration" 10
+# xinput --set-prop $mouse "Device Accel Velocity Scaling" 1
