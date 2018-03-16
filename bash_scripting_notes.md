@@ -17,5 +17,12 @@ $LINENO - Returns the current line number in the Bash script.
 ### Give execute permission to bash script
 ```
 chmod 755 myscript.sh
-```                       hei jeg skriver np
-:
+```
+
+### Quotes
+Single quotes will treat every character literally
+Double quotes will allow you to do substitution (that is include variables within the setting of the value)
+
+#
+myvar=$( ls /etc | wc -l )
+echo $myvar
