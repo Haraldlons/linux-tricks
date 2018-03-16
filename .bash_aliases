@@ -5,11 +5,17 @@ alias l='ls -lhG'
 alias ..='cd ..'
 alias c='clear'
 alias s='source ~/.bashrc && source ~/catkin_ws/devel/setup.bash'
-alias b='nano ~/.bashrc'
-alias bb='nano ~/useful_computer_notes/.bash_aliases'
+alias b='vim ~/.bashrc'
+alias bb='vim ~/useful_computer_notes/.bash_aliases'
+alias bvim='vim ~/.vimrc'
 alias h='history'
 alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
+alias myip="curl http://ipecho.net/plain; echo"
+
+# Run scripts
+alias new_cpp='. ~/useful_computer_notes/scripts/new_c++_project.sh'
+
 
 # Git aliases
 alias g='git status' # Really useful!
@@ -52,7 +58,7 @@ alias g-reset='rostopic pub /throttle_setpoint std_msgs/UInt16 "data: 0" && slee
 #alias g-reset='rosservice call /gazebo/reset_world && rostopic pub /throttle_setpoint std_msgs/UInt16 "data: 0"'
 alias g-simnodes='roslaunch r18dv_rc_launch sim_nodes.launch'
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/models
-export EDITOR='nano -w'
+#export EDITOR='nano -w'
 
 
 ## Harald's personal aliases
