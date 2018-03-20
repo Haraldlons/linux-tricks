@@ -17,6 +17,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 
 # Run scripts
 alias new_cpp='. ~/useful_computer_notes/scripts/new_c++_project.sh'
+alias new_latex='. ~/useful_computer_notes/scripts/new_latex_project.sh'
 
 
 # Git aliases
