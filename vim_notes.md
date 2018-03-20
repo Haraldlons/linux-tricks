@@ -40,4 +40,53 @@ This text file is for adding stuff.
 - :%s/text/replacement text/g search through the entire document for text and replace it with replacement text.
 - :%s/text/replacement text/gc search through the entire document and confirm before replacing text.
 
-# End of file
+# Variables
+$1, $2, ...
+  The first, second, etc command line arguments to the script
+
+variable=value
+  To set a value for a variable, Remember, no spaces on either side of =
+
+Quotes " '
+  Double will do variable substitution, single will not
+
+export var1
+  Make the variable var1 available to child processes
+
+fd = file descriptor
+
+# User input
+read varName
+  Read input from the user and store it in the variable varName
+/dev/stdin 
+  A file you can read to get the STDIN for the Bash script
+
+# Arithmetic
+ let expression
+  Make a variable equal to an expression
+ expr expression
+  print out the result of the expression
+ $(( expression ))
+  Return the result oof the expression
+ ${#var}
+  Return the length of the variable var
+
+# If statements
+  echo $? # Print out last output in bash command window
+  Operator	Description
+! EXPRESSION	The EXPRESSION is false.
+-n STRING	The length of STRING is greater than zero.
+-z STRING	The lengh of STRING is zero (ie it is empty).
+STRING1 = STRING2	STRING1 is equal to STRING2
+STRING1 != STRING2	STRING1 is not equal to STRING2
+INTEGER1 -eq INTEGER2	INTEGER1 is numerically equal to INTEGER2
+INTEGER1 -gt INTEGER2	INTEGER1 is numerically greater than INTEGER2
+INTEGER1 -lt INTEGER2	INTEGER1 is numerically less than INTEGER2
+-d FILE	FILE exists and is a directory.
+-e FILE	FILE exists.
+-r FILE	FILE exists and the read permission is granted.
+-s FILE	FILE exists and it's size is greater than zero (ie. it is not empty).
+-w FILE	FILE exists and the write permission is granted.
+-x FILE	FILE exists and the execute permission is granted.
+
+
