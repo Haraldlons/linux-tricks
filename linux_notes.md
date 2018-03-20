@@ -5,7 +5,7 @@ This is a document with fixes encountered on Ubuntu.
 
 ## Latex Fixes
 #### Install norwegian
-Problem: Package babel Error: Unknown option `norsk'.
+Problem: Package babel Error: Unknown option `norsk`.
 - Install latex package
 ```
 sudo apt-get install texlive-lang-european
@@ -21,6 +21,16 @@ sudo service network-manager restart
 ```
 sudo dpkg -i DEB_PACKAGE
 ```
+
+#### Install a .tar package
+```
+mkdir foldername
+mv filename.tar foldername
+cd foldername
+sudo tar -xvf filename.tar
+./setup.sh
+```
+
 
 #### See bash history
 ```
