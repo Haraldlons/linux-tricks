@@ -1,47 +1,14 @@
-\documentclass[11pt]{article}
-\usepackage[norsk]{babel}	% Norwegian names on Introduction and other places
-\usepackage[T1]{fontenc}		% Norwegian charset tegnsett (Ã¦Ã¸Ã¥)
-\usepackage[utf8]{inputenc}	% Norwegian charset
-\usepackage{geometry}		% Recommended package for controlling margins.
-
-\usepackage{
-			amsmath,
-			caption,
-			amssymb, %Comments here are fine
-			float, 
-			lmodern, 
-			parskip, 
-			textcomp,
-			}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true, 
-    linkcolor=blue, % Color of links in 'innholdsfortegnelse'
-    filecolor=blue, % Doesn't show when colorlinks=true. It's the border-color. 
-    urlcolor=blue, % Links wil be nice blue color
-}
-\newcommand\tab[1][1cm]{\hspace*{#1}}
-
-\usepackage{listings} % für Formatierung in Quelltexten
-\lstset{
-    escapeinside={(*@}{@*)},          % if you want to add LaTeX within your code
-}
+\include{packages}
 
 \begin{document}
 
 \title{\textbf{LaTeX Article Template}}
 \author{Author: Harald Lønsethagen}
 % \date{\today}
-\date{Last edited: 22.06.2017\tab Version: 1.0}
+\date{Last edited: \today\tab Version: 1.0}
 
 \maketitle
- 
-  %{\begin{figure}[H]
-   % \centering
-    %\includegraphics{Designimage}
-%\end{figure}}
+
 
 % \clearpage\thispagestyle{empty}
 \makeatletter
@@ -50,49 +17,69 @@
 \tableofcontents
 \newpage
 
-\section{Innledning}
-Dette er et template-dokument som er ment som å brukes som utgangspunkt når man lager nye \LaTeX-dokumenter. Tenkt bruk er at man kopierer .tex-filen og sletter alt innholdet for så å lage sit eget dokument med eget innhold. \\
-Det er lagt til mange eksempler på ulike funksjoner i \LaTeX \space slik at man fort kan bare kopiere/beholde .tex-kodebitene som man trenger. F.eks. å legge til et bilde med bildetekst. 
+\section{Introduction}
+This is a template latex project ment to be used when creating new \LaTeX \space documents. You could easily copy this .tex file and delete all content, and then use what you need. I have included many examples of how you can use different features of \LaTeX, hopefully making it easy for you to get started.\\
+\textbf{Pro tip:} type '\textbf{new\_latex}' in the terminal to generate a new latex project at your current working directory\footnote{This assumes you have installed \href{https://www.tug.org/texshowcase}{Linux Tricks}}.
 
-\section{Linker}
-\href{www.vg.no}{Dette} er en link, som får en tydelig farge som viser at det er en link. Fargen er definert øverst i dokumentet.
+\begin{lstlisting}[language=bash,caption={Example of getting started}]
+harald@harald-tower:~$ cd ~/Documents/
+harald@harald-tower:~/Documents$ new_latex
+New LaTeX project name: test_project
+
+Successfully generated new LaTeX project files in path:
+/home/harald/Documents/2018-03-23_test_project_latex
+\end{lstlisting}
 
 
+\section{Links}
+\href{www.vg.no}{This} is a link, which is clearly marked by the blue color. You can define the color in 'packages.tex'. You could link by doing like this: \url{www.vg.no}.
+\newpage
+\section{Figures}
+Here you have a nice image of the universe in Fig. \ref{fig:universe}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.7]{universe}
+    \caption{The Universe}
+    \label{fig:universe}
+\end{figure}
 
-\section{Seksjoner}
-\subsection{Subseksjoner}
-Slik ser en subseksjon ut og skrives
+Getting a figure to be right where you want it can be a struggle.
+I recommend using the 'H'-tag.
+
+\section{Sections}
+\subsection{Subsections}
+This is what a subsection looks like and can be written as such:
 \begin{lstlisting}
 	\subsection{}
 \end{lstlisting}
-Sjekk .tex filen for å se hvordan jeg \textit{escaper} latex-kommandoer, dvs at jeg faktisk ikke lager en ny subseksjon men skriver det ut så man kan lese det i PDF-filen.
-\subsubsection{Subsubseksjoner}
-Man kan lage subsubseksjoner også. Skriv: 
+Check the .tex file to see how I can \textit{escape} LaTeX-commands,
+\subsubsection{Subsubsections}
+You can also make subsubsections.
 \begin{lstlisting}
 	\subsubsection{}
 \end{lstlisting}
-Der er \textbf{ikke} mulig å lage subsubsubseksjoner.
+Is is \textbf{not} possible to make subsubsubsections.
 
 
-\section{Tekstmodifisering}
-Man kan endre fonten til tekst på enkle kommandoer.\newline{}
+\section{Textmodification}
+You can change the font with simple commands.\newline{}
 \begin{lstlisting}
-	\textbf{Bold} (*@ $\rightarrow$ \textbf{Bold}@*) 
+	\textbf{Bold} (*@ $\rightarrow$ \textbf{Bold}@*)
 \end{lstlisting}
 \begin{lstlisting}
-	\textit{Italic} (*@ $\rightarrow$ \textit{Italic}@*) 
+	\textit{Italic} (*@ $\rightarrow$ \textit{Italic}@*)
 \end{lstlisting}
 \begin{lstlisting}
-	\textsc{Sc} (*@ $\rightarrow$ \textsc{Sc}@*) 
+	\textsc{Sc} (*@ $\rightarrow$ \textsc{Sc}@*)
 \end{lstlisting}
 \begin{lstlisting}
-	\underline{Underline} (*@ $\rightarrow$ \underline{Underline}@*) 
+	\underline{Underline} (*@ $\rightarrow$ \underline{Underline}@*)
 \end{lstlisting}
 \begin{lstlisting}
-	\emph{Emph} (*@ $\rightarrow$ \emph{emph}@*) 
+	\emph{Emph} (*@ $\rightarrow$ \emph{emph}@*)
 \end{lstlisting}
 \begin{lstlisting}
-	No commands (*@ $\rightarrow$ No commands@*) 
+	No commands (*@ $\rightarrow$ No commands@*)
 \end{lstlisting}
 
 \textbf{Ibsens ripsbærbusker og andre buskvekster, samt en djerv dvergbjerk}
@@ -103,55 +90,46 @@ Man kan endre fonten til tekst på enkle kommandoer.\newline{}
 
 \emph{Ibsens ripsbærbusker og andre buskvekster, samt en djerv dvergbjerk}
 
-
-% \section{Figurer}
-% \begin{figure}[H]
-%     \centering
-%     \includegraphics[scale=0.3]{roborace}
-%     \caption{Dette kalles 'caption' og er bildeteksten til figuren}
-%     \label{fig:com}
-% \end{figure}
-
-\section{Lister}
-\subsection{Numererte liser}
+\section{Lists}
+\subsection{Numbered lists}
 \begin{enumerate}
-	\item Dette er første 'item' i listen
-	\item Man kan ha mange items
-	\item Bare å ramse opp masse meningsløst
-	\item Tips: Ikke ha punktum på slutten når man lister opp ting
+	\item This is the first 'item' in the list
+	\item You could have many items
+	\item Just ramble along
+	\item Tip: Don't use dot on the end of the line in a list
 \end{enumerate}
 
-\subsection{Punktliste}
+\subsection{Bullet list}
 \begin{itemize}
-	\item Dette er første \textit{item} i punktlisten
-	\item Om det er ikke er noe grunn til å nummerere er det best å bruke punktliste
+	\item This is the first \textit{item} in the bullet list
+	\item If there is no reason to number a list, then use a bullet list
 \end{itemize}
 
-\subsection{Liste inni liste}
+\subsection{Lists within a list}
 \begin{itemize}
-	\item Det er fint mulig å ha en liste inni en liste
-	\item Dette er fortsatt i den opprinnelige listen
+	\item Sometimes it is nice to have a list within a list
+	\item This is still the first list
 	\begin{itemize}
-		\item Dette er et item i listen listen
+		\item This is an item in the list within a list
 		\item Item 3.2
 		\begin{itemize}
-			\item Liste inni liste inni liste
+			\item A list within a list within a list
 			\begin{itemize}
-				\item Det er \textbf{ikke} mulig å flere nivåer av lister enn dette.
+				\item This is the \textbf{deepest} level of lists within a list which is possible
 			\end{itemize}
 		\end{itemize}
 	\end{itemize}
-	\item Enda et item
+	\item Another item
 	\begin{enumerate}
-		\item Men det er mulig å lage en numerert liste inni en punktliste
+		\item It is possible to have a numbered list within a bullet list
 		\begin{itemize}
-			\item Og lage en punktliste inni en numerert liste som er inni en punktliste
+			\item And to make a bullet list within a numbered list within a bullet list
 		\end{itemize}
 	\end{enumerate}
 \end{itemize}
 
-\section{Matematiske formler}
-\LaTeX \space er fantastisk god til å vise matematiske formler og utregninger. Tar litt tid å bli vant med, men når man først lærer seg det ser det helt \textbf{porno} ut. 
+\section{Mathematical formulas}
+\LaTeX \space is a fantastic tool for presenting mathematical formulas and calculations. It can take some while to get used to, but when you get over the initial bump, you can make your document look like \textbf{porn}.\cite{adams1995hitchhiker}
 $$\cos (2\theta) = \cos^2 \theta - \sin^2 \theta$$
 Next is an \textit{equation:}
 \begin{equation}
@@ -169,8 +147,8 @@ Next is an \textit{equation:}
 \begin{equation} \int_0^\infty \mathrm{e}^{-x}\,\mathrm{d}x
 \end{equation}
 
-Sjekk også \href{https://www.tug.org/texshowcase/#math}{dette} ut
-% \begin{equation} 
+More \href{https://artofproblemsolving.com/wiki/index.php/LaTeX:Symbols}{\LaTeX \space symbols}.
+% \begin{equation}
 % ( a ), [ b ], \{ c \}, | d |, \| e \|,
 % \langle f \rangle, \lfloor g \rfloor,
 % \lceil h \rceil, \ulcorner i \urcorner
@@ -187,16 +165,8 @@ $$
 $$
 
 
-
-
-\section{Refferanser}
-\begin{itemize}
-\item \href{https://en.wikipedia.org/wiki/HTML}{https://en.wikipedia.org/wiki/HTML}
-\item \href{https://en.wikipedia.org/wiki/JavaScript}{https://en.wikipedia.org/wiki/JavaScript}
-\item \url{https://www.codecademy.com/learn/}
-\item \href{http://getbootstrap.com/}{http://getbootstrap.com/}
-\item \href{https://www.datatables.net/}{https://www.datatables.net/}
-\end{itemize}
- 
+% References
+\bibliographystyle{plain}
+\bibliography{references}
 
 \end{document}

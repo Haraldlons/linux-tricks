@@ -1,0 +1,33 @@
+\documentclass[11pt]{article}
+\usepackage[english]{babel}   % English names on Introduction and other places
+% \usepackage[norsk]{babel}   % Norwegian names on Introduction and other places
+\usepackage[T1]{fontenc}        % Norwegian charset tegnsett (Ã¦Ã¸Ã¥)
+\usepackage[utf8]{inputenc} % Norwegian charset
+\usepackage{geometry}       % Recommended package for controlling margins.
+\usepackage{natbib}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{amssymb} %Comments here are fine
+\usepackage{float}
+\usepackage{lmodern}
+\usepackage{parskip}
+\usepackage{textcomp}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue, % Color of links in 'innholdsfortegnelse'
+    filecolor=blue, % Doesn't show when colorlinks=true. It's the border-color.
+    urlcolor=blue, % Links wil be nice blue color
+}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue},
+  escapeinside={(*@}{@*)},          % if you want to add LaTeX within your code
+}
