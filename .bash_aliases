@@ -86,15 +86,16 @@ alias harald='cd ~/coding/pythonFun/pygame && python main.py && cd ~' #Yes, it's
 alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' #Personal for setting Bose QC35 as main sound unit
 
 # Open notes
-alias øystein='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/øystein_member_profile.txt'
-alias marcus='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/marcus_member_profile.txt'
-alias edvard='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/edvard_member_profile.txt'
-alias morten='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/morten_member_profile.txt'
-alias paul='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/paul_member_profile.txt'
-alias sondre='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/sondre_member_profile.txt'
-alias mathias='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
-alias didrik='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
-alias bo='subl ~/revolve\ ntnu\ 2017/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
+alias øystein='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/øystein_member_profile.txt'
+alias marcus='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/marcus_member_profile.txt'
+alias edvard='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/edvard_member_profile.txt'
+alias morten='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/morten_member_profile.txt'
+alias paul='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/paul_member_profile.txt'
+alias sondre='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/sondre_member_profile.txt'
+
+alias mathias='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
+alias didrik='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
+alias bo='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
 
 
 # Computer Architecture TDT4260
