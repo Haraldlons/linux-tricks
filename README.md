@@ -5,11 +5,7 @@ By: Harald Lønsethagen
 ## How to install
 There is not really anything to install, but I have made many aliases very useful when using Linux. You can add them by typing the following in the terminal
 ```
-echo "if [ -f ~/linux-tricks/.bash_aliases ]; then
-     . ~/linux-tricks/.bash_aliases
-fi
-" >> ~/.bashrc
-
+echo "source ~/linux-tricks/.bash_aliases" >> ~/.bashrc
 ```
 ## Motivation
 I have, as many others, experience my fair share of debugging as googling often ending up in Stack Overflow trying to solve my issues.
