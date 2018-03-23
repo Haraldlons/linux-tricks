@@ -327,3 +327,23 @@ gimp
 screensaver
 pycharm
 ```
+
+## Install Tidal on Linux
+1.
+```
+sudo apt install aptitude
+sudo aptitude install pepperflashplugin-nonfree browser-plugin-freshplayer-pepperflash
+
+sudo apt-get install libssl1.0-dev
+sudo apt-get install nodejs-dev
+sudo apt-get install node-gyp
+sudo apt-get install npm
+
+cd ~
+# Clone this repository
+git clone https://github.com/Bunkerbewohner/tidal-music-linux
+# Go into the repository
+cd tidal-music-linux
+# Install dependencies and run the app
+npm install && npm start
+```
