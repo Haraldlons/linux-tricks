@@ -6,7 +6,7 @@ By: Harald Lønsethagen
 There is not really anything to install, but I have made many aliases very useful when using Linux. You can add them by typing the following in the terminal
 ```
 cd ~
-git clone git@github.com:Haraldlons/linux-tricks.git
+git clone https://github.com/Haraldlons/linux-tricks.git
 echo "source ~/linux-tricks/.bash_aliases" >> ~/.bashrc
 ```
 ## Motivation
