@@ -1,5 +1,5 @@
-# Useful Computer Notes
-A collection of useful notes for different topics in the world of computer science.
+# Linux Tricks
+A collection of useful linux notes and tricks for different topics in the world of computer science.
 By: Harald Lønsethagen
 
 ## Motivation

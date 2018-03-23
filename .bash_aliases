@@ -7,28 +7,28 @@ alias c='clear'
 alias s='source ~/.bashrc && source ~/catkin_ws/devel/setup.bash'
 #alias s='source ~/.bashrc'
 alias b='vim ~/.bashrc'
-alias bb='vim ~/useful_computer_notes/.bash_aliases'
-alias bbb='vim ~/useful_computer_notes/useful_programs.sh'
-alias bbb_i='~/useful_computer_notes/useful_programs.sh'
+alias bb='vim ~/linux-tricks/.bash_aliases'
+alias bbb='vim ~/linux-tricks/useful_programs.sh'
+alias bbb_i='~/linux-tricks/useful_programs.sh'
 alias h='history'
 alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
 alias myip="curl http://ipecho.net/plain; echo"
 
 # Generate project from template
-alias new_cpp='. ~/useful_computer_notes/scripts/new_c++_project.sh'
-alias new_latex='. ~/useful_computer_notes/scripts/new_latex_project.sh'
-alias new_note='. ~/useful_computer_notes/scripts/new_note.sh'
+alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
+alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
+alias new_note='. ~/linux-tricks/scripts/new_note.sh'
 
 # Open notes
-alias note_linux='subl ~/useful_computer_notes/linux_notes.md'
-alias note_git='subl ~/useful_computer_notes/git_notes.md'
-alias note_bash='subl ~/useful_computer_notes/bash_notes.md'
-alias note_python='subl ~/useful_computer_notes/python_notes.md'
-alias note_ros='subl ~/useful_computer_notes/ros_notes.md'
-alias note_vim='subl ~/useful_computer_notes/vim_notes.md'
-alias note_latex='subl ~/useful_computer_notes/latex_notes.md'
-alias note_todo='subl ~/useful_computer_notes/todo.md'
+alias note_linux='subl ~/linux-tricks/linux_notes.md'
+alias note_git='subl ~/linux-tricks/git_notes.md'
+alias note_bash='subl ~/linux-tricks/bash_notes.md'
+alias note_python='subl ~/linux-tricks/python_notes.md'
+alias note_ros='subl ~/linux-tricks/ros_notes.md'
+alias note_vim='subl ~/linux-tricks/vim_notes.md'
+alias note_latex='subl ~/linux-tricks/latex_notes.md'
+alias note_todo='subl ~/linux-tricks/todo.md'
 
 # Git aliases
 alias g='git status' # Really useful!
@@ -75,8 +75,8 @@ alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p 
 ## Harald's personal aliases
 
 # Easy navigation of folders
-alias cdu='cd ~/useful_computer_notes'
-alias cdus='subl ~/useful_computer_notes'
+alias cdu='cd ~/linux-tricks'
+alias cdus='subl ~/linux-tricks'
 alias cdc='cd ~/catkin_ws/src/'
 alias cdcs='subl ~/catkin_ws/src/'
 

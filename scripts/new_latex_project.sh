@@ -5,7 +5,7 @@ DATE=`date --date="0 day" +%Y-%m-%d`
 underscore="_"
 _latex="_latex"
 foldername=$DATE$underscore$project_name$_latex
-cp -R ~/useful_computer_notes/templates/latex_templates/simple_article_latex_template/ .
+cp -R ~/linux-tricks/templates/latex_templates/simple_article_latex_template/ .
 mv simple_article_latex_template $foldername
 cd $foldername
 mv simple_article_latex_template.tex $project_name.tex
