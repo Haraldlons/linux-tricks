@@ -73,7 +73,7 @@ alias ø='ssh nvidia@192.168.1.10' #SSH to NVIDIA Jetson TX1
 alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
 
 ## Harald's personal aliases
-
+alias tidal='cd ~/programs/tidal-music-linux && npm start'
 # Easy navigation of folders
 alias cdu='cd ~/linux-tricks'
 alias cdus='subl ~/linux-tricks'
@@ -81,7 +81,7 @@ alias cdc='cd ~/catkin_ws/src/'
 alias cdcs='subl ~/catkin_ws/src/'
 
 # To run special programs
-alias note='python ~/coding/dv_useful_scripts/make_new_note.py'
+#alias note='python ~/coding/dv_useful_scripts/make_new_note.py'
 alias harald='cd ~/coding/pythonFun/pygame && python main.py && cd ~' #Yes, it's a bad alias...
 alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' #Personal for setting Bose QC35 as main sound unit
 
