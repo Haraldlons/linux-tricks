@@ -38,6 +38,12 @@ git config user.email "email@example.com"
 ```
 Profit!
 
+### Reset local repository branch to be just like remote repository HEAD
+```
+git fetch origin
+git reset --hard origin/master
+```
+
 #### Remove all untracked files (e.g., new files, generated files):
 ```
 git clean -f

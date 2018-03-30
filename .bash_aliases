@@ -46,7 +46,7 @@ alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com
 
 
 # ROS
-alias å='export ROS_IP=192.168.1.6 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
+alias å='export ROS_IP=192.168.1.100 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
 alias r-t='rostopic list'
 alias r-e='rostopic echo $1' #Use: 'r-e /arduino/throttle_setpoint'
 alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
@@ -54,8 +54,8 @@ alias rr='rosrun'
 alias o='atom ~/catkin_ws/src'
 
 # Warning! Use these lines when you want to connect to another computers ROS-network
-#export ROS_MASTER_URI=http://192.168.1.19:11311 # IP to computer connecting to
-#export ROS_IP=192.168.1.100 # Your own ip
+export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to
+export ROS_IP=192.168.1.100 # Your own ip
 
 # Catkin
 alias cm='cd ~/catkin_ws && catkin_make && cd -' # You can call 'cm' from wherever you want!
@@ -86,16 +86,16 @@ alias harald='cd ~/coding/pythonFun/pygame && python main.py && cd ~' #Yes, it's
 alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' #Personal for setting Bose QC35 as main sound unit
 
 # Open notes
-alias øystein='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/øystein_member_profile.txt'
-alias marcus='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/marcus_member_profile.txt'
-alias edvard='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/edvard_member_profile.txt'
-alias morten='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/morten_member_profile.txt'
-alias paul='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/paul_member_profile.txt'
-alias sondre='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/sondre_member_profile.txt'
+alias øystein='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/øystein_member_profile.txt'
+alias marcus='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/marcus_member_profile.txt'
+alias edvard='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/edvard_member_profile.txt'
+alias morten='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/morten_member_profile.txt'
+alias paul='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/paul_member_profile.txt'
+alias sondre='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/sondre_member_profile.txt'
 
-alias mathias='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
-alias didrik='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
-alias bo='subl revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
+alias mathias='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
+alias didrik='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
+alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
 
 
 # Computer Architecture TDT4260
