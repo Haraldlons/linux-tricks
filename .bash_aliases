@@ -74,11 +74,14 @@ alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p 
 
 ## Harald's personal aliases
 alias tidal='cd ~/programs/tidal-music-linux && npm start'
+
 # Easy navigation of folders
 alias cdu='cd ~/linux-tricks'
 alias cdus='subl ~/linux-tricks'
 alias cdc='cd ~/catkin_ws/src/'
 alias cdcs='subl ~/catkin_ws/src/'
+alias cdr='cd ~/revolve_ntnu_team_2018'
+alias cdrs='subl ~/revolve_ntnu_team_2018'
 
 # To run special programs
 #alias note='python ~/coding/dv_useful_scripts/make_new_note.py'
