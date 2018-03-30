@@ -62,7 +62,7 @@ alias cm='cd ~/catkin_ws && catkin_make && cd -' # You can call 'cm' from wherev
 
 
 # Gazebo
-alias g-fix='killall gzserver && killall gzclient'
+alias gf='killall gzserver && killall gzclient'
 alias g-reset='rostopic pub /throttle_setpoint std_msgs/UInt16 "data: 0" && sleep 0.5s && rosservice call /gazebo/reset_world'
 alias gr='rosservice call /gazebo/set_model_state "{model_state: { model_name: rc_car, pose: { position: { x: 0, y: 0 ,z: 0.2 }, orientation: {x: 0, y: 0, z: 0, w: 1 } }, twist: { linear: {x: 0.0 , y: 0 ,z: 0 } , angular: { x: 0.0 , y: 0 , z: 0.0 } } , reference_frame: world } }" && rosservice call /gazebo/reset_world'
 alias g-simnodes='roslaunch r18dv_rc_launch sim_nodes.launch'
