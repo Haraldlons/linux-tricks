@@ -81,6 +81,10 @@ rm -rf folderName
 pwd
 ```
 
+#### Connect Bose QC 35 to Linux Ubuntu
+https://askubuntu.com/a/885198
+
+
 #### Set bose headset as sound output
 ```
 pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4
