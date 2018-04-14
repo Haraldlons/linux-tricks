@@ -14,6 +14,7 @@ alias h='history'
 alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
 alias myip="curl http://ipecho.net/plain; echo"
+alias xopen='xdg-open $1'
 
 # Generate project from template
 alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
