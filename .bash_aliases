@@ -19,6 +19,7 @@ alias xopen='xdg-open $1'
 # Generate project from template
 alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
 alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
+# TODO: alias new_python='. ~/linux-tricks/scripts/new_python_project.sh'
 alias new_note='. ~/linux-tricks/scripts/new_note.sh'
 
 # Open notes
@@ -48,15 +49,16 @@ alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com
 
 # ROS
 alias å='export ROS_IP=192.168.1.100 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
-alias r-t='rostopic list'
+alias r-l='rostopic list'
+alias r-n='rosnode list'
 alias r-e='rostopic echo $1' #Use: 'r-e /arduino/throttle_setpoint'
 alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
 alias rr='rosrun'
 alias o='atom ~/catkin_ws/src'
 
 # Warning! Use these lines when you want to connect to another computers ROS-network
-export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to
-export ROS_IP=192.168.1.100 # Your own ip
+#export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to
+#export ROS_IP=192.168.1.100 # Your own ip
 
 # Catkin
 alias cm='cd ~/catkin_ws && catkin_make && cd -' # You can call 'cm' from wherever you want!
