@@ -1,0 +1,96 @@
+\include{packages}
+
+\usepackage{charter}
+\usepackage{etoolbox}
+\usepackage{multicol}
+\setlength{\columnsep}{9cm}
+
+
+\makeatletter
+\patchcmd{\@zfancyhead}{\fancy@reset}{\f@nch@reset}{}{}
+\patchcmd{\@set@em@up}{\f@ncyolh}{\f@nch@olh}{}{}
+\patchcmd{\@set@em@up}{\f@ncyolh}{\f@nch@olh}{}{}
+\patchcmd{\@set@em@up}{\f@ncyorh}{\f@nch@orh}{}{}
+\makeatother
+
+\widowpenalty=1000
+\clubpenalty=1000
+
+\newsavebox{\Luiuc}
+\sbox{\Luiuc}{%
+	\parbox[b]{1.75in}{%
+		\vspace{0.5in}%
+		\includegraphics[scale=0.2]
+		{revolve_immersive_logo.png}%
+	}%
+	\hspace{3.5in}\parbox[t][0cm][b]{15cm}{\normalsize University:\hspace{0.18in} NTNU\\Vehicle Number: E63} 
+}%
+\makeletterhead{Uiuc}{\Lheader{\usebox{\Luiuc}}}
+
+\dateset{}
+%\newlfmP{headermarginskip=20pt}
+%\newlfmP{sigsize=50pt}
+%\newlfmP{dateskipafter=20pt}
+%\newlfmP{addrfromphone}
+%\newlfmP{addrfromemail}
+%\PhrPhone{Phone}
+%\PhrEmail{Email}
+
+\lthUiuc
+
+% \namefrom{Joe Doe}
+% \addrfrom{%
+	% Home or Workplace\\
+	% Some Street\\
+	% City, State, Country
+% }
+% \phonefrom{999-999-999}
+%\emailfrom{joe.doe@sharelatex.com}
+
+%\addrto{%
+%Faculty Search Committee\\
+% Department of Something\\
+% Some University\\
+% University Address}
+
+
+
+\greetto{\vspace{-4cm}BP - Executive Summary,}
+%\closeline{\hspace{-17cm}Sincerely,\includegraphics[scale=0.21]
+		%{revolve_immersive_logo.png}}
+\begin{document}
+
+\begin{newlfm}
+\vspace{0cm}
+Advances in digital reality have changed the way we interact with technology, and process digital information. Technologies such as augmented reality (AR) and virtual reality (VR) have evolved from being just entertainment, to now having the potential to enhance our abilities. In just three years, International Data Corp projects that the total spending on AR and VR products and services will increase seventeenfold to €130bn. Revolve Immersive intends to capture the potential AR represents and apply it to the motorsport industry, where our goal is to use digital reality to revolutionize driver training for amateur and semi-professional racing drivers. 
+
+Driver training at the amateur and semi-professional level is today limited to racing simulators and personal racing lessons. Though simulators represent an economical and digital option, and lessons provide a hands- on and personal experience, there are no current solutions that combine all these factors.
+
+Revolve Immersive offers such a solution by combining the power of augmented reality with the driver interface of our high tech electrical race car, Atmos. Transparent optics as a digital overlay in the driver’s helmet visor will give the driver better feedback on how to further improve driving skills. This feedback is based on sensor data from the car and the driving styles and track analysis of experienced racing drivers. What we specialize in is creating an end-user application by integrating the already existing solutions with our car’s computer and communication network. 
+
+At Revolve Immersive, we have a unique combination of people that make what we do possible. Our teams of specialists consist of experts within interactive design, racing, and IT, mechanical, and automotive engineering. Together, we have developed a fully functioning prototype that is ready for production. With your investment, we plan to produce the first cars this winter and open our first track this coming summer/spring.
+
+We have already secured a manufacturing and track location, and a bank loan to support the startup costs moving into the production phase. For an investment of €1,000,000, we can offer 20\% equity in our company, with an estimated ROI of 15\% in the span of 5 years, and the opportunity to take part in an immersive adventure. 
+\\
+\\
+\hspace{1in}
+Sincerely,\\
+\begin{multicols}{3}
+[]
+\includegraphics[scale=0.7]{test_signature.png}
+\\
+\noindent\rule{5cm}{0.4pt}
+\\
+Nadia Chaudry, \\Chief Executive Event Officer
+
+\columnbreak
+\includegraphics[scale=0.7]{test_signature.png}
+\\
+\rule{5cm}{0.4pt}
+\\
+Jonathan Something, \\Very Fancy Title
+
+\end{multicols}
+\end{newlfm}
+\end{document}
+
