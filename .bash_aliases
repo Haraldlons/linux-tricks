@@ -23,15 +23,15 @@ alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
 alias new_note='. ~/linux-tricks/scripts/new_note.sh'
 
 # Open notes
-alias note_linux='subl ~/linux-tricks/linux_notes.md'
-alias note_git='subl ~/linux-tricks/git_notes.md'
-alias note_bash='subl ~/linux-tricks/bash_notes.md'
-alias note_python='subl ~/linux-tricks/python_notes.md'
-alias note_ros='subl ~/linux-tricks/ros_notes.md'
-alias note_vim='subl ~/linux-tricks/vim_notes.md'
-alias note_latex='subl ~/linux-tricks/latex_notes.md'
-alias note_todo='subl ~/linux-tricks/todo.md'
-alias note_docker='subl ~/linux-tricks/docker_notes.md'
+alias note_linux='subl ~/linux-tricks/notes/linux_notes.md'
+alias note_git='subl ~/linux-tricks/notes/git_notes.md'
+alias note_bash='subl ~/linux-tricks/notes/bash_notes.md'
+alias note_python='subl ~/linux-tricks/notes/python_notes.md'
+alias note_ros='subl ~/linux-tricks/notes/ros_notes.md'
+alias note_vim='subl ~/linux-tricks/notes/vim_notes.md'
+alias note_latex='subl ~/linux-tricks/notes/latex_notes.md'
+alias note_todo='subl ~/linux-tricks/notes/todo.md'
+alias note_docker='subl ~/linux-tricks/notes/docker_notes.md'
 
 # Git aliases
 alias g='git status' # Really useful!
