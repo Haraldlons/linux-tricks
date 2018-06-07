@@ -4,8 +4,9 @@ read -p "New note name: " note_name
 DATE=`date --date="0 day" +%Y-%m-%d`
 hour_and_minute=$(date|awk '{print $4}')
 underscore="_"
+file_format=".txt"
 
-file_name=$DATE$underscore$note_name
+file_name=$DATE$underscore$note_name$file_format
 mkdir -p ~/notes
 cd ~/notes
 touch $file_name
