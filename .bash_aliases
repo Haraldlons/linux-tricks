@@ -30,6 +30,7 @@ alias note_ros='subl ~/linux-tricks/ros_notes.md'
 alias note_vim='subl ~/linux-tricks/vim_notes.md'
 alias note_latex='subl ~/linux-tricks/latex_notes.md'
 alias note_todo='subl ~/linux-tricks/todo.md'
+alias note_docker='subl ~/linux-tricks/docker_notes.md'
 
 # Git aliases
 alias g='git status' # Really useful!
