@@ -1,3 +1,9 @@
+# Docker Cheat Sheet
+### List all images
+```bash
+
+```
+
 # Spørsmål om Docker:
 
 Har man et eget file-system i image'et?
@@ -68,3 +74,17 @@ Hvor har denne koden blitt laget?
     command:
       - roscore
 Denne kommandoen, er det bash, eller
+
+12
+Jeg kan gjøre mange endringer i docker-compose uten at det får konsekvenser. Hvorfor det?
+Så lenge jeg beholder :       - "ROS_MASTER_URI=http://master:11311"
+...går det bra.
+
+13
+talker_1    | [ INFO] [1528380260.624301343]: hello world 72
+
+talker_1, er det container-navnet?
+
+14
+La oss si at jeg ønsker ros-kinetic på ubuntu, men jeg ønsker å installere noen nye pakker med apt-get. Og så ønsker jeg å lagre dette bildet siden det tar lang tid å installere disse nye pakkene. Kan jeg gjøre det?
+Så jeg kan lage mange versjoner med mange ulike pakker installert. 
