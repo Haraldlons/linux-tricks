@@ -28,6 +28,11 @@ docker tag my_image $DOCKER_ID_USER/my_image
 docker push $DOCKER_ID_USER/my_image
 ```
 
+### Fancy docker building with your ssh-keys
+```bash
+docker build -t example --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --squash .
+```
+
 # Notes
 ~docker-compose -f ~/hello_world/docker-compose.test.yml -p ci build
 -f -> spesifiserer hvor docker-compose filen ligger
