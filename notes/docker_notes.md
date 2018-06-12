@@ -1,8 +1,40 @@
 # Docker Cheat Sheet
 ### List all images
 ```bash
-
+docker images
 ```
+### Show active containers
+docker ps
+- Show 
+~ docker ps
+
+### Show all containers
+~ docker ps -a
+
+### Remove an image
+~ docker ps -a
+~ docker rm <all containers referencing the image>
+~ docker rmi <image>
+
+### Push an image to remote
+```bash
+# 1: Export username
+export DOCKER_ID_USER="haraldlons"
+# 2: Login
+docker login
+# 3: Tag your image
+docker tag my_image $DOCKER_ID_USER/my_image
+# 4: Push to Docker Hub
+docker push $DOCKER_ID_USER/my_image
+```
+
+# Notes
+~docker-compose -f ~/hello_world/docker-compose.test.yml -p ci build
+-f -> spesifiserer hvor docker-compose filen ligger
+-p -> indicate specific project name
+~ docker logs -f ci_sut_1
+Check output of sut container
+
 
 # Spørsmål om Docker:
 
@@ -32,6 +64,10 @@ Så er '.' relativt til dockerfile, mens 'src/beginner_tutorials' i relativt til
 
 
 # Docker Compose
+? Hva er build context?
+? Når skal man bruke build context?
+? It links to the web container so the application container's IP address is accessible to our test.sh script.
+	SÅ man kan kommunisere med den containeren?
 1
 version '3'
 dette sier hvilken versjon av docker compose du bruker?
@@ -88,3 +124,4 @@ talker_1, er det container-navnet?
 14
 La oss si at jeg ønsker ros-kinetic på ubuntu, men jeg ønsker å installere noen nye pakker med apt-get. Og så ønsker jeg å lagre dette bildet siden det tar lang tid å installere disse nye pakkene. Kan jeg gjøre det?
 Så jeg kan lage mange versjoner med mange ulike pakker installert. 
+
