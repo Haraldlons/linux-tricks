@@ -32,6 +32,7 @@ alias note_vim='subl ~/linux-tricks/notes/vim_notes.md'
 alias note_latex='subl ~/linux-tricks/notes/latex_notes.md'
 alias note_todo='subl ~/linux-tricks/notes/todo.md'
 alias note_docker='subl ~/linux-tricks/notes/docker_notes.md'
+alias dv='subl ~/linux-tricks/notes/r18dv_notes.md'
 
 # Git aliases
 alias g='git status' # Really useful!
@@ -46,10 +47,14 @@ alias g-d='git pull' # d for download
 alias g-u='git push' # u for upload
 alias g-v='git remote -v'
 alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com'
+# Pretty git log -> 'git lg'
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 
 # ROS
-alias å='export ROS_IP=192.168.1.100 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
+alias å='export ROS_IP=192.168.1.10 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
+#export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to
+#export ROS_IP=192.168.1.100 # Your own ip
 alias r-l='rostopic list'
 alias r-n='rosnode list'
 alias r-e='rostopic echo $1' #Use: 'r-e /arduino/throttle_setpoint'
@@ -57,9 +62,8 @@ alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
 alias rr='rosrun'
 alias o='atom ~/catkin_ws/src'
 
-# Warning! Use these lines when you want to connect to another computers ROS-network
-#export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to
-#export ROS_IP=192.168.1.100 # Your own ip
+# RevolveDV Router PX connection
+#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
 
 # Catkin
 alias cm='cd ~/catkin_ws && catkin_make && cd -' # You can call 'cm' from wherever you want!
