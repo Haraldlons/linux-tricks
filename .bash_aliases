@@ -23,6 +23,7 @@ alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
 alias new_note='. ~/linux-tricks/scripts/new_note.sh'
 
 # Open notes
+alias notes='subl ~/linux-tricks/notes'
 alias note_linux='subl ~/linux-tricks/notes/linux_notes.md'
 alias note_git='subl ~/linux-tricks/notes/git_notes.md'
 alias note_bash='subl ~/linux-tricks/notes/bash_notes.md'
