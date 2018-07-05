@@ -13,44 +13,42 @@ export ROS_MASTER_URI=http://192.168.1.10:11311
 
 ## Mount TX catkin/src on own pc
 
-'''
+```bash
 mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws
-'''
+```
 
 ## Unmount
-'''
+```bash
 fusermount -u <mountpoint>
-'''
+```
 Sometimes you need to unmount the tx_catkin_ws folder because shit happens
 
 ## See frequence of topic publish
-'''
+```bash
 rostopic hz <topic>
-'''
+```
 
 ### Catkin
 #### Create workspace
-'''
+```bash
 source /opt/ros/kinetic/setup.bash
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
 catkin_make
 source ~/catkin_ws/devel/setup.bash
-'''
-http://wiki.ros.org/catkin/Tutorials/create_a_workspace
-
-
-#### Problems with catkin build
+```
+d
+### Problems with catkin build
 Problem:
-'''
+```bash
 Errors     << catkin_tools_prebuild:cmake /home/harald/catkin_ws/logs/catkin_tools_prebuild/build.cmake.009.log
 ImportError: "from catkin_pkg.package import parse_package" failed: No module named 'catkin_pkg'
 Make sure that you have installed "catkin_pkg", it is up to date and on the PYTHONPATH.
-'''
+```
 
-'''
+```bash
 pip install catkin_pkg
-'''
+```
 I think catkin uses python3 and not 2 which It should
 
 ### CUDA
@@ -91,11 +89,11 @@ rosmsgs show nav_msgs/Odometry
 
 # Bagging
 #### Crop a bag
-```
+```bash
 rosbag filter input.bag output.bag "t.secs <= 1284703931.86"
 ```
 #### Record all topics
-```
+```bash
 rosbag record -a
 ```
 ## Commands
@@ -166,3 +164,21 @@ printenv | grep ROS
 
 ----
 rosrun rosserial_python serial_node.py /dev/ttyACM0
+
+# Questions
+1) 
+target_link_libraries(
+  r18dv_isam2
+  ${catkin_LIBRARIES}
+  ${Boost_LIBRARIES}
+)
+Hva er Boost_LIBRARIES?
+
+
+2) 
+find_package(Boost REQUIRED COMPONENTS)
+find_package, er det dependencies til nodene?
+3)
+
+add_definitions(-std=c++11)
+Er ette på en måte et alias?

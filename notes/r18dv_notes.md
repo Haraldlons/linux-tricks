@@ -3,13 +3,13 @@
 ## If Lidar is not connected
 
 ## Check USB-connections
-```
+```bash
 dmesg --follow
 ```
 
 ## Start CAN
 Use alias 
-```
+```bash
 can2setup
 ```
 Also check that PCAN is connected correctly

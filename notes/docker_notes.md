@@ -1,20 +1,16 @@
 # Docker Cheat Sheet
-### List all images
+### Common Docker commands
 ```bash
-docker images
+docker images # List all images
+docker ps # Show active containers
+docker ps -a # Show all containers
 ```
-### Show active containers
-docker ps
-- Show 
-~ docker ps
-
-### Show all containers
-~ docker ps -a
-
 ### Remove an image
-~ docker ps -a
-~ docker rm <all containers referencing the image>
-~ docker rmi <image>
+```bash
+docker ps -a
+docker rm <all containers referencing the image>
+docker rmi <image>
+```
 
 ## Working with remotes
 
@@ -71,7 +67,9 @@ Check output of sut container
 
 
 ## Install dependencies for pipeline
+```bash
 apt-get install -y libmuparser-dev
+```
 
 
 # Spørsmål om Docker:
