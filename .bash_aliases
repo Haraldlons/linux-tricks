@@ -21,6 +21,8 @@ alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
 alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
 # TODO: alias new_python='. ~/linux-tricks/scripts/new_python_project.sh'
 alias new_note='. ~/linux-tricks/scripts/new_note.sh'
+alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh'
+alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh'
 
 # Open notes
 alias notes='subl ~/linux-tricks/notes'
