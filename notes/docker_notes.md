@@ -1,8 +1,11 @@
 # Docker Cheat Sheet
-### List all images
+### Common Docker commands
 ```bash
-docker images
+docker images # List all images
+docker ps # Show active containers
+docker ps -a # Show all containers
 ```
+<<<<<<< HEAD
 ### Show active containers
 ```bash
 docker ps
@@ -12,12 +15,19 @@ Show all containers
 docker ps -a
 ```
 
+=======
+>>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1
 ### Remove an image
 ```bash
 docker ps -a
 docker rm <all containers referencing the image>
 docker rmi <image>
 ```
+<<<<<<< HEAD
+=======
+
+## Working with remotes
+>>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1
 
 ### Push an image to remote
 ```bash
@@ -31,11 +41,20 @@ docker tag my_image $DOCKER_ID_USER/my_image
 docker push $DOCKER_ID_USER/my_image
 ```
 
+### Pull a image from remote
+```bash
+# docker pull <DOCKER_USER>/<image>
+docker pull haraldlons/pipeline
+```
+
+
+## Docker Building
 ### Fancy docker building with your ssh-keys
 ```bash
 docker build -t example --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --squash .
 ```
 
+<<<<<<< HEAD
 ### Example of building a docker-compose file
 ```bash
 docker-compose -f ~/hello_world/docker-compose.test.yml -p ci build
@@ -69,6 +88,39 @@ docker exec -it <container_id_or_name> echo "Hello from container!"
 docker exec -it <container_id_or_name> bash
 ```
 
+=======
+
+## Docker Running
+### Run a container interactive (with bash)
+```bash
+# docker run -it <image> /bin/bash
+# Example
+docker run -it haraldlons/pipeline /bin/bash
+
+```
+
+### Check version of installed packes with apt-get
+```bash
+apt list --installed
+```
+
+# Notes
+```bash
+docker-compose -f ~/ros-docker-beginner-tutorial/docker-compose.test.yml -p ci build
+```
+-f -> spesifiserer hvor docker-compose filen ligger
+-p -> indicate specific project name
+```bash
+docker logs -f ci_sut_1
+```
+Check output of sut container
+>>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1
+
+
+## Install dependencies for pipeline
+```bash
+apt-get install -y libmuparser-dev
+```
 
 
 # Spørsmål om Docker:
@@ -122,8 +174,6 @@ Dette skjønte jeg ikke.
       - "ROS_MASTER_URI=http://master:11311"
 master er i 'docker-nettverket?'
 
-
-
 7
 Kjøre launch-filer? Er det noe problem?
 8
@@ -160,3 +210,19 @@ talker_1, er det container-navnet?
 La oss si at jeg ønsker ros-kinetic på ubuntu, men jeg ønsker å installere noen nye pakker med apt-get. Og så ønsker jeg å lagre dette bildet siden det tar lang tid å installere disse nye pakkene. Kan jeg gjøre det?
 Så jeg kan lage mange versjoner med mange ulike pakker installert. 
 
+# Flere spørsmål til Marius
+1
+En dockerfil per repo?
+2
+Hvordan bør man sette det opp med travis?
+3
+Når man har gjort endring på et repo, f.eks. i dev branch, hvordan merge-rules bør vi ha?
+4
+Bruker du mye tags?
+5
+Rviz gjennom docker?
+6
+Vanlig rostopic echo <topic>?
+7
+Sammenkobling mellom maskiner med Docker og ROS?
+8

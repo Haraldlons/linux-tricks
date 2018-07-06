@@ -1,10 +1,13 @@
 # Vim 
 
 # Installation
+```bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 >     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+```bash
 sudo apt-get install gnome-tweak-tool -y && gnome-tweak-tool
-
+```
 
 This text file is for adding stuff.
 
@@ -20,7 +23,8 @@ This text file is for adding stuff.
 - b move backward one word.
 - G move to the end of the file.
 - gg move to the beginning of the file.
-- `. move to the last edit.
+- `. move to the last edit.`
+
 
 # Editing
 - d starts the delete operation.
