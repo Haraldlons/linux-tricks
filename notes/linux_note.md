@@ -3,13 +3,6 @@ Made by Harald Lønsethagen, 22.06.2017
 Motivation:
 This is a document with fixes encountered on Ubuntu.
 
-## Latex Fixes
-#### Install norwegian
-Problem: Package babel Error: Unknown option `norsk`.
-- Install latex package
-```
-sudo apt-get install texlive-lang-european
-```
 
 ## Ubuntu - fixes
 #### Restart network service
@@ -31,11 +24,6 @@ sudo tar -xvf filename.tar
 ./setup.sh
 ```
 
-
-#### See bash history
-```
-history
-```
 
 #### Liste alle tastatur og muser
 ```
@@ -166,6 +154,21 @@ pw:
 ==== Brukere
 ssh harald@46.101.198.183
 pw:
+
+
+## Networking and SSH
+
+### Mount TX catkin/src on own pc
+
+```
+mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws
+```
+
+### Unmount
+```
+fusermount -u <mountpoint>
+```
+Sometimes you need to unmount the tx_catkin_ws folder because shit happens
 
 
 ----------------------

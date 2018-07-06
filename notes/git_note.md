@@ -161,7 +161,7 @@ NB: ./bump-version.sh is a shell script which modifies some files to 1.2 and som
 ```
 git checkout master
 git merge --no-ff release-1.2
-git tag -a 1.2
+git tag -a 1.2 	
 ```
 Profit!
 

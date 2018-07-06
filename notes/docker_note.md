@@ -4,20 +4,17 @@
 docker images
 ```
 ### Show active containers
-```bash
 docker ps
-```
-Show all containers
-```bash
-docker ps -a
-```
+- Show 
+~ docker ps
+
+### Show all containers
+~ docker ps -a
 
 ### Remove an image
-```bash
-docker ps -a
-docker rm <all containers referencing the image>
-docker rmi <image>
-```
+~ docker ps -a
+~ docker rm <all containers referencing the image>
+~ docker rmi <image>
 
 ### Push an image to remote
 ```bash
@@ -36,39 +33,18 @@ docker push $DOCKER_ID_USER/my_image
 docker build -t example --build-arg ssh_prv_key="$(cat ~/.ssh/id_rsa)" --build-arg ssh_pub_key="$(cat ~/.ssh/id_rsa.pub)" --squash .
 ```
 
-### Example of building a docker-compose file
+## Docker Running
+### Run with colors
 ```bash
-docker-compose -f ~/hello_world/docker-compose.test.yml -p ci build
-```
-```-f``` -> spesifiserer hvor docker-compose filen ligger
-```-p``` -> indicate specific project name
-
-### Running docker-compose
-```bash
-docker-compose up
+docker run --rm -it -e "TERM=xterm-256color" image bash -l
 ```
 
-### Stopping docker-compose
-```bash
-docker-compose down
-```
-
-### Check output of system under testing container
-```bash
-docker logs -f ci_sut_1
-```
-
-### Running command inside running container
-```bash
-docker exec -it <container_id_or_name> echo "Hello from container!"
-```
-### Running command inside running container after docker-compose up
-
-
-```bash
-docker exec -it <container_id_or_name> bash
-```
-
+# Notes
+~docker-compose -f ~/hello_world/docker-compose.test.yml -p ci build
+-f -> spesifiserer hvor docker-compose filen ligger
+-p -> indicate specific project name
+~ docker logs -f ci_sut_1
+Check output of sut container
 
 
 # Spørsmål om Docker:
