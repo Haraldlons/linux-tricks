@@ -5,9 +5,9 @@
 2 Add Docker credentials
 2.1 [Add Docker Credentials](https://sebest.github.io/post/using-travis-ci-to-build-docker-images/)
 ```bash
-travis encrypt -r github-username/repo DOCKER_EMAIL=haraldlons@gmail.com
-travis encrypt -r github-username/repo DOCKER_USER=haraldlons
-travis encrypt -r github-username/repo DOCKER_PASS=password
+travis encrypt -r RevolveNTNU/r18dv_cone_detection DOCKER_EMAIL=haraldlons@gmail.com --add
+travis encrypt -r RevolveNTNU/r18dv_cone_detection DOCKER_USER=haraldlons --add
+travis encrypt -r RevolveNTNU/r18dv_cone_detection DOCKER_PASS=password --add
 ```
 Add these credentials to the .travis.yml file with env: global: -secure:<key>
 3 Add GitHub Credentials
@@ -16,7 +16,7 @@ Add these credentials to the .travis.yml file with env: global: -secure:<key>
 ```bash
 # cd to repository
 cd /r18dv_pipeline/r18dv_utils
-travis encrypt -r user/repo 'GITHUB_SECRET_TOKEN=<your token>' --add
+travis encrypt -r RevolveNTNU/r18dv_cone_detection 'GITHUB_SECRET_TOKEN=<your token>' --add
 ```
 4 Go to Jenkins, go to revolve page. Next to 'GitHub Apps Integration
 ' press the 'Manage repositories on GitHub'. Then add the repo to use the [Jenkins app](https://github.com/organizations/RevolveNTNU/settings/installations/214128#url/ )

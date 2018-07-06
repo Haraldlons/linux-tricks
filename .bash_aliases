@@ -112,9 +112,38 @@ alias didrik='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_indiv
 alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
 
 
-# Computer Architecture TDT4260
-alias ca-ssh='ssh leskraas@tdt4260-leskraas.idi.ntnu.no'
-alias ca-sync='sshfs leskraas@tdt4260-leskraas.idi.ntnu.no:/opt/framework ~/Documents/01\ -\ Datamaskinarkitektur/ntnu-server/'
+# --------------- Functions -----------------
 
-# Design of digital systems
+function lazy() {
+	# Use: lazy "this is a commit message" 
+	# Will git add everyting in current repo, commit with attached message, and then push
+	# Both failed and successfull execution will be notified to user by using notify-send
 
+	echo "Running Git task in background..."
+	function supress() {
+			if [ -z "$(git add .)" ]; then 
+				echo "'Git add .' succeeded"
+			    if [[ "$( git commit -m "$1" )" == *"changed"* ]]; then
+					# echo "'Git commit -m $1' succeeded"
+					GIT_PUSH_OUTPUT_FILEPATH=git_push_output.txt
+					git push &> $GIT_PUSH_OUTPUT_FILEPATH
+					if grep -q "failed" "$GIT_PUSH_OUTPUT_FILEPATH"; then
+						# echo "Git push failed"
+			    		notify-send -t 15000 -u critical -i ~/linux-tricks/templates/icons/fail.jpeg "Git Push Failed!" "$(echo -e "Failed to push changes to GitHub. You should pull before you push. Current folder: \n$(echo $(pwd))" )"
+					else
+						# echo "Git push succeeded"
+			    		notify-send -t 15000 -u critical -i ~/linux-tricks/templates/icons/accept.png "Git Push Succeeded!" "$(echo -e "Successfully added, commited and pushed all changes to github in folder: \n$(echo $(pwd))" )"
+					fi
+					rm $GIT_PUSH_OUTPUT_FILEPATH
+				else
+					# echo "No files to commit"
+				    notify-send -t 15000 -u critical -i ~/linux-tricks/templates/icons/fail.jpeg "No files to commit" "Seems like all files have already been commited in folder:\n $(echo $(pwd))"
+			    fi
+			else
+				# echo "'Git add .' failed"
+			    notify-send -t 15000 -u critical -i ~/linux-tricks/templates/icons/fail.png "'Git add .' failed" "Something went wrong when adding"
+			fi
+	}
+	(supress "$1" > /dev/null 2>&1 &)
+	# Took me like 5 hours to properly supress function output while still passing git commit message
+}
