@@ -4,7 +4,7 @@ alias la='ls -alhG'
 alias l='ls -lhG'
 alias ..='cd ..'
 alias c='clear'
-alias s='source ~/.bashrc && source ~/catkin_ws/devel/setup.bash'
+alias s='source ~/.bashrc && source_catkin_setup_bash_if_exist'
 #alias s='source ~/.bashrc'
 alias b='vim ~/.bashrc'
 alias bb='vim ~/linux-tricks/.bash_aliases'
@@ -146,4 +146,10 @@ function lazy() {
 	}
 	(supress "$1" > /dev/null 2>&1 &)
 	# Took me like 5 hours to properly supress function output while still passing git commit message
+}
+
+function source_catkin_setup_bash_if_exist(){
+	if [ -f $HOME/catkin_ws/devel/setup.bash ]; then
+		source $HOME/catkin_ws/devel/setup.bash
+	fi
 }
