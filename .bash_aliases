@@ -1,5 +1,5 @@
 # RevolveDV Router PX connection
-export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
+#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
 
 # General aliases
 alias ll='ls -alF'
@@ -118,11 +118,12 @@ alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individua
 
 
 # --------------- Functions -----------------
-
 function lazy() {
 	# Use: lazy "this is a commit message" 
 	# Will git add everyting in current repo, commit with attached message, and then push
 	# Both failed and successfull execution will be notified to user by using notify-send
+	# TODO: Pull and push
+	# TODO: Add all files and commit all and list all files commited when pushing in notification
 
 	echo "Running Git task in background..."
 	function supress() {
