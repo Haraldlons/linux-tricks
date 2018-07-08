@@ -1,7 +1,7 @@
 # RevolveDV Router PX connection
 #export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
 
-# General aliases
+# ------- General aliases --------
 alias ll='ls -alF'
 alias la='ls -alhG'
 alias l='ls -lhG'
@@ -46,7 +46,7 @@ alias g='git status' # Really useful!
 alias g-s='git status'
 alias g-a='git add' # Ex: 'git add main.cpp'
 alias g-aa='git add *' # Caution! This adds all files
-alias g-a-a='git add *' #WARNING! This add all files
+alias g-a-a='git add *' # Caution! This adds all files
 alias g-c='git commit -m' #Ex: 'g-c "This is a commit message"'
 alias g-r='git reset' # Not testet yet
 alias g-dd='git diff' # Not tested yet, but should be 'g-dd main.py'
@@ -56,6 +56,7 @@ alias g-v='git remote -v'
 alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com'
 # Pretty git log -> 'git lg'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global status.submoduleSummary true 
 
 
 # ROS
