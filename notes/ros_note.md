@@ -1,18 +1,37 @@
 # ROS Notes
 
-## Commands
+# Tricks
 ### Get on another ROS-network
 http://inertia.ed.ntnu.no:8090/display/DRIV/How+to+set+up+and+use+SSH+on+Jetson+TX1
-1.
+```bash
 export ROS_IP=192.168.1.<your-own-ip>
-2. export ros master uri
 export ROS_MASTER_URI=http://192.168.1.10:11311
-## Test - delete this
+```
 
-## Another test
+# Testing
+## Running .test launch file
+```bash
+rostest --text rosaria_client yaw_controller_test.test
+```
 
-## Mount TX catkin/src on own pc
+<<<<<<< HEAD:notes/ros_note.md
+## Compiling tests for only one package
+```bash
+catkin_make run_tests_packageName
+```
+NB: This will not compile the node under test.
 
+## Print results of latest test
+```bash
+cd ~/catkin_ws
+catkin_test_results
+```
+or
+```bash
+catkin_test_results --verbose ~/catkin_ws
+```
+
+=======
 ```bash
 mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws
 ```
@@ -27,26 +46,59 @@ Sometimes you need to unmount the tx_catkin_ws folder because shit happens
 ```bash
 rostopic hz <topic>
 ```
+>>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1:notes/ros_notes.md
 
-### Catkin
+## Catkin
 #### Create workspace
+<<<<<<< HEAD:notes/ros_note.md
+```
+=======
 ```bash
+>>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1:notes/ros_notes.md
 source /opt/ros/kinetic/setup.bash
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/
 catkin_make
 source ~/catkin_ws/devel/setup.bash
 ```
+<<<<<<< HEAD:notes/ros_note.md
+http://wiki.ros.org/catkin/Tutorials/create_a_workspace
+
+#### Build only one package
+```bash
+# First option
+catkin_make --pkg ros_comm
+# Second option. Packages seperated with ";"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="foo;bar"
+# Be awere you have to erase the list
+catkin_make -DCATKIN_WHITELIST_PACKAGES=""
+```
+#### Build all packages except one
+```bash
+catkin_make -DCATKIN_BLACKLIST_PACKAGES="r18dv_isam2;bar"
+# Clean the list afterwards
+catkin_make -DCATKIN_BLACKLIST_PACKAGES=""
+```
+
+#### Problems with catkin build
+Problem:
+```
+=======
 d
 ### Problems with catkin build
 Problem:
 ```bash
+>>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1:notes/ros_notes.md
 Errors     << catkin_tools_prebuild:cmake /home/harald/catkin_ws/logs/catkin_tools_prebuild/build.cmake.009.log
 ImportError: "from catkin_pkg.package import parse_package" failed: No module named 'catkin_pkg'
 Make sure that you have installed "catkin_pkg", it is up to date and on the PYTHONPATH.
 ```
 
+<<<<<<< HEAD:notes/ros_note.md
+```
+=======
 ```bash
+>>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1:notes/ros_notes.md
 pip install catkin_pkg
 ```
 I think catkin uses python3 and not 2 which It should
@@ -96,65 +148,6 @@ rosbag filter input.bag output.bag "t.secs <= 1284703931.86"
 ```bash
 rosbag record -a
 ```
-## Commands
-1. printe alle noder
-rosnode list
-2. PROFIT!
-------
-1. printe alle topics
-rostopic list
-2. PROFIT!
-------
-1. Detaljert info om en node
-rosnode info /some_node
-2. PROFIT!
-------
-1. Se alle noder som publisher og subscriber til en node
-rostopic info /some_topic
-2. PROFIT!
-------
-1. Printe ut data som blir published på et topic
-rostopic echo /some_topic
-2. PROFIT!
------
-1. Sende data på en topic
-rostopic pub /some_topic msg/MessageType "data: value"
-2. PROFIT
-(formated by yamel. Use tab completion)
-
-
-
-## General notes
-All nodes listen to all topics
-All nodes can publish on all topics
-All topics are of a particular type
-
-Message
-	Allows nodes written i c++ and python to communicate with each other
-	Defined in a .msg file - special format
-	Must be compiled into C++ / Python classes before using them
-
-ROS master
-	Need one ROS master to make it work
-
-	Keep track of all nodes,
-	which node is publishing to which topics
-	which node is subscribed to which topics
-
-	ROS is just keeping track of meta information
-		What they are publishing
-		IP-adresses
-
-	running in known IP-address - ROS_MASTER_URI - localhost:11311 - default port number
-
-	All other nodes port number random
-
-	Start two ways
-	roscore - just ros master
-	roslaunch and isn't roscore running will start roscore automaticly
-
-	roscore - recommended
-
 
 ## Environment
 Ensure tha environment variables are set:

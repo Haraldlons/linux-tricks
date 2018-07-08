@@ -1,3 +1,6 @@
+# RevolveDV Router PX connection
+#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
+
 # General aliases
 alias ll='ls -alF'
 alias la='ls -alhG'
@@ -14,7 +17,7 @@ alias h='history'
 alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
 alias myip="curl http://ipecho.net/plain; echo"
-alias xopen='xdg-open $1'
+alias xo='xdg-open $1'
 
 # Generate project from template
 alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
@@ -25,17 +28,18 @@ alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh'
 alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh'
 
 # Open notes
-alias notes='subl ~/linux-tricks/notes'
+alias notes='subl ~/linux-tricks/notes/'
 alias note_linux='subl ~/linux-tricks/notes/linux_notes.md'
-alias note_git='subl ~/linux-tricks/notes/git_notes.md'
-alias note_bash='subl ~/linux-tricks/notes/bash_notes.md'
-alias note_python='subl ~/linux-tricks/notes/python_notes.md'
-alias note_ros='subl ~/linux-tricks/notes/ros_notes.md'
-alias note_vim='subl ~/linux-tricks/notes/vim_notes.md'
-alias note_latex='subl ~/linux-tricks/notes/latex_notes.md'
-alias note_todo='subl ~/linux-tricks/notes/todo.md'
-alias note_docker='subl ~/linux-tricks/notes/docker_notes.md'
-alias dv='subl ~/linux-tricks/notes/r18dv_notes.md'
+alias linux_note='subl ~/linux-tricks/notes/linux_note.md'
+alias git_note='subl ~/linux-tricks/notes/git_note.md'
+alias bash_note='subl ~/linux-tricks/notes/bash_note.md'
+alias python_note='subl ~/linux-tricks/notes/python_note.md'
+alias ros_note='subl ~/linux-tricks/notes/ros_note.md'
+alias vim_note='subl ~/linux-tricks/notes/vim_note.md'
+alias latex_note='subl ~/linux-tricks/notes/latex_note.md'
+alias todo='subl ~/linux-tricks/notes/todo.md'
+alias docker_note='subl ~/linux-tricks/notes/docker_note.md'
+alias dv='subl ~/linux-tricks/notes/r18dv_note.md'
 
 # Git aliases
 alias g='git status' # Really useful!
@@ -54,9 +58,11 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
 
 # ROS
+alias killros='killall -9 roscore && killall -9 rosmaster'
 alias å='export ROS_IP=192.168.1.10 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
-#export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to
+#export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to 
 #export ROS_IP=192.168.1.100 # Your own ip
+
 alias r-l='rostopic list'
 alias r-n='rosnode list'
 alias r-e='rostopic echo $1' #Use: 'r-e /arduino/throttle_setpoint'
@@ -64,8 +70,7 @@ alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
 alias rr='rosrun'
 alias o='atom ~/catkin_ws/src'
 
-# RevolveDV Router PX connection
-#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
+
 
 # Catkin
 alias cm='cd ~/catkin_ws && catkin_make && cd - && notification "Catkin_Make Finished" "catkin_make has finished. Return to terminal to see output" 15 "accept.png"' # You can call 'cm' from wherever you want!
@@ -78,7 +83,7 @@ alias g-simnodes='roslaunch r18dv_rc_launch sim_nodes.launch'
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/models
 
 # SSH
-alias ø='ssh nvidia@192.168.1.10' #SSH to NVIDIA Jetson TX1
+alias ø='ssh nvidia@10.19.1.10' #SSH to NVIDIA Jetson TX1
 alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
 
 ## Harald's personal aliases
@@ -111,12 +116,13 @@ alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individua
 
 
 # --------------- Functions -----------------
-
 function lazy() {
 	# Use: lazy "this is a commit message" 
 	# Or just: lazy # This will generate default commit message
 	# Will git add everyting in current repo, commit with attached message, and then push
 	# Both failed and successfull execution will be notified to user by using notify-send
+	# TODO: Pull and push
+	# TODO: Add all files and commit all and list all files commited when pushing in notification
 
 	# TODO: Only first word of commit message gets passed unfortunately
 	echo "Running Git task in background..."
