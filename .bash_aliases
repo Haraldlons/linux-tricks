@@ -41,7 +41,7 @@ alias todo='subl ~/linux-tricks/notes/todo.md'
 alias docker_note='subl ~/linux-tricks/notes/docker_note.md'
 alias dv='subl ~/linux-tricks/notes/r18dv_note.md'
 
-# Git aliases
+# -------- Git --------
 alias g='git status' # Really useful!
 alias g-s='git status'
 alias g-a='git add' # Ex: 'git add main.cpp'
@@ -58,25 +58,20 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 git config --global status.submoduleSummary true 
 
 
-# ROS
+# -------- ROS --------
 alias killros='killall -9 roscore && killall -9 rosmaster'
 alias å='export ROS_IP=192.168.1.10 && export ROS_MASTER_URI=http://192.168.1.10:11311/'
-#export ROS_MASTER_URI=http://192.168.1.10:11311 # IP to computer connecting to 
-#export ROS_IP=192.168.1.100 # Your own ip
-
 alias r-l='rostopic list'
 alias r-n='rosnode list'
 alias r-e='rostopic echo $1' #Use: 'r-e /arduino/throttle_setpoint'
 alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
 alias rr='rosrun'
-alias o='atom ~/catkin_ws/src'
+alias o='subl ~/catkin_ws/src'
 
-
-
-# Catkin
+# -------- Catkin --------
 alias cm='cd ~/catkin_ws && catkin_make && cd - && notification "Catkin_Make Finished" "catkin_make has finished. Return to terminal to see output" 15 "accept.png"' # You can call 'cm' from wherever you want!
 
-# Gazebo
+# -------- Gazebo --------
 alias gf='killall gzserver && killall gzclient'
 alias g-reset='rostopic pub /throttle_setpoint std_msgs/UInt16 "data: 0" && sleep 0.5s && rosservice call /gazebo/reset_world'
 alias gr='rosservice call /gazebo/set_model_state "{model_state: { model_name: rc_car, pose: { position: { x: 0, y: 0 ,z: 0.2 }, orientation: {x: 0, y: 0, z: 0, w: 1 } }, twist: { linear: {x: 0.0 , y: 0 ,z: 0 } , angular: { x: 0.0 , y: 0 , z: 0.0 } } , reference_frame: world } }" && rosservice call /gazebo/reset_world'
@@ -87,10 +82,8 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/mod
 alias ø='ssh nvidia@10.19.1.10' #SSH to NVIDIA Jetson TX1
 alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
 
-## Harald's personal aliases
+## --------  Harald's Personal -------- 
 alias tidal='cd ~/programs/tidal-music-linux && npm start'
-
-# Easy navigation of folders
 alias cdu='cd ~/linux-tricks'
 alias cdus='subl ~/linux-tricks'
 alias cdc='cd ~/catkin_ws/src/'
@@ -99,9 +92,8 @@ alias cdr='cd ~/revolve_ntnu_team_2018'
 alias cdrs='subl ~/revolve_ntnu_team_2018'
 
 # To run special programs
-#alias note='python ~/coding/dv_useful_scripts/make_new_note.py'
-# alias harald='cd ~/coding/pythonFun/pygame && python main.py && cd ~' #Yes, it's a bad alias...
-alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' #Personal for setting Bose QC35 as main sound unit
+# alias harald='python ~/coding/pythonFun/pygame/main.py'
+alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' # Set Bose QC35 as main sound unit
 
 # Open notes
 alias øystein='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/øystein_member_profile.txt'
@@ -110,7 +102,6 @@ alias edvard='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_indiv
 alias morten='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/morten_member_profile.txt'
 alias paul='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/paul_member_profile.txt'
 alias sondre='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/sondre_member_profile.txt'
-
 alias mathias='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
 alias didrik='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
 alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
@@ -290,7 +281,7 @@ function notification(){
 	# Displays notification in top right corner. Very pretty
 	# Use: notification <title> <message> <display_time> <icon>
 	# Ex: notification "Git Push Successfull" "A git push has been conducted successfully in the background" 5 "accept.png"
-	if [ $# -eq 4 ]
+	if [ $# -eq 4 ] # TODO: Use else if
 	then 
 		# echo "hello"
 	  	TITLE=$1
@@ -326,7 +317,7 @@ function notification(){
 	  		fi
 		fi
 	fi
-	notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
+	notify-send -t $SECONDS_DISPLAYED -u low -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
 	# $(echo $(pwd))
 
 	# EXTRA INFO
