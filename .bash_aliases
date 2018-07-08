@@ -7,7 +7,7 @@ alias la='ls -alhG'
 alias l='ls -lhG'
 alias ..='cd ..'
 alias c='clear'
-alias s='source ~/.bashrc && source ~/catkin_ws/devel/setup.bash'
+alias s='source ~/.bashrc && source_catkin_setup_bash_if_exist'
 #alias s='source ~/.bashrc'
 alias b='vim ~/.bashrc'
 alias bb='vim ~/linux-tricks/.bash_aliases'
@@ -54,7 +54,6 @@ alias g-d='git pull' # d for download
 alias g-u='git push' # u for upload
 alias g-v='git remote -v'
 alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com'
-# Pretty git log -> 'git lg'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global status.submoduleSummary true 
 
@@ -75,8 +74,7 @@ alias o='atom ~/catkin_ws/src'
 
 
 # Catkin
-alias cm='cd ~/catkin_ws && catkin_make && cd -' # You can call 'cm' from wherever you want!
-
+alias cm='cd ~/catkin_ws && catkin_make && cd - && notification "Catkin_Make Finished" "catkin_make has finished. Return to terminal to see output" 15 "accept.png"' # You can call 'cm' from wherever you want!
 
 # Gazebo
 alias gf='killall gzserver && killall gzclient'
@@ -102,7 +100,7 @@ alias cdrs='subl ~/revolve_ntnu_team_2018'
 
 # To run special programs
 #alias note='python ~/coding/dv_useful_scripts/make_new_note.py'
-alias harald='cd ~/coding/pythonFun/pygame && python main.py && cd ~' #Yes, it's a bad alias...
+# alias harald='cd ~/coding/pythonFun/pygame && python main.py && cd ~' #Yes, it's a bad alias...
 alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' #Personal for setting Bose QC35 as main sound unit
 
 # Open notes
@@ -121,36 +119,225 @@ alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individua
 # --------------- Functions -----------------
 function lazy() {
 	# Use: lazy "this is a commit message" 
+	# Or just: lazy # This will generate default commit message
 	# Will git add everyting in current repo, commit with attached message, and then push
 	# Both failed and successfull execution will be notified to user by using notify-send
 	# TODO: Pull and push
 	# TODO: Add all files and commit all and list all files commited when pushing in notification
 
+	# TODO: Only first word of commit message gets passed unfortunately
 	echo "Running Git task in background..."
 	function supress() {
-			if [ -z "$(git add .)" ]; then 
-				echo "'Git add .' succeeded"
-			    if [[ "$( git commit -m "$1" )" == *"changed"* ]]; then
-					# echo "'Git commit -m $1' succeeded"
-					GIT_PUSH_OUTPUT_FILEPATH=git_push_output.txt
-					git push &> $GIT_PUSH_OUTPUT_FILEPATH
-					if grep -q "failed" "$GIT_PUSH_OUTPUT_FILEPATH"; then
-						# echo "Git push failed"
-			    		notify-send -t 15000 -u critical -i ~/linux-tricks/templates/icons/fail.jpeg "Git Push Failed!" "$(echo -e "Failed to push changes to GitHub. You should pull before you push. Current folder: \n$(echo $(pwd))" )"
-					else
-						# echo "Git push succeeded"
-			    		notify-send -t 15000 -u critical -i ~/linux-tricks/templates/icons/accept.png "Git Push Succeeded!" "$(echo -e "Successfully added, commited and pushed all changes to github in folder: \n$(echo $(pwd))" )"
-					fi
-					rm $GIT_PUSH_OUTPUT_FILEPATH
-				else
-					# echo "No files to commit"
-				    notify-send -t 15000 -u critical -i ~/linux-tricks/templates/icons/fail.jpeg "No files to commit" "Seems like all files have already been commited in folder:\n $(echo $(pwd))"
-			    fi
+		TITLE=""
+		MESSAGE=""
+		SECONDS_DISPLAYED=15
+		if ! doesCommandOutputString "git add ." "fatal"; then 
+			echo "Git add . succeeded"
+		if [[ $# -eq 0 ]]; then
+			echo "Did not get commit message"
+			COMMIT_MESSAGE="Im Lazy"
+		else
+			echo "Did get commit message"
+			COMMIT_MESSAGE="$1"
+		fi
+			if doesCommandOutputString 'git commit -m "$COMMIT_MESSAGE"' "changed"; then
+				MESSAGE="New changes commited"
+				echo $MESSAGE
 			else
-				# echo "'Git add .' failed"
-			    notify-send -t 15000 -u critical -i ~/linux-tricks/templates/icons/fail.png "'Git add .' failed" "Something went wrong when adding"
+				MESSAGE="Nothing new to commit"
+				echo $MESSAGE
 			fi
+			LATEST_COMMIT_INFO="$(git show --stat --oneline HEAD)"
+			MESSAGE="$MESSAGE\n\n$LATEST_COMMIT_INFO"
+			if doesCommandOutputString "git push" "error"; then
+				MESSAGE="Git push rejected. Pulling first"
+				echo $MESSAGE
+				if doesCommandOutputString "git pull" "CONFLICT"; then
+					TITLE="Merge conflict detected"
+					MESSAGE="$MESSAGE\nGit pull resulted in merge conflict. Please resolve manually!"
+					ICON="fail.jpeg"
+				else
+					if doesCommandOutputString "git push" "rejected"; then
+						TITLE="FUCKED"
+					else
+						TITLE="Git Add, Commit and Push Succeeded"
+						MESSAGE="$MESSAGE\nGit push succeeded, just had to pull first"
+						ICON="accept.png"
+					fi
+				fi
+			else
+				echo "GIT PUSH Succeeded FIRST TIME"
+				TITLE="Git Add, Commit and Push Succeeded"
+				MESSAGE="$MESSAGE\nGit push succeeded"
+				ICON="accept.png"
+			fi
+		else
+			echo "git add failed"
+			TITLE="Git Add failed"
+			MESSAGE="Are you sure you are in a Git Repository?"
+			ICON="pling.png"
+		fi
+		notification "$TITLE" "$MESSAGE" $SECONDS_DISPLAYED "$ICON"
 	}
-	(supress "$1" > /dev/null 2>&1 &)
+	(supress $1 > /dev/null 2>&1 &)
+	# (supress $1)
 	# Took me like 5 hours to properly supress function output while still passing git commit message
 }
+
+function doesCommandOutputString(){
+	# Check if Command will echo out anything containing String
+	# So much sweat to make this simple function...
+	COMMAND=$1
+	STRING=$2
+	# isInFile=$( $(eval $COMMAND) | grep -c $STRING)
+	touch log
+	eval $COMMAND >> log 2>&1
+	isInFile=$(cat log | grep -c $STRING)
+	if [ $isInFile -eq 0 ]; then
+		git reset log
+	  	rm log
+	  	false
+	else
+		git reset log
+	  	rm log
+	  	true
+	fi
+}
+
+function unitTests(){
+	echo "UNIT-TESTS"
+	echo "Tests for 'doesCommandOutputString"
+	cd ~/Documents/tpk4141-studass
+	doesCommandOutputString "git push" "To"
+	if [ $? -eq 0 ]; then 
+		echo "PASS:"
+	else
+		echo "FAIL:"
+	fi
+
+	doesCommandOutputString "git push" "To"
+	if ! doesCommandOutputString "git push" "To" ; then 
+		echo "FAIL:"
+	else
+		echo "PASS:"
+	fi
+
+	doesCommandOutputString "git push" "Tfdso"
+	if [ $? -eq 0 ]; then 
+		echo "FAIL:"
+	else
+		echo "PASS:"
+	fi
+
+	doesCommandOutputString "git push" "error"
+	if [ $? -eq 0 ]; then 
+		echo "PASS:"
+	else
+		echo "FAIL:"
+	fi
+
+	doesCommandOutputString "git push" "failed"
+	if [ $? -eq 0 ]; then 
+		echo "PASS:"
+	else
+		echo "FAIL:"
+	fi
+
+	doesCommandOutputString "git push" "rejected"
+	if [ $? -eq 0 ]; then 
+		echo "PASS:"
+	else
+		echo "FAIL:"
+	fi
+
+	doesCommandOutputString "git push" "rejefdsacted"
+	if [ $? -eq 0 ]; then 
+		echo "FAIL:"
+	else
+		echo "PASS:"
+	fi
+
+	# doesCommandOutputString "git push" "rejefdsacted"
+	if doesCommandOutputString "git push" "dthisfdsafs"; then 
+		echo "FAIL:"
+	else
+		echo "PASS:"
+	fi
+
+	if doesCommandOutputString "git push" "To"; then 
+		echo "PASS:"
+	else
+		echo "FAIL:"
+	fi
+
+	cd ~
+	if doesCommandOutputString "git add ." "fatal"; then 
+		echo "PASS:"
+	else
+		echo "FAIL:"
+	fi
+
+	if doesCommandOutputString "git add ." "fatfdsafdsafadsal"; then 
+		echo "FAIL:"
+	else
+		echo "PASS:"
+	fi
+}
+
+
+# Print notification function
+function notification(){
+	# Displays notification in top right corner. Very pretty
+	# Use: notification <title> <message> <display_time> <icon>
+	# Ex: notification "Git Push Successfull" "A git push has been conducted successfully in the background" 5 "accept.png"
+	if [ $# -eq 4 ]
+	then 
+		# echo "hello"
+	  	TITLE=$1
+	  	MESSAGE=$2
+		SECONDS_DISPLAYED=$( expr $3 \* 1000 ) # $3 = seconds
+		ICON=$4
+	else
+		ICON="pling.png"
+		if [ $# -eq 3 ]
+		  then 
+		  	echo "Got only 3 arguments, using default logo"
+		  	TITLE=$1
+		  	MESSAGE=$2
+			SECONDS_DISPLAYED=$( expr $3 \* 1000 ) # $3 = seconds	
+		else
+			SECONDS_DISPLAYED=$( expr 2 \* 1000 ) 	
+			if [ $# -eq 2 ]
+		  	then
+				echo "Got only 2 arguments, using default logo and 10 sec timeout"
+
+				TITLE=$1
+	  			MESSAGE=$2
+	  		else
+	  			MESSAGE="You got a notification!"
+	  			if [ $# -eq 1 ]
+	  			then
+	  				echo "Got only 1 argument"
+	  				TITLE=$1
+	  			else
+	  				echo "Did not get any arguments. Displaying default notification"
+	  				TITLE="Notification!"
+	  			fi
+	  		fi
+		fi
+	fi
+	notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
+	# $(echo $(pwd))
+
+	# EXTRA INFO
+	# - Icons located in linux-tricks/templates/icons
+	# - On my machine I have to use the 'critical' tag, if not the notification is not allways displayed
+}
+
+
+function source_catkin_setup_bash_if_exist(){
+	if [ -f $HOME/catkin_ws/devel/setup.bash ]; then
+		source $HOME/catkin_ws/devel/setup.bash
+	fi
+}
+
