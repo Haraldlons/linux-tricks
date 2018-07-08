@@ -118,6 +118,7 @@ function lazy() {
 	# Will git add everyting in current repo, commit with attached message, and then push
 	# Both failed and successfull execution will be notified to user by using notify-send
 
+	# TODO: Only first word of commit message gets passed unfortunately
 	echo "Running Git task in background..."
 	function supress() {
 		TITLE=""
