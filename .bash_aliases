@@ -281,30 +281,6 @@ function unitTests(){
 	else
 		echo "PASS:"
 	fi
-
-
-	# echo "TESTING HARALD"
-	# STRING="rejected"
-	# harald $STRING "git push"
-	# if [ $? -eq 0 ]; then
-	# 	echo "$STRING found in the file"
-	# else
-	# 	echo "$STRING not found in the file"
-	# fi
-	# STRING="rejecdsted"
-	# harald $STRING "git push"
-	# if [ $? -eq 0 ]; then
-	# 	echo "$STRING found in the file"
-	# else
-	# 	echo "$STRING not found in the file"
-	# fi
-
-	# STRING="rrejed"
-	# if [[ harald $STRING -eq 0 ]]; then
-	# 	echo "$STRING found in the file"
-	# else
-	# 	echo "$STRING not found in the file"
-	# fi
 }
 
 
