@@ -178,3 +178,8 @@ Estimerer i tillegg friksjonskoeffisientene.
 Har en god del dev og debug bolker.
 Må sende debug-informasjon riktig sted. Sende ut på riktige kanaler i steden for å lese ut direkte.
 
+
+
+<!-- Engineering design -->
+
+Ha en fortelling. Ha med fortelling.
