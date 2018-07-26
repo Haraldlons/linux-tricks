@@ -287,6 +287,7 @@ function notification(){
 	  	TITLE=$1
 	  	MESSAGE=$2
 		SECONDS_DISPLAYED=$( expr $3 \* 1000 ) # $3 = seconds
+		TIMEOUT=7
 		ICON=$4
 	else
 		ICON="pling.png"
@@ -296,8 +297,9 @@ function notification(){
 		  	TITLE=$1
 		  	MESSAGE=$2
 			SECONDS_DISPLAYED=$( expr $3 \* 1000 ) # $3 = seconds	
+			# TIMEOUT=$3
 		else
-			SECONDS_DISPLAYED=$( expr 2 \* 1000 ) 	
+			SECONDS_DISPLAYED=$( expr 7 \* 1000 ) 	
 			if [ $# -eq 2 ]
 		  	then
 				echo "Got only 2 arguments, using default logo and 10 sec timeout"
@@ -317,7 +319,12 @@ function notification(){
 	  		fi
 		fi
 	fi
-	notify-send -t $SECONDS_DISPLAYED -u low -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
+
+	
+		# $( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
+	 # 	$( sleep $s3 && pkill notify-osd) )
+	# TODO: Correct timeout duration
+	($( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE" && $( sleep 6 && pkill notify-osd) ) > /dev/null 2>&1 &)
 	# $(echo $(pwd))
 
 	# EXTRA INFO
