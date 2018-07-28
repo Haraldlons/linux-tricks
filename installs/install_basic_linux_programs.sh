@@ -9,6 +9,7 @@ sudo apt-get --assume-yes install tmux
 sudo apt-get --assume-yes install tilda
 sudo apt-get --assume-yes install vim 
 sudo apt-get --assume-yes install compiz-plugins
+sudo apt-get --assume-yes install tig
 ./install_sublime.sh
 ../scripts/copy-sublime-settings.sh
 ../scripts/copy-sublime-keymap.sh
