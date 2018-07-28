@@ -30,7 +30,7 @@ viz
 ### Github User
 
 Username: revolvedriverless
-Password: Driverless2018
+Password: D....
 
 ### RevolveDV Router wifi-password
 Username: RevolveDV

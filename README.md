@@ -4,7 +4,7 @@ By: Harald Lønsethagen
 
 ## How to install
 There is not really anything to install, but I have made many aliases very useful when using Linux. You can add them by typing the following in the terminal
-```
+```bash
 cd ~
 git clone https://github.com/Haraldlons/linux-tricks.git
 echo "source ~/linux-tricks/.bash_aliases" >> ~/.bashrc
