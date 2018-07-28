@@ -10,4 +10,4 @@ sudo apt-get --assume-yes install tilda
 sudo apt-get --assume-yes install vim 
 sudo apt-get --assume-yes install compiz-plugins
 ./install_sublime.sh
-
+../scripts/copy-sublime-settings.sh
