@@ -11,3 +11,4 @@ sudo apt-get --assume-yes install vim
 sudo apt-get --assume-yes install compiz-plugins
 ./install_sublime.sh
 ../scripts/copy-sublime-settings.sh
+../scripts/copy-sublime-keymap.sh
