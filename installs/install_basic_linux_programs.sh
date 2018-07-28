@@ -5,9 +5,9 @@
 sudo apt-get update
 sudo apt-get --assume-yes install git
 sudo apt-get --assume-yes install sshfs # 'link' folder from ssh
+sudo apt-get --assume-yes install tmux
+sudo apt-get --assume-yes install tilda
+sudo apt-get --assume-yes install vim 
+sudo apt-get --assume-yes install compiz-plugins
 ./install_sublime.sh
 
-sudo apt-get install sshfs  # Being able to 'link' folder from ssh to your local machine. 
-							# You can then e.g. open sublime on local machine and when you
-							# save it will be updated on server
-sudo apt-get update && sudo apt-get install compiz-plugins
