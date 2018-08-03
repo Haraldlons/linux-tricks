@@ -87,6 +87,7 @@ alias ø='ssh nvidia@10.19.1.10' #SSH to NVIDIA Jetson TX1
 if $(echo $IWantHaraldsPersonalAliases) == true; 
 then 
 	# Adding Harald's personal alises
+	alias clion="~/programs/clion-2018.2/bin/clion.sh"
 	alias tidal='cd ~/programs/tidal-music-linux && npm start'
 	alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
 	alias cdu='cd ~/linux-tricks'
