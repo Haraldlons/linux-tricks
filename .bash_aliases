@@ -2,20 +2,24 @@
 #export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
 
 # ------- General aliases --------
-alias ll='ls -alF'
-alias la='ls -alhG'
+
+# Most used aliases
 alias l='ls -lhG'
 alias ..='cd ..'
 alias c='clear'
+alias bb='vim ~/linux-tricks/.bash_aliases' # Open this file in vim for easy editing
 alias s='source ~/.bashrc && source_catkin_setup_bash_if_exist'
-#alias s='source ~/.bashrc'
 alias b='vim ~/.bashrc'
-alias bb='vim ~/linux-tricks/.bash_aliases'
+alias g='git status' # Really useful!
+
+
+alias la='ls -alhG'
+#alias s='source ~/.bashrc'
 alias bbb='vim ~/linux-tricks/useful_programs.sh'
 alias bbb_i='~/linux-tricks/useful_programs.sh'
 alias h='history'
 alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
+# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
 alias myip="curl http://ipecho.net/plain; echo"
 alias xo='xdg-open $1'
 
@@ -42,7 +46,6 @@ alias docker_note='subl ~/linux-tricks/notes/docker_note.md'
 alias dv='subl ~/linux-tricks/notes/r18dv_note.md'
 
 # -------- Git --------
-alias g='git status' # Really useful!
 alias g-s='git status'
 alias g-a='git add' # Ex: 'git add main.cpp'
 alias g-aa='git add *' # Caution! This adds all files
@@ -68,8 +71,6 @@ alias r-i='rostopic info $1' #Use: 'r-i /arduino/throttle_setpoint'
 alias rr='rosrun'
 alias o='subl ~/catkin_ws/src'
 
-# -------- Catkin --------
-alias cm='cd ~/catkin_ws && catkin_make && cd - && notification "Catkin_Make Finished" "catkin_make has finished. Return to terminal to see output" 15 "accept.png"' # You can call 'cm' from wherever you want!
 
 # -------- Gazebo --------
 alias gf='killall gzserver && killall gzclient'
@@ -80,34 +81,61 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/mod
 
 # SSH
 alias ø='ssh nvidia@10.19.1.10' #SSH to NVIDIA Jetson TX1
-alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
 
-## --------  Harald's Personal -------- 
-alias tidal='cd ~/programs/tidal-music-linux && npm start'
-alias cdu='cd ~/linux-tricks'
-alias cdus='subl ~/linux-tricks'
-alias cdc='cd ~/catkin_ws/src/'
-alias cdcs='subl ~/catkin_ws/src/'
-alias cdr='cd ~/revolve_ntnu_team_2018'
-alias cdrs='subl ~/revolve_ntnu_team_2018'
+# Harald's personal aliases will by default NOT be set
+# If you want them, you have to add 'export IWantHaraldsPersonalAliases=true' to your .bashrc file
+if $(echo $IWantHaraldsPersonalAliases) == true; 
+then 
+	# Adding Harald's personal alises
+	alias clion="~/programs/clion-2018.2/bin/clion.sh"
+	alias tidal='cd ~/programs/tidal-music-linux && npm start'
+	alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
+	alias cdu='cd ~/linux-tricks'
+	alias cdus='subl ~/linux-tricks'
+	alias cdc='cd ~/catkin_ws/src/'
+	alias cdcs='subl ~/catkin_ws/src/'
+	alias cdr='cd ~/revolve_ntnu_team_2018'
+	alias cdrs='subl ~/revolve_ntnu_team_2018'
+	alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' # Set Bose QC35 as main sound unit
 
-# To run special programs
-# alias harald='python ~/coding/pythonFun/pygame/main.py'
-alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' # Set Bose QC35 as main sound unit
-
-# Open notes
-alias øystein='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/øystein_member_profile.txt'
-alias marcus='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/marcus_member_profile.txt'
-alias edvard='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/edvard_member_profile.txt'
-alias morten='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/morten_member_profile.txt'
-alias paul='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/paul_member_profile.txt'
-alias sondre='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/sondre_member_profile.txt'
-alias mathias='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
-alias didrik='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
-alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
+	# Open notes
+	alias øystein='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/øystein_member_profile.txt'
+	alias marcus='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/marcus_member_profile.txt'
+	alias edvard='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/edvard_member_profile.txt'
+	alias morten='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/morten_member_profile.txt'
+	alias paul='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/paul_member_profile.txt'
+	alias sondre='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/sondre_member_profile.txt'
+	alias mathias='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
+	alias didrik='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
+	alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
+fi
 
 
 # --------------- Functions -----------------
+
+function source_catkin_setup_bash_if_exist(){
+	if [ -f $HOME/catkin_ws/devel/setup.bash ]; then
+		source $HOME/catkin_ws/devel/setup.bash
+	fi
+}
+
+
+function cm(){
+	# Cd's to catkin_ws, tries to run 'catkin_make', prints notification in top right corner with status of compilation
+	# Useful for running in the background
+
+	cd ~/catkin_ws
+	if catkin_make; then
+	    echo "Catkin_Make Compilation True"
+	    notification "Catkin_Make Compilation Succeeded" "Return to terminal to see output" 15 "accept.png"
+	else
+	    echo "Catkin_Make Failed"
+	    notification "Catkin_Make Compilation Failed" "Return to terminal to see output" 15 "fail.png"
+	fi
+	cd -
+}
+
+
 function lazy() {
 	# Use: lazy "this is a commit message" 
 	# Or just: lazy # This will generate default commit message
@@ -146,7 +174,7 @@ function lazy() {
 				if doesCommandOutputString "git pull" "CONFLICT"; then
 					TITLE="Merge conflict detected"
 					MESSAGE="$MESSAGE\nGit pull resulted in merge conflict. Please resolve manually!"
-					ICON="fail.jpeg"
+					ICON="fail.png"
 				else
 					if doesCommandOutputString "git push" "rejected"; then
 						TITLE="FUCKED"
@@ -195,6 +223,65 @@ function doesCommandOutputString(){
 	fi
 }
 
+
+
+# Print notification function
+function notification(){
+	# Displays notification in top right corner. Very pretty
+	# Use: notification <title> <message> <display_time> <icon>
+	# Ex: notification "Git Push Successfull" "A git push has been conducted successfully in the background" 5 "accept.png"
+	if [ $# -eq 4 ] # TODO: Use else if
+	then 
+		# echo "hello"
+	  	TITLE=$1
+	  	MESSAGE=$2
+		SECONDS_DISPLAYED=$( expr $3 \* 1000 ) # $3 = seconds
+		TIMEOUT=7
+		ICON=$4
+	else
+		ICON="pling.png"
+		if [ $# -eq 3 ]
+		  then 
+		  	echo "Got only 3 arguments, using default logo"
+		  	TITLE=$1
+		  	MESSAGE=$2
+			SECONDS_DISPLAYED=$( expr $3 \* 1000 ) # $3 = seconds	
+			# TIMEOUT=$3
+		else
+			SECONDS_DISPLAYED=$( expr 7 \* 1000 ) 	
+			if [ $# -eq 2 ]
+		  	then
+				echo "Got only 2 arguments, using default logo and 10 sec timeout"
+
+				TITLE=$1
+	  			MESSAGE=$2
+	  		else
+	  			MESSAGE="You got a notification!"
+	  			if [ $# -eq 1 ]
+	  			then
+	  				echo "Got only 1 argument"
+	  				TITLE=$1
+	  			else
+	  				echo "Did not get any arguments. Displaying default notification"
+	  				TITLE="Notification!"
+	  			fi
+	  		fi
+		fi
+	fi
+
+	
+		# $( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
+	 # 	$( sleep $s3 && pkill notify-osd) )
+	# TODO: Correct timeout duration
+	($( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE" && $( sleep 6 && pkill notify-osd) ) > /dev/null 2>&1 &)
+	# $(echo $(pwd))
+
+	# EXTRA INFO
+	# - Icons located in linux-tricks/templates/icons
+	# - On my machine I have to use the 'critical' tag, if not the notification is not allways displayed
+}
+
+# Some unit tests
 function unitTests(){
 	echo "UNIT-TESTS"
 	echo "Tests for 'doesCommandOutputString"
@@ -274,61 +361,3 @@ function unitTests(){
 		echo "PASS:"
 	fi
 }
-
-
-# Print notification function
-function notification(){
-	# Displays notification in top right corner. Very pretty
-	# Use: notification <title> <message> <display_time> <icon>
-	# Ex: notification "Git Push Successfull" "A git push has been conducted successfully in the background" 5 "accept.png"
-	if [ $# -eq 4 ] # TODO: Use else if
-	then 
-		# echo "hello"
-	  	TITLE=$1
-	  	MESSAGE=$2
-		SECONDS_DISPLAYED=$( expr $3 \* 1000 ) # $3 = seconds
-		ICON=$4
-	else
-		ICON="pling.png"
-		if [ $# -eq 3 ]
-		  then 
-		  	echo "Got only 3 arguments, using default logo"
-		  	TITLE=$1
-		  	MESSAGE=$2
-			SECONDS_DISPLAYED=$( expr $3 \* 1000 ) # $3 = seconds	
-		else
-			SECONDS_DISPLAYED=$( expr 2 \* 1000 ) 	
-			if [ $# -eq 2 ]
-		  	then
-				echo "Got only 2 arguments, using default logo and 10 sec timeout"
-
-				TITLE=$1
-	  			MESSAGE=$2
-	  		else
-	  			MESSAGE="You got a notification!"
-	  			if [ $# -eq 1 ]
-	  			then
-	  				echo "Got only 1 argument"
-	  				TITLE=$1
-	  			else
-	  				echo "Did not get any arguments. Displaying default notification"
-	  				TITLE="Notification!"
-	  			fi
-	  		fi
-		fi
-	fi
-	notify-send -t $SECONDS_DISPLAYED -u low -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
-	# $(echo $(pwd))
-
-	# EXTRA INFO
-	# - Icons located in linux-tricks/templates/icons
-	# - On my machine I have to use the 'critical' tag, if not the notification is not allways displayed
-}
-
-
-function source_catkin_setup_bash_if_exist(){
-	if [ -f $HOME/catkin_ws/devel/setup.bash ]; then
-		source $HOME/catkin_ws/devel/setup.bash
-	fi
-}
-

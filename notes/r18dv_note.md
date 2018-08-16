@@ -3,13 +3,13 @@
 ## If Lidar is not connected
 
 ## Check USB-connections
-```
+```bash
 dmesg --follow
 ```
 
 ## Start CAN
 Use alias 
-```
+```bash
 can2setup
 ```
 Also check that PCAN is connected correctly
@@ -30,7 +30,7 @@ viz
 ### Github User
 
 Username: revolvedriverless
-Password: Driverless2018
+Password: D....
 
 ### RevolveDV Router wifi-password
 Username: RevolveDV
@@ -41,6 +41,13 @@ IP: http://10.19.1.1
 username: admin
 password: admin
 
+### Driverless Router info
+IP: 10.19.0.108
+username: none
+password: none
+
+10.19.1.1
+driverless password on driverless router
 
 
 Nappe ut alt på CAN-nettverket.
@@ -53,6 +60,10 @@ VNCViewer
 Se på baggene.
 
 Lars har prøvd litt på pipeline.
+
+# CLION
+sudo vim /etc/sysctl.d/10-ptrace.conf 
+set to 0
 
 # Idéer
 
@@ -183,3 +194,16 @@ Må sende debug-informasjon riktig sted. Sende ut på riktige kanaler i steden f
 <!-- Engineering design -->
 
 Ha en fortelling. Ha med fortelling.
+
+# Engineering Design
+Lurt om vi alle blir enige om hva våre felles mål er. Design goal
+
+
+## Hva vi ønsker bilder av
+- Lidar Rådata
+- Lidar filterert
+- Bounding boxes
+- Bounding boxes offset, hvor mye feil det kan bli
+- Raw obstacles, + offset, hvor mye feil det kan bli
+- SLAM, forskjellige sirkler, hva de betyr, hvorfor har vi dem
+- Track Finder, hvordan den vekter

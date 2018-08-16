@@ -1,13 +1,13 @@
 # Jenkins Notes
 
-## How to add CI with Jenkins to a new repo.
+## How to add CI with Travis to a new repo.
 1 Add .travis.yml from template
 2 Add Docker credentials
 2.1 [Add Docker Credentials](https://sebest.github.io/post/using-travis-ci-to-build-docker-images/)
 ```bash
-travis encrypt -r RevolveNTNU/r18dv_cone_detection DOCKER_EMAIL=haraldlons@gmail.com --add
-travis encrypt -r RevolveNTNU/r18dv_cone_detection DOCKER_USER=haraldlons --add
-travis encrypt -r RevolveNTNU/r18dv_cone_detection DOCKER_PASS=password --add
+travis encrypt -r RevolveNTNU/r18dv_isam2 DOCKER_EMAIL=haraldlons@gmail.com --add
+travis encrypt -r RevolveNTNU/r18dv_isam2 DOCKER_USER=haraldlons --add
+travis encrypt -r RevolveNTNU/r18dv_isam2 DOCKER_PASS=password --add
 ```
 Add these credentials to the .travis.yml file with env: global: -secure:<key>
 3 Add GitHub Credentials
@@ -16,9 +16,10 @@ Add these credentials to the .travis.yml file with env: global: -secure:<key>
 ```bash
 # cd to repository
 cd /r18dv_pipeline/r18dv_utils
-travis encrypt -r RevolveNTNU/r18dv_cone_detection 'GITHUB_SECRET_TOKEN=<your token>' --add
+travis encrypt -r RevolveNTNU/r18dv_isam2 'GITHUB_SECRET_TOKEN=<your token>' --add
+travis encrypt -r RevolveNTNU/r18dv_isam2 'GITHUB_SECRET_TOKEN=85f3db21f01823e0451ca00b2aef9fef537692d2' --add
 ```
-4 Go to Jenkins, go to revolve page. Next to 'GitHub Apps Integration
+4 Go to Travis, go to revolve page. Next to 'GitHub Apps Integration
 ' press the 'Manage repositories on GitHub'. Then add the repo to use the [Jenkins app](https://github.com/organizations/RevolveNTNU/settings/installations/214128#url/ )
 5.1 Add the auto-merge script
 5.2 Make sure you have the correct auto-merge-script.
@@ -38,3 +39,12 @@ travis sshkey --upload ~/.ssh/id_rsa -r RevolveNTNU/r18dv_launchfiles
 # There might be important that RevolveNTNU is capatilized correctly
 ```
 11. Push changes to GitHub and watch the action unfold!
+
+# DEBUG
+## If you fuckup and install 
+```bash
+# DON'T RUN THIS
+sudo apt-get install travis
+```
+Then you have to fix it by visiting:
+https://github.com/travis-ci/travis.rb/issues/400

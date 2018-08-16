@@ -157,6 +157,7 @@ git commit -a -m "Bumped version number to 1.2"
 Profit!
 NB: ./bump-version.sh is a shell script which modifies some files to 1.2 and some lines to the version is edited to 1.2 in the actuall code. We don't use this per(3.11.17) in Revolve.
 
+
 #### Finishing a release branch
 ```bash
 git checkout master
@@ -230,6 +231,52 @@ git submodule update # Add: "--remote" to get the newest version of the master b
 #### Renaming a submodule
 https://stackoverflow.com/questions/9878860/how-can-i-rename-a-git-repository-with-submodules
 
+
+# Tagging
+
+## Creating tags
+
+### Normal
+```bash
+cd <repository>
+git tag -a v1.4 -m "my version 1.4"
+# Show tag
+git show v1.4
+```
+
+###  Lightweight
+```bash
+git tag v1.4-lw
+```
+
+## Deleting tags
+
+#### Delete a local tag
+```bash
+git tag -d 12345
+```
+
+#### Delete remote tag '12345' (eg, GitHub version too)
+```bash
+git push origin :refs/tags/12345
+```
+alternative approach
+```bash
+git push --delete origin tagName
+git tag -d tagName
+```
+
+## Listing tags
+```bash
+cd <repository>
+git tag
+# You can also search for tags that match a particular pattern.
+git tag -l "v1.8.5*"
+```
+## Show content of tag
+```bash
+git show v1.4
+```
 
 ## Git Kraken
 
