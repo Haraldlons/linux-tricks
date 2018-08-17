@@ -16,3 +16,10 @@ This includes both pure Linux related issues, like what to do when random errors
 ## My Bash Aliases
 I have over the years added more and more aliases I find useful. Some of them trigger a bash-script making more advanced operations. I ***highly*** recommend adding [them](https://github.com/Haraldlons/linux-tricks/blob/master/.bash_aliases) to your .bashrc.
 
+## Do you want to contribute?
+Please send me a mail at "haraldlons@gmail.com" or make pull request.
+
+## Upcoming features
+- Make new 'new_cpp' script making new project with header files, objects and some other examples
+- Make new 'new_python' script making new project with helper functions file, objects and some other examples
+- Make 'lazy' git alias more robust
