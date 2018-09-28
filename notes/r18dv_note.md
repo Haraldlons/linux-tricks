@@ -61,6 +61,10 @@ Se på baggene.
 
 Lars har prøvd litt på pipeline.
 
+# CLION
+sudo vim /etc/sysctl.d/10-ptrace.conf 
+set to 0
+
 # Idéer
 
 Alle på skiftet skriver ned hva de har gjort på forhånd

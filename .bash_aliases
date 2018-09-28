@@ -82,11 +82,11 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/mod
 # SSH
 alias ø='ssh nvidia@10.19.1.10' #SSH to NVIDIA Jetson TX1
 
-# Harald's personal aliases will by default NOT be set
-# If you want them, you have to add 'export IWantHaraldsPersonalAliases=true' to your .bashrc file
-if $(echo $IWantHaraldsPersonalAliases) == true; 
+if [ ! -z ${IWantHaraldsPersonalAliases+x} ];
 then 
-	# Adding Harald's personal alises
+	# Harald's personal aliases will by default NOT be set
+	# If you want them, you have to add 'export IWantHaraldsPersonalAliases=true' to your .bashrc file
+	alias clion="~/programs/clion-2018.2/bin/clion.sh"
 	alias tidal='cd ~/programs/tidal-music-linux && npm start'
 	alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
 	alias cdu='cd ~/linux-tricks'
@@ -136,7 +136,7 @@ function cm(){
 
 
 function lazy() {
-	# Use: lazy "this is a commit message" 
+	# Use: lazy "commit message" 
 	# Or just: lazy # This will generate default commit message
 	# Will git add everyting in current repo, commit with attached message, and then push
 	# Both failed and successfull execution will be notified to user by using notify-send
@@ -272,7 +272,7 @@ function notification(){
 		# $( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
 	 # 	$( sleep $s3 && pkill notify-osd) )
 	# TODO: Correct timeout duration
-	($( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE" && $( sleep 6 && pkill notify-osd) ) > /dev/null 2>&1 &)
+	($( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE" && $( sleep $(echo $SECONDS_DISPLAYED) && pkill notify-osd) ) > /dev/null 2>&1 &)
 	# $(echo $(pwd))
 
 	# EXTRA INFO
