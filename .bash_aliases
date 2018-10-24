@@ -1,5 +1,4 @@
 # RevolveDV Router PX connection
-#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
 
 # ------- General aliases --------
 
@@ -86,6 +85,7 @@ if [ ! -z ${IWantHaraldsPersonalAliases+x} ];
 then 
 	# Harald's personal aliases will by default NOT be set
 	# If you want them, you have to add 'export IWantHaraldsPersonalAliases=true' to your .bashrc file
+	#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
 	alias clion="~/programs/clion-2018.2/bin/clion.sh"
 	alias tidal='cd ~/programs/tidal-music-linux && npm start'
 	alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'

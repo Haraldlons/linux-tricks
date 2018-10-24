@@ -1,7 +1,7 @@
 # Installs
 Collection of useful programs to easily getting started with different setups
 
-## 'install_basic_linux_programs.sh'
+## './install_basic_linux_programs.sh'
 Installs some programs I find very useful. Is recommended when you wanted to start your linux experience fast.
 
 ```bash
@@ -12,7 +12,4 @@ sudo apt-get --assume-yes install tmux
 sudo apt-get --assume-yes install tilda
 sudo apt-get --assume-yes install vim 
 sudo apt-get --assume-yes install compiz-plugins
-./install_sublime.sh
-../scripts/copy-sublime-settings.sh
-../scripts/copy-sublime-keymap.sh
 ```
