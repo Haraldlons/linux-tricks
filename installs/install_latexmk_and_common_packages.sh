@@ -13,6 +13,8 @@ sudo apt-get --assume-yes install texlive-latex-base
 sudo apt-get --assume-yes install texlive-latex-recommended
 sudo apt-get --assume-yes install texlive-latex-extra
 sudo apt-get --assume-yes install texlive-lang-european
+sudo apt-get --assume-yes install texlive-generic-extra
+
 
 # If you have installed Haralds Linux-tricks, you should now be able to
 # write 'new_latex' in the terminal, make a new latex-project, open the .tex file
