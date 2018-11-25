@@ -31,4 +31,4 @@ Please send me a mail at "haraldlons@gmail.com" or make pull request.
 - Make 'lazy' git alias more robust
 - use 'gnome-terminal --geometry=20x400+40+2000 -x bash -c "cal -3;bash" ' to make awesome install demo
 
-Test
+Test 1
