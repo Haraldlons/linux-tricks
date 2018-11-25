@@ -30,3 +30,5 @@ Please send me a mail at "haraldlons@gmail.com" or make pull request.
 - Make new 'new_python' script making new project with helper functions file, objects and some other examples
 - Make 'lazy' git alias more robust
 - use 'gnome-terminal --geometry=20x400+40+2000 -x bash -c "cal -3;bash" ' to make awesome install demo
+
+Test
