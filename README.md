@@ -22,6 +22,19 @@ This includes both pure Linux related issues, like what to do when random errors
 ## My Bash Aliases
 I have over the years added more and more aliases I find useful. Some of them trigger a bash-script making more advanced operations. I ***highly*** recommend adding [them](https://github.com/Haraldlons/linux-tricks/blob/master/.bash_aliases) to your .bashrc.
 
+## Highlighted features
+1) Aliases
+
+- s: Sources your bashrc
+- l: Lists files in current folder neatly
+- ..: cd .. 
+- g: git status in current folder
+- bb: Edit my bash aliases
+- new_latex: Generates new latex project from template, and opens in sublime
+
+2) Tips
+You can change which editor which should be used with my alises by changing personal_settings file
+
 ## Do you want to contribute?
 Please send me a mail at "haraldlons@gmail.com" or make pull request.
 

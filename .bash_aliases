@@ -1,8 +1,9 @@
 # Harald's Bash Aliases
 ## Contains various aliases for many different tasks
 
-# Settings
-editor='vim' # Can be replaced with 'nano' or 'subl' after personal preferances
+# If you don't want to use the default settings, you can change them here
+# This file is added to .gitignore so you don't need to worry
+source ~/linux-tricks/.personal_settings
 
 # ------- General aliases --------
 # Most used aliases
@@ -29,8 +30,8 @@ alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
 alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
 # TODO: alias new_python='. ~/linux-tricks/scripts/new_python_project.sh'
 alias new_note='. ~/linux-tricks/scripts/new_note.sh'
-alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh'
-alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh'
+alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh' #TODO: Check if works
+alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh' #TODO: Check if works
 
 # Open notes
 alias notes='subl ~/linux-tricks/notes/ ~/latex-documents/ ~/notes/'
@@ -81,6 +82,7 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/mod
 
 # SSH
 alias ø='ssh nvidia@10.19.1.10' #SSH to NVIDIA Jetson TX1
+# Will exit from ranger to folder viewed in ranger
 alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 	
 if [ ! -z ${IWantHaraldsPersonalAliases+x} ];
