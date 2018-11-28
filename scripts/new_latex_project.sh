@@ -1,5 +1,5 @@
 #!/bin/bash
-# Will make a new LaTeX-project in the home folder, and open sublime
+# Will make a new LaTeX-project in the latex-documents folder, and open sublime
 
 read -p "New LaTeX project name: " project_name
 DATE=`date --date="0 day" +%Y-%m-%d`

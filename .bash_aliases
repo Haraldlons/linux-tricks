@@ -1,25 +1,27 @@
-# RevolveDV Router PX connection
+# Harald's Bash Aliases
+## Contains various aliases for many different tasks
+
+# Settings
+editor='vim' # Can be replaced with 'nano' or 'subl' after personal preferances
 
 # ------- General aliases --------
-
 # Most used aliases
 alias l='ls -lhG'
 alias ..='cd ..'
 alias c='clear'
-alias bb='vim ~/linux-tricks/.bash_aliases' # Open this file in vim for easy editing
+alias b='$editor ~/.bashrc'
+alias bb='$editor ~/linux-tricks/.bash_aliases' 
 alias s='source ~/.bashrc && source_catkin_setup_bash_if_exist'
-alias b='vim ~/.bashrc'
 alias g='git status' # Really useful!
 
-
+# Other useful aliases
 alias la='ls -alhG'
-#alias s='source ~/.bashrc'
-alias bbb='vim ~/linux-tricks/useful_programs.sh'
-alias bbb_i='~/linux-tricks/useful_programs.sh'
+alias bbb='$editor ~/linux-tricks/installs/install_basic_linux_programs.sh'
+alias bbb_i='~/linux-tricks/installs/install_basic_linux_programs.sh'
 alias h='history'
 alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
-# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
-alias myip="curl http://ipecho.net/plain; echo"
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
+alias myip="curl http://ipecho.net/plain; echo" # curl must be installed
 alias xo='xdg-open $1'
 
 # Generate project from template
@@ -31,8 +33,7 @@ alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh'
 alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh'
 
 # Open notes
-alias notes='subl ~/linux-tricks/notes/'
-alias note_linux='subl ~/linux-tricks/notes/linux_notes.md'
+alias notes='subl ~/linux-tricks/notes/ ~/latex-documents/ ~/notes/'
 alias linux_note='subl ~/linux-tricks/notes/linux_note.md'
 alias git_note='subl ~/linux-tricks/notes/git_note.md'
 alias bash_note='subl ~/linux-tricks/notes/bash_note.md'
@@ -40,7 +41,7 @@ alias python_note='subl ~/linux-tricks/notes/python_note.md'
 alias ros_note='subl ~/linux-tricks/notes/ros_note.md'
 alias vim_note='subl ~/linux-tricks/notes/vim_note.md'
 alias latex_note='subl ~/linux-tricks/notes/latex_note.md'
-alias todo='subl ~/linux-tricks/notes/todo.md'
+alias todo='subl ~/linux-tricks/notes/todo_note.md'
 alias docker_note='subl ~/linux-tricks/notes/docker_note.md'
 alias dv='subl ~/linux-tricks/notes/r18dv_note.md'
 
@@ -80,12 +81,14 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/mod
 
 # SSH
 alias ø='ssh nvidia@10.19.1.10' #SSH to NVIDIA Jetson TX1
-
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+	
 if [ ! -z ${IWantHaraldsPersonalAliases+x} ];
 then 
 	# Harald's personal aliases will by default NOT be set
 	# If you want them, you have to add 'export IWantHaraldsPersonalAliases=true' to your .bashrc file
 	#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
+
 	alias clion="~/programs/clion-2018.2/bin/clion.sh"
 	alias tidal='cd ~/programs/tidal-music-linux && npm start'
 	alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
@@ -107,6 +110,7 @@ then
 	alias mathias='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
 	alias didrik='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
 	alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
+	alias bjørn='subl ~/Documents/project-thesis-aventi/organizational/meetings/18-12-03-møte-bjørn.md'
 fi
 
 
