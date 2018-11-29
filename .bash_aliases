@@ -13,7 +13,7 @@ alias c='clear'
 alias b='$editor ~/.bashrc'
 alias bb='$editor ~/linux-tricks/.bash_aliases' 
 alias s='source ~/.bashrc && source_catkin_setup_bash_if_exist'
-alias g='git status' # Really useful!
+alias g='git status -s' # Really useful!
 
 # Other useful aliases
 alias la='ls -alhG'
@@ -60,6 +60,10 @@ alias g-v='git remote -v'
 alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global status.submoduleSummary true 
+git config --global alias.diff "diff --word-diff"
+git config --global alias.branch "branch -ra"
+git config --global alias.ai "add --interactive"
+git config --global alias.dc "diff --cached"
 
 
 # -------- ROS --------
