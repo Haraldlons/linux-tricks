@@ -18,7 +18,7 @@ systemctl status nginx | grep Active
 systemctl status jenkins | grep Active
 
 # Problems
-- Recieved 503 error after updating jenkins.conf and restarting nginx
+- Recieved 503 error after updating jenkins.conf and restarting jenkins
 FIX: restarting jenkins
 	sudo /etc/init.d/jenkins restart
 - Unsecure key pair
@@ -133,7 +133,12 @@ Elastic IP
 SSH to instance:
 	ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
 
-	Then install following on server:
+Then install Java, Nginx and Jenkins as copied below
+Then edit nginx configuration to point to Jenkins
+
+
+
+# Install Java, Nginx, Jenkins
 ```bash
 wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 
@@ -151,44 +156,82 @@ sudo apt-get install jenkins
 systemctl status nginx | grep Active
 systemctl status jenkins | grep Active
 ```	
-### Configure NGINX
+# Configure NGINX
 ```bash
 sudo apt upgrade
 # Grup: Keeb the local version currently installed
 ps -ef | grep jenkins
-unlink /etc/nginx/sites-enabled/default
-vim /etc/nginx/conf.d/jenkins.conf	
+sudo unlink /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/conf.d/jenkins.conf	
 ```
 
-
-- Build server
-- Setup Simple Email Service
-
-
-
-
-# NGINX configure file:
+Configure file:
 ```bash
 upstream jenkins {
 	server 127.0.0.1:8080;
 }
 server {
-	listen
-	80 default;
-	#server_name your_jenkins_site.com;#
+	listen 90 default;
+	#server_name your_jenkins_site.com;
 	access_log /var/log/nginx/jenkins.access.log;
 	error_log /var/log/nginx/jenkins.error.log;
 	proxy_buffers 16 64k;
 	proxy_buffer_size 128k;
 	location / {
-		proxy_pass http://jenkins;proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+		proxy_pass http://jenkins;
+		proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
 		proxy_redirect off;
-		proxy_set_header Host
-		proxy_set_header X-Real-IP
-		$host;
-		$remote_addr;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Forwarded-Proto http;
 	}
 }
+
 ```
+TIP: To change user password:
+```bash
+sudo passwd ubuntu
+```
+```bash
+systemctl reload nginx
+```
+
+Go to Public DNS and Install recommented packages, and make admin user
+
+Then go to AWS and make simple server stuff
+SES HOME -> Email Addresses -> Verify a new email address
+
+Go to Jenkins and http://10.0.0.17/configure
+Go to the end "E-mail Notifications"
+
+Then you need to go to AWS
+SES HOME -> SMTP Settings -> create my SMTP Credentials
+I think you can use whatever IAM name you want
+
+You get the credentials from the 
+https://console.aws.amazon.com/ses/home?region=us-east-1#smtp-settings:
+
+Just make new ones
+
+Go to Jenkin configure
+		
+System Admin e-mail address: haraldlons
+E-mail Notification
+Change:
+	SMTP Server
+	Check Use smtp authentication
+	User name: from credentials.csv
+	Password: from credentials.csv
+	Check Use SSL
+	SMTP port: 465
+
+	And then test configuration by sending test e-mail
+
+# Then make Build server
+
+
+
+
+- Build server
+- Setup Simple Email Service
