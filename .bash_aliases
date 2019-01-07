@@ -1,10 +1,6 @@
 # Harald's Bash Aliases
 ## Contains various aliases for many different tasks
 
-# If you don't want to use the default settings, you can change them here
-# This file is added to .gitignore so you don't need to worry
-source ~/linux-tricks/.personal_settings
-
 # ------- General aliases --------
 # Most used aliases
 alias l='ls -lhG'
@@ -24,7 +20,11 @@ alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
 alias myip="curl http://ipecho.net/plain; echo" # curl must be installed
 alias xo='xdg-open $1'
-
+alias ssha='ssh -i ~/coding/jenkins/key.pem ubuntu@ec2-13-53-69-228.eu-north-1.compute.amazonaws.com'
+alias sshi='ssh -i ~/coding/jenkins/jenkins-ireland.pem ubuntu@ec2-34-243-237-49.eu-west-1.compute.amazonaws.com'
+alias sshb='ssh -i "~/coding/jenkins/build-server.pem" ec2-user@ec2-54-246-223-185.eu-west-1.compute.amazonaws.com'
+alias sshb2='ssh -i "~/coding/jenkins/build-server.pem" ec2-user@ec2-18-203-23-195.eu-west-1.compute.amazonaws.com'
+#alias sshb='ssh -i "~/coding/jenkins/build-server.pem" ec2-user@ec2-54-246-223-185.eu-west-1.compute.amazonaws.com'
 # Generate project from template
 alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
 alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
@@ -32,6 +32,9 @@ alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
 alias new_note='. ~/linux-tricks/scripts/new_note.sh'
 alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh' #TODO: Check if works
 alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh' #TODO: Check if works
+
+# Changing other programs
+alias tmux='tmux -2'
 
 # Open notes
 alias notes='subl ~/linux-tricks/notes/ ~/latex-documents/ ~/notes/'
