@@ -229,9 +229,161 @@ Change:
 	And then test configuration by sending test e-mail
 
 # Then make Build server
+Amazon Elastic Block Store (EBS)
+
+Jenkins 
+-> Key Pair
+-> Build servers
+-> IAM 
+-> EBS (Or S3/EC2)
+
+## IAM Role
+What are IAM roles?
+IAM roles are a secure way to grant permissions to entities that you trust.
+
+Roles -> Create role
+Choose the service that will use this role: EC2
+-> next permissions
+Search for 'beanstalk'
+choose: AWSElasticBeanstalkFullAccess
+-> next tags
+Key: name
+Value: build-server-iam
+
+## Security Group
+name: build-server
+Inbound: 
+ssh TCP 22: source 
+
+## Key Pair
+
+## Launch new instance
+type: Amazon Linux 2 AMI (HVM), SSD Volume Type
+3. configure instance: IAM Role: build-server2
+Advanced Details
+-> User data:
+```bash
+#!bin/bash
+#update the yum cache
+yum update
+#install java
+yum -y install java-1.8.0-openjdk
+#install git
+yum -y install git
+#install elastic beanstalk CLI
+/usr/bin/easy_install awsebcli
+```
+Can also run those after you SSH to the server
+
+5. Add tags
+name: build-server
+
+6. Configure security group
+Existing: build-server
 
 
+Choose existing key pair
+
+## Elastic IP
+Make new
+Remember to Associate address
+
+## SSH
+Use public DNS(IPv4)
+alias sshb='ssh -i "~/coding/jenkins/build-server.pem" ec2-user@ec2-18-203-23-195.eu-west-1.compute.amazonaws.com'
+Then run following commands:
+```bash
+sudo yum update
+sudo /usr/bin/easy_install awsebcli
+```
+
+## Link jenkins-master and build-server
+Go to "Instances" at AWS.
+Copy Private DNS to build-server
+
+Go to Jenkins
+Remove number of executors of master to 0
+
+New-node
+Node-Name: build-server-one
+Choose parmanent agent
+number of executors: 4
+Remote root directory: /home/ec2-user
+labels: beanstalk
+Usage: Use this node as much as possible
+Launch method: Launch agent via SSH
+Host: ip-172-31-19-198.eu-west-1.compute.internal
+Credentials: ec2-user (build-server) (These we should have created 
+Host key Verificiation Strategy: Non verifying Verification Strategy
+Availability: Keep this agent online as much as possible
+Press Save
+
+Click on build-server-one
+and log
+Will spin up and open up SSH connection. 
+Then going to configure Jenkins to connect to this instance. 
+Should read after a while: "Agent successfully connected and online"
+
+## Configure Github integration
+Jenkins -> configurations
+
+from login and password
+
+add login server 
+GitHub:	GitHub Servers
+
+name: haraldlons
+api-url: https://api.github.com
+Credentials: GitHub auto generated token credentials for haraldlons
+manage-hooks: 1
+
+You should be able to se that hook here: https://github.com/settings/security
 
 
-- Build server
-- Setup Simple Email Service
+# Test one repository
+
+Source Code Management: Git
+
+Build:
+Execute shell:
+```bash
+cat README.md
+```
+
+# Python Webpage
+New item in jenkins
+GitHub Project: 1
+
+Restrict where this project can be run: beanstalk
+// Is beanstalk since build-server-one is labeled beanstalk.
+Men andre ord kan dette prosjektet dermed kun kjøre på build-server-one
+
+Source Code Management
+Git:
+Repositories: Fill inn correct URL
+
+Additional behaviours: Check out to specific branch. You don't need to fill in any branch name
+
+Build Triggers
+GitHub hook trigger fot GITScm polling
+
+Build:
+Execute shell:
+```bash
+# Initialize the elastic beanstalk app
+eb init my-eb-app1 --platform python-3.6 --region eu-west-1
+
+# Select the development environment for development
+eb use app2-harald
+
+# Deploy the application
+eb deploy
+
+# Get the health and status information
+eb health
+eb status
+```
+
+Build Triggers: GitHub hook trigger for GITScm polling
+
+

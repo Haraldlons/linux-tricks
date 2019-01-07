@@ -1,4 +1,17 @@
 # Docker Cheat Sheet
+## Docker build
+- Build Dockerfile in folder
+```bash
+cd <folder-with-dockerfile>
+docker build .
+```
+- Build with custom image name
+```bash
+docker build -t image-name .
+```
+
+
+
 ### Common Docker commands
 ```bash
 docker images # List all images
