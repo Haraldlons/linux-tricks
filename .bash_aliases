@@ -9,7 +9,10 @@ alias c='clear'
 alias b='$editor ~/.bashrc'
 alias bb='$editor ~/linux-tricks/.bash_aliases' 
 alias s='source ~/.bashrc && source_catkin_setup_bash_if_exist'
-alias g='git status -s' # Really useful!
+alias g='git status' # Really useful!
+# If you don't want to use the default settings, you can change them here
+# This file is added to .gitignore so you don't need to worry
+source ~/linux-tricks/.personal_settings
 
 # Other useful aliases
 alias la='ls -alhG'
@@ -124,7 +127,7 @@ fi
 
 
 # --------------- Functions -----------------
-extract () {
+function extract () {
    if [ -f $1 ] ; then
        case $1 in
            *.tar.bz2)   tar xvjf $1    ;;

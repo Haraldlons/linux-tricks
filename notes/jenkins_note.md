@@ -32,10 +32,7 @@ Må ha en region som støtter dette
 
 - Credentials:
  jenkins-master-smtp
-SMTP Username:
-AKIAIHCQ62S62RPQVBUA
-SMTP Password:
-AuiL7vJSGi65GTp7aYrh9ab2BRr9EX8Db6PiMCTO67fC
+
 
 # Jenkins credentials
 username: haraldlons
