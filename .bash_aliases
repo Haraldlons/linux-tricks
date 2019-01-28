@@ -51,6 +51,7 @@ alias latex_note='subl ~/linux-tricks/notes/latex_note.md'
 alias todo='subl ~/linux-tricks/notes/todo_note.md'
 alias docker_note='subl ~/linux-tricks/notes/docker_note.md'
 alias dv='subl ~/linux-tricks/notes/r18dv_note.md'
+alias react-notes='subl ~/linux-tricks/notes/react-notes.md'
 
 # -------- Git --------
 alias g-s='git status'
