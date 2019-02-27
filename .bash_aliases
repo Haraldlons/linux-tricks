@@ -74,7 +74,7 @@ git config --global alias.dc "diff --cached"
 
 function gitpush(){
 	# git push -v >> ~/linux-tricks/.output.log 2>&1
-	git push 2>&1 | tee ~/linux-tricks/.output.log
+	git push --porcelain 2>&1 | tee ~/linux-tricks/.output.log
 
 	if (cat ~/linux-tricks/.output.log) | grep -q 'Everything'; then
 	   notification "Git Push Successfull" "Everything up to date" 5 "accept.png"
