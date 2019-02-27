@@ -382,3 +382,5 @@ import React, { Component } from "react";
 
 	export default Counter;
 
+# Config
+custom-environment-variables.json is a file for defining which environmental variables you should use

@@ -62,7 +62,7 @@ alias g-c='git commit -m' #Ex: 'g-c "This is a commit message"'
 alias g-r='git reset' # Not testet yet
 alias g-dd='git diff' # Not tested yet, but should be 'g-dd main.py'
 alias g-d='git pull' # d for download
-alias g-u='git push' # u for upload
+alias g-u='gitpush' # u for upload
 alias g-v='git remote -v'
 alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -72,6 +72,16 @@ git config --global alias.branch "branch -ra"
 git config --global alias.ai "add --interactive"
 git config --global alias.dc "diff --cached"
 
+function gitpush(){
+	# git push -v >> ~/linux-tricks/.output.log 2>&1
+	git push 2>&1 | tee ~/linux-tricks/.output.log
+
+	if (cat ~/linux-tricks/.output.log) | grep -q 'Everything'; then
+	   notification "Git Push Successfull" "Everything up to date" 5 "accept.png"
+	else
+		notification "Git Push Unsuccessfull" "Please check console output" 5 "fail.png"
+	fi
+}
 
 # -------- ROS --------
 alias killros='killall -9 roscore && killall -9 rosmaster'
@@ -311,7 +321,7 @@ function notification(){
 		# $( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
 	 # 	$( sleep $s3 && pkill notify-osd) )
 	# TODO: Correct timeout duration
-	($( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE" && $( sleep $(echo $SECONDS_DISPLAYED) && pkill notify-osd) ) > /dev/null 2>&1 &)
+	($( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE" && $( sleep $(echo $SECONDS_DISPLAYED) && killall notify-osd) ) > /dev/null 2>&1 &)
 	# $(echo $(pwd))
 
 	# EXTRA INFO
