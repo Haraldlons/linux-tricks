@@ -78,10 +78,10 @@ function gitpush(){
 
 	if (cat ~/linux-tricks/.output.log) | grep -q 'error'; then
 		notification "Git Push Unsuccessfull" "Please check console output" 5 "fail.png"
-	elif (cat ~/linux-tricks/.output.log) | grep -q 'completed'; then
-		notification "Git Push Successfull" "Successfull pushed new files to origin" 5 "accept.png"
-	else
+	elif (cat ~/linux-tricks/.output.log) | grep -q '='; then
 		notification "Git Push Successfull" "Everything up to date" 5 "accept.png"
+	else
+		notification "Git Push Successfull" "Successfull pushed new files to origin" 5 "accept.png"
 	fi
 }
 
