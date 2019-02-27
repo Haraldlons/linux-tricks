@@ -1,3 +1,6 @@
 *.swp
 *.idea
 .personal_settings
+.output.log
+.bash_aliases.swo
+.bash_aliases.swp
