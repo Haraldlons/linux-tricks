@@ -1,39 +1,46 @@
-# RevolveDV Router PX connection
-#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
+# Harald's Bash Aliases
+## Contains various aliases for many different tasks
 
 # ------- General aliases --------
-
 # Most used aliases
 alias l='ls -lhG'
 alias ..='cd ..'
 alias c='clear'
-alias bb='vim ~/linux-tricks/.bash_aliases' # Open this file in vim for easy editing
+alias b='$editor ~/.bashrc'
+alias bb='$editor ~/linux-tricks/.bash_aliases' 
 alias s='source ~/.bashrc && source_catkin_setup_bash_if_exist'
-alias b='vim ~/.bashrc'
 alias g='git status' # Really useful!
+# If you don't want to use the default settings, you can change them here
+# This file is added to .gitignore so you don't need to worry
+source ~/linux-tricks/.personal_settings
 
-
+# Other useful aliases
 alias la='ls -alhG'
-#alias s='source ~/.bashrc'
-alias bbb='vim ~/linux-tricks/useful_programs.sh'
-alias bbb_i='~/linux-tricks/useful_programs.sh'
+alias bbb='$editor ~/linux-tricks/installs/install_basic_linux_programs.sh'
+alias bbb_i='~/linux-tricks/installs/install_basic_linux_programs.sh'
 alias h='history'
 alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
-# alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
-alias myip="curl http://ipecho.net/plain; echo"
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
+alias myip="curl http://ipecho.net/plain; echo" # curl must be installed
 alias xo='xdg-open $1'
-
+alias ssha='ssh -i ~/coding/jenkins/key.pem ubuntu@ec2-13-53-69-228.eu-north-1.compute.amazonaws.com'
+alias sshi='ssh -i ~/coding/jenkins/jenkins-ireland.pem ubuntu@ec2-34-243-237-49.eu-west-1.compute.amazonaws.com'
+alias sshb='ssh -i "~/coding/jenkins/build-server.pem" ec2-user@ec2-54-246-223-185.eu-west-1.compute.amazonaws.com'
+alias sshb2='ssh -i "~/coding/jenkins/build-server.pem" ec2-user@ec2-18-203-23-195.eu-west-1.compute.amazonaws.com'
+#alias sshb='ssh -i "~/coding/jenkins/build-server.pem" ec2-user@ec2-54-246-223-185.eu-west-1.compute.amazonaws.com'
 # Generate project from template
 alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
 alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
 # TODO: alias new_python='. ~/linux-tricks/scripts/new_python_project.sh'
 alias new_note='. ~/linux-tricks/scripts/new_note.sh'
-alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh'
-alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh'
+alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh' #TODO: Check if works
+alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh' #TODO: Check if works
+
+# Changing other programs
+alias tmux='tmux -2'
 
 # Open notes
-alias notes='subl ~/linux-tricks/notes/'
-alias note_linux='subl ~/linux-tricks/notes/linux_notes.md'
+alias notes='subl ~/linux-tricks/notes/ ~/latex-documents/ ~/notes/'
 alias linux_note='subl ~/linux-tricks/notes/linux_note.md'
 alias git_note='subl ~/linux-tricks/notes/git_note.md'
 alias bash_note='subl ~/linux-tricks/notes/bash_note.md'
@@ -41,9 +48,10 @@ alias python_note='subl ~/linux-tricks/notes/python_note.md'
 alias ros_note='subl ~/linux-tricks/notes/ros_note.md'
 alias vim_note='subl ~/linux-tricks/notes/vim_note.md'
 alias latex_note='subl ~/linux-tricks/notes/latex_note.md'
-alias todo='subl ~/linux-tricks/notes/todo.md'
+alias todo='subl ~/linux-tricks/notes/todo_note.md'
 alias docker_note='subl ~/linux-tricks/notes/docker_note.md'
 alias dv='subl ~/linux-tricks/notes/r18dv_note.md'
+alias react-notes='subl ~/linux-tricks/notes/react-notes.md'
 
 # -------- Git --------
 alias g-s='git status'
@@ -54,13 +62,29 @@ alias g-c='git commit -m' #Ex: 'g-c "This is a commit message"'
 alias g-r='git reset' # Not testet yet
 alias g-dd='git diff' # Not tested yet, but should be 'g-dd main.py'
 alias g-d='git pull' # d for download
-alias g-u='git push' # u for upload
+alias g-u='gitpush' # u for upload
 alias g-v='git remote -v'
 alias tig='tig --all'
 alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global status.submoduleSummary true 
+git config --global alias.diff "diff --word-diff"
+git config --global alias.branch "branch -ra"
+git config --global alias.ai "add --interactive"
+git config --global alias.dc "diff --cached"
 
+function gitpush(){
+	# git push -v >> ~/linux-tricks/.output.log 2>&1
+	git push --porcelain 2>&1 | tee ~/linux-tricks/.output.log 
+
+	if (cat ~/linux-tricks/.output.log) | grep -q 'error'; then
+		notification "Git Push Unsuccessfull" "Please check console output" 5 "fail.png"
+	elif (cat ~/linux-tricks/.output.log) | grep -q '='; then
+		notification "Git Push Successfull" "Everything up to date" 5 "accept.png"
+	else
+		notification "Git Push Successfull" "Successfull pushed new files to origin" 5 "accept.png"
+	fi
+}
 
 # -------- ROS --------
 alias killros='killall -9 roscore && killall -9 rosmaster'
@@ -82,11 +106,15 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/catkin_ws/src/r18dv_gazebo_sim/mod
 
 # SSH
 alias ø='ssh nvidia@10.19.1.10' #SSH to NVIDIA Jetson TX1
-
+# Will exit from ranger to folder viewed in ranger
+alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+	
 if [ ! -z ${IWantHaraldsPersonalAliases+x} ];
 then 
 	# Harald's personal aliases will by default NOT be set
 	# If you want them, you have to add 'export IWantHaraldsPersonalAliases=true' to your .bashrc file
+	#export ROS_MASTER_URI=http://10.19.1.10:11311 && export ROS_IP=10.19.1.14
+
 	alias clion="~/programs/clion-2018.2/bin/clion.sh"
 	alias tidal='cd ~/programs/tidal-music-linux && npm start'
 	alias synctx='fusermount -u ~/tx_catkin_ws && rm -rf ~/tx_catkin_ws && mkdir -p ~/tx_catkin_ws && sshfs nvidia@192.168.1.10:/home/nvidia/catkin_ws/src ~/tx_catkin_ws && cd ~/tx_catkin_ws'
@@ -99,6 +127,8 @@ then
 	alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' # Set Bose QC35 as main sound unit
 
 	# Open notes
+	alias experiences='subl ~/Documents/career/pai/pai-experiences.md'
+	alias questions='subl ~/Documents/career/pai/pai-questions.md'
 	alias øystein='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/øystein_member_profile.txt'
 	alias marcus='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/marcus_member_profile.txt'
 	alias edvard='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/edvard_member_profile.txt'
@@ -108,10 +138,31 @@ then
 	alias mathias='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/mathias_member_profile.txt'
 	alias didrik='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/didrik_member_profile.txt'
 	alias bo='subl ~/revolve_ntnu_team_2018/1_meeting_notes/6_personal_and_individual_meetings/member_profiles/bo_member_profile.txt'
+	alias bjørn='subl ~/Documents/project-thesis-aventi/organizational/meetings/18-12-03-møte-bjørn.md'
 fi
 
 
 # --------------- Functions -----------------
+function extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+           *.tar.bz2)   tar xvjf $1    ;;
+           *.tar.gz)    tar xvzf $1    ;;
+           *.bz2)       bunzip2 $1     ;;
+           *.rar)       unrar x $1       ;;
+           *.gz)        gunzip $1      ;;
+           *.tar)       tar xvf $1     ;;
+           *.tbz2)      tar xvjf $1    ;;
+           *.tgz)       tar xvzf $1    ;;
+           *.zip)       unzip $1       ;;
+           *.Z)         uncompress $1  ;;
+           *.7z)        7z x $1        ;;
+           *)           echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+ }
 
 function source_catkin_setup_bash_if_exist(){
 	if [ -f $HOME/catkin_ws/devel/setup.bash ]; then
@@ -273,7 +324,7 @@ function notification(){
 		# $( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE"
 	 # 	$( sleep $s3 && pkill notify-osd) )
 	# TODO: Correct timeout duration
-	($( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE" && $( sleep $(echo $SECONDS_DISPLAYED) && pkill notify-osd) ) > /dev/null 2>&1 &)
+	($( notify-send -t $SECONDS_DISPLAYED -u critical -i "$HOME/linux-tricks/templates/icons/$ICON" "$TITLE" "$MESSAGE" && $( sleep $(echo $SECONDS_DISPLAYED) && killall notify-osd) ) > /dev/null 2>&1 &)
 	# $(echo $(pwd))
 
 	# EXTRA INFO

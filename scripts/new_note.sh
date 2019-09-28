@@ -1,4 +1,5 @@
 #!/bin/bash
+# Will make a new C++-project in the notes folder, and open sublime
 
 read -p "New note name: " note_name
 DATE=`date --date="0 day" +%Y-%m-%d`

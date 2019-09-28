@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# This file is added to .gitignore because this is your personal settings
+# Edit this file as you want
+
+editor='vim' # Can be replaced with 'nano' or 'subl' after personal preferances
+big_editor='subl' # Choices: 'vim', 'nano', or other text editor

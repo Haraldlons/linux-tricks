@@ -6,10 +6,24 @@ cd ~
 
 isInFile=$(cat ~/.bashrc | grep -c "linux-tricks")
 if [ $isInFile -eq 0 ]; then
+	echo "" >> ~/.bashrc
+	echo "# Harald's Linux Tricks Aliases" >> ~/.bashrc
 	echo "source ~/linux-tricks/.bash_aliases" >> ~/.bashrc
 	echo "Successfully installed linux-tricks bash_aliases!"
-	echo "Please restart terminal to activate new aliases"
 	echo "Congratulation!"
+	echo ""
+	echo "Try using some of them:"
+	echo "	'l' = list all files neatly"
+	echo "	'..' = cd .."
+	echo "	'g' = git status"
+	echo "	's' = source ~/.bashrc"
+	echo "	'b' = vim ~/.bashrc"
+	echo "	'bb' = edit Harald's aliases"
+	echo ""
+	echo "NB! Open a new terminal to use them, or source .bashrc"
+	echo ""
+	echo "I also recommend installing useful lightweight linux programs. Simply run:"
+	echo "cd && ./linux-tricks/installs/install_basic_linux_programs.sh"
 	. ~/linux-tricks/.bash_aliases
 	notification "Successfully installed linux-tricks!" "You have now installed linux-tricks, which makes you able to use a whole lot of new aliases. Take a look at them at ~/linux-tricks/.bash_aliases" 30 "accept.png"
 else

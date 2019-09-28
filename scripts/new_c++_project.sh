@@ -1,4 +1,5 @@
 #!/bin/bash
+# Will make a new C++-project in the coding folder, and open sublime
 
 read -p "New C++ project name: " project_name
 DATE=`date --date="0 day" +%Y-%m-%d`
