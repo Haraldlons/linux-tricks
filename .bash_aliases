@@ -56,6 +56,7 @@ alias g-dd='git diff' # Not tested yet, but should be 'g-dd main.py'
 alias g-d='git pull' # d for download
 alias g-u='git push' # u for upload
 alias g-v='git remote -v'
+alias tig='tig --all'
 alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 git config --global status.submoduleSummary true 
