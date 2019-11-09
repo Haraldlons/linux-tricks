@@ -287,7 +287,9 @@ Remember to Associate address
 
 ## SSH
 Use public DNS(IPv4)
+```
 alias sshb='ssh -i "~/coding/jenkins/build-server.pem" ec2-user@ec2-18-203-23-195.eu-west-1.compute.amazonaws.com'
+```
 Then run following commands:
 ```bash
 sudo yum update

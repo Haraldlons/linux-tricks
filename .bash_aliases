@@ -8,6 +8,7 @@ alias ..='cd ..'
 alias c='clear'
 alias b='$editor ~/.bashrc'
 alias bb='$editor ~/linux-tricks/.bash_aliases' 
+alias r='ranger'
 alias s='source ~/.bashrc && source_catkin_setup_bash_if_exist'
 alias g='git status' # Really useful!
 # If you don't want to use the default settings, you can change them here
@@ -20,6 +21,9 @@ alias bbb='$editor ~/linux-tricks/installs/install_basic_linux_programs.sh'
 alias bbb_i='~/linux-tricks/installs/install_basic_linux_programs.sh'
 alias h='history'
 alias hf='history | grep $1' # Ex: 'hf <searchword>' -> 'hf git'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias comp='docker-compose'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
 alias myip="curl http://ipecho.net/plain; echo" # curl must be installed
 alias xo='xdg-open $1'
@@ -35,6 +39,7 @@ alias new_latex='. ~/linux-tricks/scripts/new_latex_project.sh'
 alias new_note='. ~/linux-tricks/scripts/new_note.sh'
 alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh' #TODO: Check if works
 alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh' #TODO: Check if works
+alias razer='. ~/linux-tricks/scripts/set_razer_sensitivity.sh'
 
 # Changing other programs
 alias tmux='tmux -2'
@@ -73,7 +78,6 @@ git config --global alias.ai "add --interactive"
 git config --global alias.dc "diff --cached"
 
 function gitpush(){
-	# git push -v >> ~/linux-tricks/.output.log 2>&1
 	git push --porcelain 2>&1 | tee ~/linux-tricks/.output.log 
 
 	if (cat ~/linux-tricks/.output.log) | grep -q 'error'; then
@@ -83,6 +87,7 @@ function gitpush(){
 	else
 		notification "Git Push Successfull" "Successfull pushed new files to origin" 5 "accept.png"
 	fi
+	rm ~/linux-tricks/.output.log
 }
 
 # -------- ROS --------
@@ -124,6 +129,8 @@ then
 	alias cdr='cd ~/revolve_ntnu_team_2018'
 	alias cdrs='subl ~/revolve_ntnu_team_2018'
 	alias f='pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4 && exit' # Set Bose QC35 as main sound unit
+	alias sshasker='ssh lons@85.165.206.231'
+	alias sshaskert='ssh -N -L localhost:8889:localhost:8889 lons@85.165.206.231'
 
 	# Open notes
 	alias experiences='subl ~/Documents/career/pai/pai-experiences.md'
