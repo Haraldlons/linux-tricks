@@ -3,8 +3,6 @@ Made by Harald Lønsethagen, 22.06.2017
 Motivation:
 This is a document with fixes encountered on Ubuntu.
 
-<<<<<<< HEAD:notes/linux_note.md
-=======
 ## Latex Fixes
 #### Install norwegian
 Problem: Package babel Error: Unknown option `norsk`.
@@ -12,7 +10,6 @@ Problem: Package babel Error: Unknown option `norsk`.
 ```bash
 sudo apt-get install texlive-lang-european
 ```
->>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1:notes/linux_notes.md
 
 ## Ubuntu - fixes
 #### Restart network service
@@ -34,15 +31,11 @@ sudo tar -xvf filename.tar
 ./setup.sh
 ```
 
-
-<<<<<<< HEAD:notes/linux_note.md
-=======
 #### See bash history
 ```bash
 history
 ```
 
->>>>>>> b585763e2498203f8e7b2cdd19f175f19e701ba1:notes/linux_notes.md
 #### Liste alle tastatur og muser
 ```bash
 xinput --list --short
@@ -76,33 +69,23 @@ https://askubuntu.com/questions/4983/what-are-ppas-and-how-do-i-use-them
 
 ## Command line
 
-#### Remove folder and entire content
-
 ```bash
+# Remove folder and entire content
 rm -rf folderName
-```
-
-#### Show current working directory
-```bash
+# Show current working directory
 pwd
+# See which tasks is running
+top
+# Kill a task
+pkill <id>
 ```
 
 #### Connect Bose QC 35 to Linux Ubuntu
 https://askubuntu.com/a/885198
 
-
 #### Set bose headset as sound output
 ```bash
 pacmd set-default-sink bluez_sink.04_52_C7_7A_CF_F4
-```
-#### See which tasks is running
-```bash
-top
-```
-
-#### Kill a task
-```bash
-pkill <id>
 ```
 
 ## Jetson TX1 fixes and commands
@@ -339,7 +322,6 @@ chmod +x run_file
 
 # Useful programs for Linux
 Here is a list of useful programs for Linux
-
 
 ```
 sublime text 3

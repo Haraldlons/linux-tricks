@@ -8,5 +8,9 @@ sudo apt-get --assume-yes install libqt4-sql
 sudo apt-get --assume-yes install libqt4-sql-sqlite
 sudo apt-get --assume-yes install openssl-devel
 sudo apt-get --assume-yes install libQtScript
+sudo apt-get --assume-yes install libqt5sql5
+sudo apt-get --assume-yes install libqt5gui5
+sudo apt-get --assume-yes install libpcap
+
 # sudo apt-get --assume-yes install 
 # sudo apt-get --assume-yes install 
