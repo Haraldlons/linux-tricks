@@ -1,6 +1,10 @@
 # Harald's Bash Aliases
 ## Contains various aliases for many different tasks
 
+# Format and color the terminal prompt
+## "~/coding/dashboard$ "
+export PS1="\[$(tput bold)\]\[\033[38;5;69m\]\w\[$(tput sgr0)\]\[\033[38;5;10m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+
 # ------- General aliases --------
 # Most used aliases
 alias l='ls -lhG'
@@ -27,6 +31,7 @@ alias comp='docker-compose'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # Ex: 'alert "Hello World!"'
 alias myip="curl http://ipecho.net/plain; echo" # curl must be installed
 alias xo='xdg-open $1'
+alias sc='nohup gedit ~/scratchpad.md &'
 
 # Generate project from template
 alias new_cpp='. ~/linux-tricks/scripts/new_c++_project.sh'
@@ -36,6 +41,7 @@ alias new_note='. ~/linux-tricks/scripts/new_note.sh'
 alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh' #TODO: Check if works
 alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh' #TODO: Check if works
 alias razer='. ~/linux-tricks/scripts/set_razer_sensitivity.sh'
+alias tmux-new='. ~/linux-tricks/scripts/tmux-new.sh'
 
 # Changing other programs
 alias tmux='tmux -2'
@@ -44,16 +50,17 @@ code_editor='code'
 # Open notes
 alias notes='$code_editor ~/linux-tricks/notes/ ~/latex-documents/ ~/notes/'
 alias linux_note='$code_editor ~/linux-tricks/notes/linux_note.md'
-alias git_note='subl ~/linux-tricks/notes/git_note.md'
-alias bash_note='subl ~/linux-tricks/notes/bash_note.md'
-alias python_note='subl ~/linux-tricks/notes/python_note.md'
-alias ros_note='subl ~/linux-tricks/notes/ros_note.md'
-alias vim_note='subl ~/linux-tricks/notes/vim_note.md'
-alias latex_note='subl ~/linux-tricks/notes/latex_note.md'
-alias todo='subl ~/linux-tricks/notes/todo_note.md'
-alias docker_note='subl ~/linux-tricks/notes/docker_note.md'
-alias dv='subl ~/linux-tricks/notes/r18dv_note.md'
-alias react-notes='subl ~/linux-tricks/notes/react-notes.md'
+alias git_note='$code_editor ~/linux-tricks/notes/git_note.md'
+alias bash_note='$code_editor ~/linux-tricks/notes/bash_note.md'
+alias python_note='$code_editor ~/linux-tricks/notes/python_note.md'
+alias ros_note='$code_editor ~/linux-tricks/notes/ros_note.md'
+alias vim_note='$code_editor ~/linux-tricks/notes/vim_note.md'
+alias latex_note='$code_editor ~/linux-tricks/notes/latex_note.md'
+alias todo='$code_editor ~/linux-tricks/notes/todo_note.md'
+alias docker_note='$code_editor ~/linux-tricks/notes/docker_note.md'
+alias dv='$code_editor ~/linux-tricks/notes/r18dv_note.md'
+alias react_note='$code_editor ~/linux-tricks/notes/react_note.md'
+alias css_note='$code_editor ~/linux-tricks/notes/css_note.md'
 
 # -------- Git --------
 alias g-s='git status'
@@ -66,6 +73,8 @@ alias g-dd='git diff' # Not tested yet, but should be 'g-dd main.py'
 alias g-d='git pull' # d for download
 alias g-u='gitpush' # u for upload
 alias g-v='git remote -v'
+# Delete all branches that are merged into master/main/dev
+alias g-delete='git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d'
 alias tig='tig --all'
 alias g-user='git config --global user.email' # Ex: 'g-user haraldlons@gmail.com'
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
