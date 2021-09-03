@@ -25,24 +25,21 @@ I have over the years added more and more aliases I find useful. Some of them tr
 ## Highlighted features
 1) Aliases
 
-- s: Sources your bashrc
-- l: Lists files in current folder neatly
-- ..: cd .. 
-- g: git status in current folder
-- bb: Edit my bash aliases
-- new_latex: Generates new latex project from template, and opens in sublime
+- `s`: Sources your bashrc
+- `l`: Lists files in current folder neatly
+- `..`: `cd ..` 
+- `g`: git status in current folder
+- `bb`: Edit my bash aliases
+- `new_latex`: Generates new latex project from template, and opens in sublime
 
 2) Tips
 You can change which editor which should be used with my alises by changing personal_settings file
 
 ## Do you want to contribute?
-Please send me a mail at "haraldlons@gmail.com" or make pull request.
+Please make pull request or send me a mail at "haraldlons@gmail.com" .
 
 ## Upcoming features
 - Make new 'new_cpp' script making new project with header files, objects and some other examples
 - Make new 'new_python' script making new project with helper functions file, objects and some other examples
 - Make 'lazy' git alias more robust
 - use 'gnome-terminal --geometry=20x400+40+2000 -x bash -c "cal -3;bash" ' to make awesome install demo
-
-Test 1
-Test 2
