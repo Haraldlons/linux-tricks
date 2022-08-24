@@ -4,6 +4,7 @@
 # Format and color the terminal prompt
 ## "~/coding/dashboard$ "
 export PS1="\[$(tput bold)\]\[\033[38;5;69m\]\w\[$(tput sgr0)\]\[\033[38;5;10m\]\\$\[$(tput sgr0)\] \[$(tput sgr0)\]"
+export PATH="/snap/bin:/snap/bin/code:$PATH"
 
 # ------- General aliases --------
 # Most used aliases
@@ -42,6 +43,7 @@ alias copy-sublime-settings='. ~/linux-tricks/scripts/copy-sublime-settings.sh' 
 alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh' #TODO: Check if works
 alias razer='. ~/linux-tricks/scripts/set_razer_sensitivity.sh'
 alias tmux-new='. ~/linux-tricks/scripts/tmux-new.sh'
+alias tmux-help='. ~/linux-tricks/scripts/tmux-help.sh'
 
 # Changing other programs
 alias tmux='tmux -2'
