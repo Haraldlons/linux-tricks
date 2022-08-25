@@ -44,6 +44,7 @@ alias copy-sublime-keymap='. ~/linux-tricks/scripts/copy-sublime-keymap.sh' #TOD
 alias razer='. ~/linux-tricks/scripts/set_razer_sensitivity.sh'
 alias tmux-new='. ~/linux-tricks/scripts/tmux-new.sh'
 alias tmux-help='. ~/linux-tricks/scripts/tmux-help.sh'
+alias sentry-cli-help='. ~/linux-tricks/scripts/sentry-cli-help.sh'
 
 # Changing other programs
 alias tmux='tmux -2'
