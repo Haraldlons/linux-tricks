@@ -9,4 +9,4 @@ echo "sentry-cli releases deploys $VERSION new -e prod // Create a new deploy li
 echo "npm version patch // Update patch version of package.json" 
 echo "export SENTRY_ORG=my-org // Export org slug so you don't have to pass it as param"
 echo "export SENTRY_PROJECT=my-project // Export project slug so you don't have to pass it as param"
-echo "You can also "
+echo "You can also set the org and project options in ~/.sentryclirc"
